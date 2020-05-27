@@ -201,7 +201,12 @@ public class Controller implements ActionListener {
 			}
 			if (e.getActionCommand() == view.getRegistrar().REGISTRAR) {
 				view.getRegistrar().setVisible(false);
-				registrar();
+				if(!(view.getRegistrar().getTextcorreo().getText() == view.getRegistrar().getTextconfcorreo().getText() && view.getRegistrar().getTextclave().getText() == view.getRegistrar().getTextconfclave().getText())) {
+					view.getDialogos().output("Error", "La clave o el correo no coinciden.", JOptionPane.ERROR_MESSAGE);
+				}
+				else {
+					registrar();
+				}
 				view.getLogin().setVisible(true);
 				view.getRegistrar().clean();
 			}
@@ -209,76 +214,73 @@ public class Controller implements ActionListener {
 			 * Panel Parejas
 			 */
 			if (e.getActionCommand() == view.getParejas().LISTAAFILIADOS) {
+				view.getListar().setVisible(true);
+			}
+			if (e.getActionCommand() == view.getParejas().DATOS) {
 				
 			}
-			if(e.getActionCommand() == view.getParejas().DATOS) {
-				
-			}
-			if(e.getActionCommand() == view.getParejas().ACTUALIZARDATOS) {
-				
-			}
-			if(e.getActionCommand() == view.getParejas().LISTAAFILIADOS) {
-				
+			if (e.getActionCommand() == view.getParejas().ACTUALIZARDATOS) {
+
 			}
 			/*
 			 * Panel Usuarios
 			 */
-			if(e.getActionCommand() == view.getUsuarios().AGREGARPAREJA) {
+			if (e.getActionCommand() == view.getUsuarios().AGREGARPAREJA) {
 				
 			}
-			if(e.getActionCommand() == view.getUsuarios().ELIMINARPAREJA) {
-				
+			if (e.getActionCommand() == view.getUsuarios().ELIMINARPAREJA) {
+
 			}
-			if(e.getActionCommand() == view.getUsuarios().ACTUALIZARPAREJA) {
-				
+			if (e.getActionCommand() == view.getUsuarios().ACTUALIZARPAREJA) {
+
 			}
-			if(e.getActionCommand() == view.getUsuarios().LISTAPAREJAS) {
-				
+			if (e.getActionCommand() == view.getUsuarios().LISTAPAREJAS) {
+
 			}
-			if(e.getActionCommand() == view.getUsuarios().ACTUALIZARDATOS) {
-				
+			if (e.getActionCommand() == view.getUsuarios().ACTUALIZARDATOS) {
+
 			}
-			if(e.getActionCommand() == view.getUsuarios().ASIGNARCUPO) {
-				
+			if (e.getActionCommand() == view.getUsuarios().ASIGNARCUPO) {
+
 			}
-			if(e.getActionCommand() == view.getUsuarios().ASIGNARHORARIO) {
-				
+			if (e.getActionCommand() == view.getUsuarios().ASIGNARHORARIO) {
+
 			}
-			if(e.getActionCommand() == view.getUsuarios().COMPRAS) {
-				
+			if (e.getActionCommand() == view.getUsuarios().COMPRAS) {
+
 			}
-			if(e.getActionCommand() == view.getUsuarios().HORARIO) {
-				
+			if (e.getActionCommand() == view.getUsuarios().HORARIO) {
+
 			}
 			/*
 			 * Panel Administrador
 			 */
-			if(e.getActionCommand() == view.getAdmin().AGREGARUSUARIO) {
-				
+			if (e.getActionCommand() == view.getAdmin().AGREGARUSUARIO) {
+
 			}
-			if(e.getActionCommand() == view.getAdmin().ELIMINARUSUARIOS) {
-				
+			if (e.getActionCommand() == view.getAdmin().ELIMINARUSUARIOS) {
+
 			}
-			if(e.getActionCommand() == view.getAdmin().ACTUALIZARUSUARIOS) {
-				
+			if (e.getActionCommand() == view.getAdmin().ACTUALIZARUSUARIOS) {
+
 			}
-			if(e.getActionCommand() == view.getAdmin().LISTAUSUARIOS) {
-				
+			if (e.getActionCommand() == view.getAdmin().LISTAUSUARIOS) {
+
 			}
-			if(e.getActionCommand() == view.getAdmin().ACTUALIZARDATOSUSUARIOS) {
-				
+			if (e.getActionCommand() == view.getAdmin().ACTUALIZARDATOSUSUARIOS) {
+
 			}
-			if(e.getActionCommand() == view.getAdmin().ASIGNARCUPO) {
-				
+			if (e.getActionCommand() == view.getAdmin().ASIGNARCUPO) {
+
 			}
-			if(e.getActionCommand() == view.getAdmin().HACERPAGO) {
-				
+			if (e.getActionCommand() == view.getAdmin().HACERPAGO) {
+
 			}
-			if(e.getActionCommand() == view.getAdmin().HORARIO) {
-				
+			if (e.getActionCommand() == view.getAdmin().HORARIO) {
+
 			}
-			if(e.getActionCommand() == view.getAdmin().SUCURSALES) {
-				
+			if (e.getActionCommand() == view.getAdmin().SUCURSALES) {
+
 			}
 		}
 

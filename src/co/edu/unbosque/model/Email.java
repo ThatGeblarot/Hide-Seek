@@ -11,17 +11,13 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Email {
-	 Session mailSession;
+	private Session mailSession;
 	 
-	    public static void main(String args[]) throws AddressException, MessagingException
-	    {
-	    	Email javaEmail = new Email();
-	        javaEmail.setMailServerProperties();
-	        javaEmail.draftEmailMessage();
-	        javaEmail.sendEmail();
-	    }
+	 	public Email() {
+	 		setMailServerProperties();
+	 	}
 	 
-	    private void setMailServerProperties()
+	    public void setMailServerProperties()
 	    {
 	        Properties emailProperties = System.getProperties();
 	        emailProperties.put("mail.smtp.port", "587");
@@ -30,11 +26,11 @@ public class Email {
 	        mailSession = Session.getDefaultInstance(emailProperties, null);
 	    }
 	 
-	    private MimeMessage draftEmailMessage() throws AddressException, MessagingException
+	    public MimeMessage draftEmailMessage(String[] emails, String subject, String body) throws AddressException, MessagingException
 	    {
-	        String[] toEmails = { "aortegaz@unbosque.edu.co" };
-	        String emailSubject = "Registration";
-	        String emailBody = "Your user has been registered\n"+"Welcome user:"+"";
+	        String[] toEmails = emails;
+	        String emailSubject = subject;
+	        String emailBody = body;
 	        MimeMessage emailMessage = new MimeMessage(mailSession);
 	        /**
 	         * Set the mail recipients
@@ -55,7 +51,7 @@ public class Email {
 	        return emailMessage;
 	    }
 	 
-	    private void sendEmail() throws AddressException, MessagingException
+	    public void sendEmail(String[] emails, String subject, String body) throws AddressException, MessagingException
 	    {
 	        /**
 	         * Sender's credentials
@@ -69,7 +65,7 @@ public class Email {
 	        /**
 	         * Draft the message
 	         * */
-	        MimeMessage emailMessage = draftEmailMessage();
+	        MimeMessage emailMessage = draftEmailMessage(emails, subject, body);
 	        /**
 	         * Send the mail
 	         * */
