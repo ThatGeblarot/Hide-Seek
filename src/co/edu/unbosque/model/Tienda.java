@@ -168,28 +168,24 @@ public class Tienda implements Serializable {
 		return nombresucursales;
 	}
 	
-	public Compra[] ordenarComprasMayor(Compra[] compras) {
+	
+	//se ordenan las compras ascendentemente con bubble sort
+	public Compra[] ordenarComprasAscendente(Compra[] compras) {
 		int i,j;
 		int num=compras.length;
 		Compra temp;
 		
-		     for ( i = 0; i < num-1; i++) 
-		        { 
+	    for (i = 0; i < ( num - 1 ); i++) {
+	        for (j = 0; j < num - i - 1; j++) {
+	          if (compras[j].getPrecio() > compras[j+1].getPrecio()) 
+	          {
+	             temp = compras[j];
+	             compras[j] = compras[j+1];
+	             compras[j+1] = temp;
+	          }
+	        }
+	      }
 		    
-		            int min = i; 
-		            for ( j = i+1; j < num; j++) 
-		                if (compras[j].getPrecio() < compras[min].getPrecio()) 
-		                    min = j; 
-		  
-		     
-		            temp = compras[min]; 
-		            compras[min] = compras[i]; 
-		            compras[i] = temp; 
-		        } 
-		    
-		
-		
-		
 		return compras;
 		
 	
@@ -220,11 +216,10 @@ public class Tienda implements Serializable {
 	
 	//se calcula la mediana
 			public double calcularMediana(Compra[] compras) {
-				  // First we sort the array 
 		        
-				Compra[] newcompras=ordenarComprasMayor(compras);
+				Compra[] newcompras=ordenarComprasAscendente(compras);
 		        int n=compras.length;
-		        // check for even case 
+		    
 		        if (n % 2 != 0) 
 		            return (double)newcompras[n / 2].getPrecio(); 
 		  
@@ -257,8 +252,8 @@ public class Tienda implements Serializable {
 			return maxvalue;
 		}
 		
-	//se ordena la compra
-	public Compra[] ordenarComprasMenor(Compra[] compras) {
+	//se ordena la compra descendentemente con selection sort
+	public Compra[] ordenarComprasDescendente(Compra[] compras) {
 		int i,j;
 		int num=compras.length;
 		Compra temp;
@@ -283,7 +278,7 @@ public class Tienda implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Super tiendas " + nombre ;
+		return "Super tiendas " + nombre+". \n Contamos con "+sucursales.size()+ " sucursales para su comodidad";
 	}
   
 	
