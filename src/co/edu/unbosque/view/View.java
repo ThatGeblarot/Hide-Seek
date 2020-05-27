@@ -81,6 +81,7 @@ public class View extends JFrame implements GabenFrame {
 		toolbar.getGuardar().addActionListener(control);
 		toolbar.getCargar().addActionListener(control);
 		toolbar.getSalir().addActionListener(control);
+		toolbar.getCerrarSesion().addActionListener(control);
 		//Dialogo AsignarCupo
 		asignarCupo.getAsignar().addActionListener(control);
 		asignarCupo.getCancelar().addActionListener(control);

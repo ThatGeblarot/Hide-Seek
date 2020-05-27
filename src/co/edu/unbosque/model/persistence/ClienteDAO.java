@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import co.edu.unbosque.model.Cliente;
 import co.edu.unbosque.model.Pareja;
-import co.edu.unbosque.model.persistence.ArchivoClientes;
 
 public class ClienteDAO {
 	

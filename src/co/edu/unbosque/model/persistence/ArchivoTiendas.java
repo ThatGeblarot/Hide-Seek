@@ -44,6 +44,7 @@ public class ArchivoTiendas {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public ArrayList<Tienda> leerArchivo(){
 		ArrayList<Tienda> tiendas= new ArrayList<Tienda>();
 		if (getArchivoTiendas().length()!= 0) {

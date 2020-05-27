@@ -8,68 +8,55 @@ import javax.swing.JPanel;
  * @author Ricardo Sanchez
  *
  */
-public class JPanelParejas extends JPanel {
+public class JPanelParejas extends JPanel implements GabenPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JButton botonEliminarDatos = new JButton("Eliminar datos cuenta");
-	private JButton botonActualizarDatos = new JButton ("Actualizar Datos ");
+	private JButton botonActualizarDatos = new JButton("Actualizar Datos ");
 	private JButton botonHacerPago = new JButton("Realizar Pago");
-	private JButton botonDatos = new JButton ("Informacion personal");
-	public final String DATOS = "mostrar datos";
-	public final String ELIMINARDATOS="eliminar datos";
-	public final String ACTUALIZARDATOS = "actualizar Datos";
-	public final String HACERPAGO = "hacer pago";
-	public final String LISTAAFILIADOS ="lista afiliados";
-	
-	
+	private JButton botonDatos = new JButton("Informacion personal");
+	public static final String DATOS = "mostrar datos";
+	public static final String ELIMINARDATOS = "eliminar datos";
+	public static final String ACTUALIZARDATOS = "actualizar Datos";
+	public static final String HACERPAGO = "hacer pago";
+	public static final String LISTAAFILIADOS = "lista afiliados";
 
 	public JPanelParejas() {
-		try {
-			cargar();
-			addComponentes();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		load();
+		addComponents();
 	}
 
-	public void cargar() throws Exception {
+	public void load() {
 		setLayout(null);
-		
-		
-		botonActualizarDatos.setBounds(175,25 ,200, 50);
+
+		botonActualizarDatos.setBounds(175, 25, 200, 50);
 		botonActualizarDatos.setActionCommand(ACTUALIZARDATOS);
 		botonActualizarDatos.setBackground(Color.WHITE);
-		
+
 		botonDatos.setBounds(425, 25, 200, 50);
 		botonDatos.setActionCommand(DATOS);
 		botonDatos.setBackground(Color.WHITE);
-		
+
 		botonHacerPago.setBounds(175, 100, 200, 50);
 		botonHacerPago.setActionCommand(HACERPAGO);
 		botonHacerPago.setBackground(Color.WHITE);
-		
-		botonEliminarDatos.setBounds(425,100,200,50);
+
+		botonEliminarDatos.setBounds(425, 100, 200, 50);
 		botonEliminarDatos.setActionCommand(ELIMINARDATOS);
 		botonEliminarDatos.setBackground(Color.WHITE);
-       
-		
-		
-		setBackground(Color.BLUE);
 
-		
+		setBackground(Color.BLUE);
 
 		setVisible(false);
 	}
 
-	public void addComponentes() {
+	public void addComponents() {
 		add(botonDatos);
 		add(botonEliminarDatos);
 		add(botonActualizarDatos);
-        add(botonHacerPago);
-       
-	}
-	
+		add(botonHacerPago);
 
+	}
 
 	public JButton getBotonEliminarPareja() {
 		return botonEliminarDatos;
@@ -87,8 +74,6 @@ public class JPanelParejas extends JPanel {
 		this.botonActualizarDatos = botonActualizarDatos;
 	}
 
-	
-
 	public JButton getBotonHacerPago() {
 		return botonHacerPago;
 	}
@@ -96,7 +81,6 @@ public class JPanelParejas extends JPanel {
 	public void setBotonHacerPago(JButton botonHacerPago) {
 		this.botonHacerPago = botonHacerPago;
 	}
-
 
 	public String getELIMINARPAREJA() {
 		return ELIMINARDATOS;
@@ -125,6 +109,7 @@ public class JPanelParejas extends JPanel {
 	public void setBotonDatos(JButton botonDatos) {
 		this.botonDatos = botonDatos;
 	}
+
 	public String getDATOS() {
 		return DATOS;
 	}

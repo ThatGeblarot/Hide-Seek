@@ -12,7 +12,7 @@ import javax.swing.JTextField;
  * @author Ricardo Sanchez
  *
  */
-public class JDialogActualizar extends JDialog {
+public class JDialogActualizar extends JDialog implements GabenDialog {
 	
 	private static final long serialVersionUID = 1L;
 	private JLabel labelusuario = new JLabel("Nuevo Usuario: ");
@@ -32,14 +32,14 @@ public class JDialogActualizar extends JDialog {
 
 	public JDialogActualizar() {
 		try {
-			cargar();
-			addComponentes();
+			load();
+			addComponents();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void cargar() throws Exception {
+	public void load() {
 		getContentPane().setLayout(new BorderLayout());
 		setTitle("Actualizar Datos");
 		setSize(600, 400);
@@ -82,7 +82,7 @@ public class JDialogActualizar extends JDialog {
 		setVisible(false);
 	}
 
-	public void addComponentes() {
+	public void addComponents() {
 		getContentPane().add(labelcorreo);
 		getContentPane().add(textcorreo);
 		getContentPane().add(labelconfcorreo);

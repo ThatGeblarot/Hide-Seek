@@ -1,64 +1,54 @@
 package co.edu.unbosque.view;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
+import java.awt.*;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
+import javax.swing.*;
+
 /**
  * @author Ricardo Sanchez
  *
  */
-public class JDialogGenerarPDF extends JDialog{
+public class JDialogGenerarPDF extends JDialog implements GabenDialog {
 
 	private static final long serialVersionUID = 1L;
 	private JButton botonGenerar = new JButton("Generar PDF");
 	private JButton cancelar = new JButton("Cancelar");
-	public final String PDF ="generarpdf",CANCELAR ="cancelarpdf";
+	public final String PDF = "generarpdf", CANCELAR = "cancelarpdf";
+
 	public JDialogGenerarPDF() {
 		try {
-			cargar();
-			addComponentes();
+			load();
+			addComponents();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void cargar() throws Exception {
-		setLayout(new BorderLayout());
+	public void load() {
+		setLayout(new GridLayout(2,1));
 		setTitle("Generar PDF");
-		setSize(600,200);
+		setSize(600, 200);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
+
 		setResizable(false);
 		setLocationRelativeTo(null);
-		setLayout(null);
 		setBackground(Color.BLACK);
-		
-	
-		
+
 		botonGenerar.setBounds(150, 50, 150, 50);
 		botonGenerar.setBackground(Color.WHITE);
 		botonGenerar.setActionCommand(PDF);
-		
+
 		cancelar.setBounds(350, 50, 100, 50);
 		cancelar.setActionCommand(CANCELAR);
 		cancelar.setBackground(Color.WHITE);
-		
-		
-		
 
-		
 		setVisible(false);
 	}
-	
-	
-	public void addComponentes() {
-		
+
+	public void addComponents() {
+
 		add(botonGenerar);
 		add(cancelar);
-		
-		
 
 	}
 
@@ -85,6 +75,5 @@ public class JDialogGenerarPDF extends JDialog{
 	public String getCANCELAR() {
 		return CANCELAR;
 	}
-	
 
 }

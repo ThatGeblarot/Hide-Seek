@@ -8,10 +8,10 @@ import java.awt.*;
  * @author Ricardo Sanchez
  *
  */
-public class JDialogRegistrar extends JDialog {
+public class JDialogRegistrar extends JDialog implements GabenDialog {
 
 	private static final long serialVersionUID = 1L;
-	private JLabel labelgenero = new JLabel ("Genero: ");
+	private JLabel labelgenero = new JLabel("Genero: ");
 	private JLabel labelusuario = new JLabel("Usuario: ");
 	private JLabel labelcorreo = new JLabel("Correo: ");
 	private JLabel labelconfcorreo = new JLabel("Confirmar Correo: ");
@@ -25,24 +25,24 @@ public class JDialogRegistrar extends JDialog {
 	private JTextField textclave = new JTextField("");
 	private JTextField textconfclave = new JTextField("");
 	private JComboBox<String> generocombo = new JComboBox<String>();
-	public final String REGISTRAR = "REGISTRAR";
-	public final String CANCELAR = "CANCELAR";
+	public static final String REGISTRAR = "RegistrarRaitNau";
+	public static final String CANCELAR = "CancelarRaitNau";
 
 	public JDialogRegistrar() {
 		try {
-			cargar();
-			addComponentes();
+			load();
+			addComponents();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void cargar() throws Exception {
+	public void load() {
 		setLayout(new BorderLayout());
 		setTitle("Registro");
 		setSize(800, 600);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
+
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setLayout(null);
@@ -50,18 +50,15 @@ public class JDialogRegistrar extends JDialog {
 		setVisible(false);
 		labelusuario.setBounds(255, 80, 100, 50);
 		textusuario.setBounds(335, 95, 200, 25);
-		
 
 		labelcorreo.setBounds(260, 130, 100, 50);
 		textcorreo.setBounds(335, 145, 200, 25);
-	
-		
-		labelconfcorreo.setBounds(195,180 , 200, 50);
-		textconfcorreo.setBounds(335,195, 200, 25);
+
+		labelconfcorreo.setBounds(195, 180, 200, 50);
+		textconfcorreo.setBounds(335, 195, 200, 25);
 
 		labelclave.setBounds(265, 230, 100, 50);
 		textclave.setBounds(335, 245, 200, 25);
-	
 
 		labelconfclave.setBounds(205, 280, 200, 50);
 		textconfclave.setBounds(335, 295, 200, 25);
@@ -73,26 +70,25 @@ public class JDialogRegistrar extends JDialog {
 		botonCancelar.setBounds(400, 400, 100, 50);
 		botonCancelar.setActionCommand(CANCELAR);
 		botonCancelar.setBackground(Color.WHITE);
-		
+
 		labelgenero.setBounds(260, 335, 100, 50);
 		generocombo.setBounds(335, 350, 100, 25);
 		generocombo.addItem("Hombre");
 		generocombo.addItem("Mujer");
 		generocombo.addItem("Otro");
-	
 
-		
 	}
+
 	public void clean() {
 		textusuario.setText("");
 		textcorreo.setText("");
 		textconfcorreo.setText("");
 		textclave.setText("");
 		textconfclave.setText("");
-	    
+
 	}
 
-	public void addComponentes() {
+	public void addComponents() {
 		add(labelgenero);
 		add(generocombo);
 		add(labelusuario);
@@ -109,7 +105,7 @@ public class JDialogRegistrar extends JDialog {
 		add(botonCancelar);
 
 	}
-    
+
 	public JLabel getLabelnom() {
 		return labelusuario;
 	}

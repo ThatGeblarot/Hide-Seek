@@ -9,82 +9,76 @@ import javax.swing.JPanel;
  * @author Ricardo Sanchez
  *
  */
-public class JPanelUsuarios extends JPanel {
+public class JPanelUsuarios extends JPanel implements GabenPanel {
 	private static final long serialVersionUID = 1L;
-	private JButton botonAgregarPareja  = new JButton ("Agregar Pareja");
+	private JButton botonAgregarPareja = new JButton("Agregar Pareja");
 	private JButton botonEliminarPareja = new JButton("Eliminar Pareja");
-	private JButton botonActualizarPareja  = new JButton ("Actualizar Pareja");
-	private JButton botonListaParejas  = new JButton ("Lista Parejas");
-	private JButton botonActualizarDatos = new JButton ("Actualizar Datos Usuario");
-	private JButton botonAsignarCupo= new JButton ("Asignar cupo Pareja");
-	private JButton botonAsignarHorario= new JButton ("Asignar Horario y Ubicacion");
+	private JButton botonActualizarPareja = new JButton("Actualizar Pareja");
+	private JButton botonListaParejas = new JButton("Lista Parejas");
+	private JButton botonActualizarDatos = new JButton("Actualizar Datos Usuario");
+	private JButton botonAsignarCupo = new JButton("Asignar cupo Pareja");
+	private JButton botonAsignarHorario = new JButton("Asignar Horario y Ubicacion");
 	private JButton botonMostrarcompras = new JButton("Mostrar Compras");
-	private JButton botonAsignarHorarioUsuario= new JButton ("Asignar Horario y Ubicacion ");
-	public final String AGREGARPAREJA="agregar pareja";
-	public final String ELIMINARPAREJA="eliminar pareja";
-	public final String ACTUALIZARPAREJA ="actualizar pareja";
-	public final String LISTAPAREJAS= "Lista Pareja";
-	public final String ACTUALIZARDATOS = "Actualizar Datos";
-	public final String ASIGNARCUPO = "AsignarCupo";
-	public final String ASIGNARHORARIO = "Asignar Horario";
-	public final String COMPRAS = "mostrarcompras";
-	public final String HORARIO="horario";
+	private JButton botonAsignarHorarioUsuario = new JButton("Asignar Horario y Ubicacion ");
+	public static final String AGREGARPAREJA = "agregar pareja";
+	public static final String ELIMINARPAREJA = "eliminar pareja";
+	public static final String ACTUALIZARPAREJA = "actualizar pareja";
+	public static final String LISTAPAREJAS = "Lista Pareja";
+	public static final String ACTUALIZARDATOS = "Actualizar Datos";
+	public static final String ASIGNARCUPO = "AsignarCupo";
+	public static final String ASIGNARHORARIO = "Asignar Horario";
+	public static final String COMPRAS = "mostrarcompras";
+	public static final String HORARIO = "horario";
 
 	public JPanelUsuarios() {
-		try {
-			cargar();
-			addComponentes();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		load();
+		addComponents();
 	}
 
-	public void cargar() throws Exception {
+	public void load() {
 		setLayout(null);
-		
+
 		botonAgregarPareja.setBounds(75, 10, 200, 50);
 		botonAgregarPareja.setActionCommand(AGREGARPAREJA);
 		botonAgregarPareja.setBackground(Color.WHITE);
-		
-		botonEliminarPareja.setBounds(300,10,200,50);
+
+		botonEliminarPareja.setBounds(300, 10, 200, 50);
 		botonEliminarPareja.setActionCommand(ELIMINARPAREJA);
 		botonEliminarPareja.setBackground(Color.WHITE);
-		
-		botonActualizarPareja.setBounds(525,10 ,200, 50);
+
+		botonActualizarPareja.setBounds(525, 10, 200, 50);
 		botonActualizarPareja.setActionCommand(ACTUALIZARPAREJA);
 		botonActualizarPareja.setBackground(Color.WHITE);
-		
+
 		botonListaParejas.setBounds(75, 70, 200, 50);
 		botonListaParejas.setActionCommand(LISTAPAREJAS);
 		botonListaParejas.setBackground(Color.WHITE);
-				
+
 		botonAsignarCupo.setBounds(300, 70, 200, 50);
 		botonAsignarCupo.setActionCommand(ASIGNARCUPO);
 		botonAsignarCupo.setBackground(Color.WHITE);
-		
+
 		botonAsignarHorarioUsuario.setBounds(525, 70, 200, 50);
 		botonAsignarHorarioUsuario.setActionCommand(HORARIO);
 		botonAsignarHorarioUsuario.setBackground(Color.WHITE);
-		
-		botonMostrarcompras.setBounds(300,130,200,50);
+
+		botonMostrarcompras.setBounds(300, 130, 200, 50);
 		botonMostrarcompras.setActionCommand(COMPRAS);
 		botonMostrarcompras.setBackground(Color.WHITE);
-		
-		setBackground(Color.MAGENTA);
 
-		
+		setBackground(Color.MAGENTA);
 
 		setVisible(false);
 	}
 
-	public void addComponentes() {
+	public void addComponents() {
 		add(botonMostrarcompras);
 		add(botonAgregarPareja);
 		add(botonEliminarPareja);
-        add(botonListaParejas);
-        add(botonActualizarPareja);
-        add(botonAsignarCupo);
-        add(botonAsignarHorarioUsuario);
+		add(botonListaParejas);
+		add(botonActualizarPareja);
+		add(botonAsignarCupo);
+		add(botonAsignarHorarioUsuario);
 	}
 
 	public JButton getBotonAgregarPareja() {

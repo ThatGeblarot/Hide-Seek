@@ -9,8 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-import co.edu.unbosque.model.Cliente;
-import co.edu.unbosque.model.Tienda;     
+import co.edu.unbosque.model.Cliente;     
 
 public class ArchivoClientes {
 
@@ -44,6 +43,7 @@ public class ArchivoClientes {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public ArrayList<Cliente> leerArchivo(){
 		ArrayList<Cliente> usuarios= new ArrayList<Cliente>();
 		if (getArchivo().length()!= 0) {

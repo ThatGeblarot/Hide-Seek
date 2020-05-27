@@ -14,7 +14,7 @@ import javax.swing.JTextField;
  * @author Ricardo Sanchez
  *
  */
-public class JDialogPago extends JDialog {
+public class JDialogPago extends JDialog implements GabenDialog {
 	private static final long serialVersionUID = 1L;
 	private JButton pagar = new JButton("Realizar Pago");
 	private JButton cancelar = new JButton("Cancelar");
@@ -25,14 +25,14 @@ public class JDialogPago extends JDialog {
 	public final String PAGAR ="pagar",CANCELAR ="cancelarpago";
 	public JDialogPago() {
 		try {
-			cargar();
-			addComponentes();
+			load();
+			addComponents();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void cargar() throws Exception {
+	public void load() {
 		setLayout(new BorderLayout());
 		setTitle("Pago");
 		setSize(600,400);
@@ -66,7 +66,7 @@ public class JDialogPago extends JDialog {
 	}
 	
 	
-	public void addComponentes() {
+	public void addComponents() {
 		add(combo);
 		add(sucursal);
 		add(label);
