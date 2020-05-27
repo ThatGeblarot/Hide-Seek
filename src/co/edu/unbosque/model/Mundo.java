@@ -1,5 +1,6 @@
 package co.edu.unbosque.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import co.edu.unbosque.model.persistence.ArchivoClientes;
@@ -21,7 +22,12 @@ public class Mundo {
 	private ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
 
 	public Mundo() {
-		tiendaDAO.agregarTienda(tiendas, "EL BOSQUE");
+		try {
+			tiendaDAO.agregarTienda(tiendas, "EL BOSQUE");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		tiendaDAO.agregarAdministrador(tiendas, "EL BOSQUE", "admin", "12345a");
 		clientes = archivoc.leerArchivo();
 		tiendas = archivot.leerArchivo();
