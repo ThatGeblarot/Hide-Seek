@@ -46,10 +46,12 @@ private ArchivoTiendas archivo;
 	
 
 	
-	public boolean agregarTienda(ArrayList<Tienda> tiendas, String nombretienda){
+	public boolean agregarTienda(ArrayList<Tienda> tiendas, String nombretienda) throws IOException {
 		Tienda nuevo= new Tienda(nombretienda);
 		if(buscarTienda(tiendas, nombretienda) == null){
 			tiendas.add(nuevo);
+			getArchivoTiendas().getArchivoTiendas().delete();
+			getArchivoTiendas().getArchivoTiendas().createNewFile();
 			getArchivoTiendas().escribirEnArchivo(tiendas);
 			return true;
 		}else {
