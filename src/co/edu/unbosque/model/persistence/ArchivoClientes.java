@@ -15,7 +15,7 @@ public class ArchivoClientes {
 
 	private ObjectInputStream entrada;
 	private ObjectOutputStream salida;
-	private File archivo =new File(".\\data\\Base de Datos Clientes.dat");
+	private File archivo =new File("./data/Base de Datos Clientes.dat");
 	
 	public ArchivoClientes(){
 		
@@ -23,9 +23,10 @@ public class ArchivoClientes {
 			//System.out.println("El archivo ya existe");
 		}else{
 			try {
+				//archivo.mkdir();
 				archivo.createNewFile();
-			} catch (IOException e) {
-				System.out.println("Creación del archivo: " +e.getMessage());
+			} catch (Exception e) {
+				System.out.println("Creación del archivo tiendas: " +e.getMessage());
 			}
 		}
 	}

@@ -81,20 +81,68 @@ public class Controller implements ActionListener {
 		try {
 			view.setTitle(NOMBREPROYECTO);
 			view.start(this);
-			login();
+			startUp();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void login() throws Exception {
-		try {
-			view.setVisible(false);
-			view.getLogin().setVisible(true);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
+	public void startUp() {
+		view.setVisible(false);
+		view.getLogin().setVisible(true);
+	}
+	
+	public void login(String user, String password) throws Exception {
+		doLogin(verificarPerfil(user, password));
+	}
+	public void doLogin(int userType) throws Exception {
+		switch (userType) {
+		case 1:
+			view.setVisible(true);
+			view.getAdmin().setVisible(true);
+			view.getUsuarios().setVisible(true);
+			view.getParejas().setVisible(true);
+			break;
+		case 2:
+			view.setVisible(true);
+			view.getAdmin().setVisible(false);
+			view.getUsuarios().setVisible(true);
+			view.getParejas().setVisible(true);
+			break;
+		case 3:
+			view.setVisible(true);
+			view.getAdmin().setVisible(false);
+			view.getUsuarios().setVisible(false);
+			view.getParejas().setVisible(true);
+			break;
+		default:
+			view.getDialogos().output("Error", "Usuario y/o clave incorrecta. Verifique las credenciales y el tipo de usuario e intente nuevamente", JOptionPane.ERROR_MESSAGE);
+			break;
 		}
+	}
+	
+	public void registrar() throws Exception {
+		if(mundo.getClienteDAO().agregarCliente(mundo.getClientes(), view.getRegistrar().getTextnom().getText(), 0.0, view.getRegistrar().getTextusuario().getText(), view.getRegistrar().getTextcorreo().getText(), view.getRegistrar().getTextclave().getText(), view.getRegistrar().getGenerocombo().getSelectedItem().toString())) {
+			mundo.getArchivoc().escribirEnArchivo(mundo.getClientes());
+			doLogin(2);
+		}
+	}
+	
+	public int verificarPerfil(String user, String password) throws Exception {
+		int ans = 0;
+		if(mundo.getTiendaDAO().verificarPasswordAdministrador(mundo.getTiendas().get(0), user, password) && view.getLogin().getCombo().getSelectedIndex() == 0) {
+			ans = 1;
+		}
+		if(mundo.getClienteDAO().verificarPswdCliente(mundo.getClientes(), user, password) && view.getLogin().getCombo().getSelectedIndex() == 1) {
+			ans = 2;
+			for (int i = 0; i < mundo.getClientes().size(); i++) {
+				if(mundo.getClienteDAO().verificarPswdPareja(mundo.getClientes().get(i), user, password) && view.getLogin().getCombo().getSelectedIndex() == 2) {
+					ans = 3;
+				}
+			}
+		}
+		return ans;
+		
 	}
 	
 	
@@ -134,6 +182,10 @@ public class Controller implements ActionListener {
 				view.getLogin().setVisible(false);
 				view.getRegistrar().setVisible(true);
 			}
+			if(e.getActionCommand() == view.getLogin().LOGIN) {
+				login(view.getLogin().getTextcorreo().getText(), view.getLogin().getTextclave().getText());
+				
+			}
 			//Formulario Registro
 			if(e.getActionCommand() == view.getRegistrar().CANCELAR) {
 				view.getRegistrar().setVisible(false);
@@ -143,8 +195,8 @@ public class Controller implements ActionListener {
 			}
 			if(e.getActionCommand() == view.getRegistrar().REGISTRAR) {
 				view.getRegistrar().setVisible(false);
+				registrar();
 				view.getLogin().setVisible(true);
-				//TODO logica
 			}
 		}
 			
