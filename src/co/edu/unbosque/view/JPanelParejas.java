@@ -15,11 +15,11 @@ public class JPanelParejas extends JPanel implements GabenPanel {
 	private JButton botonActualizarDatos = new JButton("Actualizar Datos ");
 	private JButton botonHacerPago = new JButton("Realizar Pago");
 	private JButton botonDatos = new JButton("Informacion personal");
-	public static final String DATOS = "mostrar datos";
-	public static final String ELIMINARDATOS = "eliminar datos";
-	public static final String ACTUALIZARDATOS = "actualizar Datos";
-	public static final String HACERPAGO = "hacer pago";
-	public static final String LISTAAFILIADOS = "lista afiliados";
+	public static final String DATOS = "parejas mostrar datos";
+	public static final String ELIMINARDATOS = "parejas eliminar datos";
+	public static final String ACTUALIZARDATOS = "parejas actualizar Datos";
+	public static final String HACERPAGO = "parejas hacer pago";
+	public static final String LISTAAFILIADOS = "parejas lista afiliados";
 
 	public JPanelParejas() {
 		load();

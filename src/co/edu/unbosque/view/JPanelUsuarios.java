@@ -20,15 +20,15 @@ public class JPanelUsuarios extends JPanel implements GabenPanel {
 	private JButton botonAsignarHorario = new JButton("Asignar Horario y Ubicacion");
 	private JButton botonMostrarcompras = new JButton("Mostrar Compras");
 	private JButton botonAsignarHorarioUsuario = new JButton("Asignar Horario y Ubicacion ");
-	public static final String AGREGARPAREJA = "agregar pareja";
-	public static final String ELIMINARPAREJA = "eliminar pareja";
-	public static final String ACTUALIZARPAREJA = "actualizar pareja";
-	public static final String LISTAPAREJAS = "Lista Pareja";
-	public static final String ACTUALIZARDATOS = "Actualizar Datos";
-	public static final String ASIGNARCUPO = "AsignarCupo";
-	public static final String ASIGNARHORARIO = "Asignar Horario";
-	public static final String COMPRAS = "mostrarcompras";
-	public static final String HORARIO = "horario";
+	public static final String AGREGARPAREJA = "useragregar pareja";
+	public static final String ELIMINARPAREJA = "usereliminar pareja";
+	public static final String ACTUALIZARPAREJA = "useractualizar pareja";
+	public static final String LISTAPAREJAS = "userLista Pareja";
+	public static final String ACTUALIZARDATOS = "userActualizar Datos";
+	public static final String ASIGNARCUPO = "userAsignarCupo";
+	public static final String ASIGNARHORARIO = "userAsignar Horario";
+	public static final String COMPRAS = "usermostrarcompras";
+	public static final String HORARIO = "userhorario";
 
 	public JPanelUsuarios() {
 		load();
