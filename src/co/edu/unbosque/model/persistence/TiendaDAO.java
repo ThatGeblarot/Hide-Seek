@@ -50,6 +50,13 @@ private ArchivoTiendas archivo;
 		Tienda nuevo= new Tienda(nombretienda);
 		if(buscarTienda(tiendas, nombretienda) == null){
 			tiendas.add(nuevo);
+			getArchivoTiendas().getArchivoTiendas().delete();
+			try {
+				getArchivoTiendas().getArchivoTiendas().createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			getArchivoTiendas().escribirEnArchivo(tiendas);
 			return true;
 		}else {
