@@ -21,9 +21,7 @@ public class Cliente implements Serializable {
 	
 	
 	
-	
-	
-	
+
 	
 	
 	public Cliente(String nombre, double cupo,String userid, String correo, String contraseña, String genero) {
@@ -110,6 +108,17 @@ public class Cliente implements Serializable {
 		
 		return cupo-gasto;
 	}
+	
+	
+	
+	
+	
+	/**
+	 * Este método retorna un array con los nombres de las parejas 
+	 * <b>pre</b> LA clase cliente está incializada<br>
+	 * @return se retorna un arreglo de strings con el nombre de las parejas
+	 * <b>post</b> Se ha retornado el arraylist con el  nombre de pareja <br>
+	 */
 	
 	//método que muestra nombre de parejas de un cliente
 	public String[] listarParejas() {
