@@ -196,6 +196,68 @@ public class Tienda implements Serializable {
 	}
 	
 	
+	//se calcula la media
+	public double calcularMedia(Compra[] compras) {
+		int n=compras.length;
+		double suma=0;
+		double promedio;
+		for (int i = 0; i < compras.length; i++) {
+			
+			suma=suma+compras[i].getPrecio();
+		}
+		
+		try {
+		promedio=suma/n;
+		
+		return promedio;
+		}	
+		catch(ArithmeticException e)
+		{
+		return 0;
+		}
+	}
+	
+	
+	//se calcula la mediana
+			public double calcularMediana(Compra[] compras) {
+				  // First we sort the array 
+		        
+				Compra[] newcompras=ordenarComprasMayor(compras);
+		        int n=compras.length;
+		        // check for even case 
+		        if (n % 2 != 0) 
+		            return (double)newcompras[n / 2].getPrecio(); 
+		  
+		        return (double)(newcompras[(n - 1) / 2].getPrecio() + newcompras[n / 2].getPrecio()) / 2.0; 
+			
+		}
+	
+	
+	
+	//se calcula la moda
+	public double calcularModa(Compra[] compras) {
+		double maxvalue = -1.0d;
+		double tolerancia=0.1;
+		int maxCount = 0;
+		for (int i = 0; i < compras.length; ++i) {
+		    double currentValue = compras[i].getPrecio();
+		    int currentCount = 1;
+		    for (int j = i + 1; j < compras.length; ++j) {
+		        if (Math.abs(compras[j].getPrecio() - currentValue) < tolerancia) {
+		            ++currentCount;
+		        } 
+		    }
+		    if (currentCount > maxCount) {
+		        maxCount = currentCount;
+		        maxvalue = currentValue;
+		    } else if (currentCount == maxCount) {
+		        maxvalue = Double.NaN;
+		    }
+		}
+			return maxvalue;
+		}
+		
+	//se ordena la compra
 	public Compra[] ordenarComprasMenor(Compra[] compras) {
 		int i,j;
 		int num=compras.length;

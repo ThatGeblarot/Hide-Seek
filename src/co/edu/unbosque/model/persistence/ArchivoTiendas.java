@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
 
 import co.edu.unbosque.model.Tienda;     
@@ -17,6 +20,7 @@ public class ArchivoTiendas {
 	private ObjectInputStream entrada;
 	private ObjectOutputStream salida;
 	private File archivo =new File("./data/Base de Datos Tiendas.dat");
+	private File path;
 	
 	public ArchivoTiendas(){
 		
@@ -63,6 +67,30 @@ public class ArchivoTiendas {
 		return tiendas;
 	}
 
+	public void crearPDF(String[] logs) {
+		
+	path= new File("./data/registroCompras.pdf");
+	  try {
+					if(path.exists()){
+			        path.delete();
+			        path.createNewFile();
+			    }
+			    final Document doc= new Document();
+			    PdfWriter.getInstance(doc, new FileOutputStream(path));
+			    doc.open();
+			    for (int j = 0; j < logs.length; j++) {
+			    	 Paragraph linea= new Paragraph(logs[j]);
+					    doc.add(linea);
+				}
+			   
+			    doc.close();
+			} catch(FileNotFoundException e) {
+			    System.out.println("no se encontró el pdf: " +e.getMessage());
+			    e.printStackTrace();
+			} catch(Exception e){
+			    System.out.println("error al escribir en pdf: " +e.getMessage());
+			}	
+	}
 	
 	
 	public File getArchivoTiendas() {
