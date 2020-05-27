@@ -35,6 +35,31 @@ private ArchivoClientes archivo;
 		}
 	}
 	
+	public boolean actualizarCliente(ArrayList<Cliente> clientes,String userid, String userpareja, String nuevouser, String correo, String nombre){
+		Cliente c=buscarCliente(clientes, userid);
+		if(c==null) {
+			return false;
+		}else {
+			c.setNombre(nombre);
+			c.setCorreo(correo);
+			c.setUserid(nuevouser);
+			
+			getArchivo().escribirEnArchivo(clientes);
+			return true;
+		}
+	}
+	
+	public boolean asignarCupoCliente(ArrayList<Cliente> clientes,String userid, double nuevocupo){
+		Cliente c=buscarCliente(clientes, userid);
+		if( c== null){
+			return false;
+		}else {
+			c.setCupo(nuevocupo);	
+			getArchivo().escribirEnArchivo(clientes);
+			return true;			
+		
+		}
+	}
 	
 
 	
@@ -133,7 +158,38 @@ private ArchivoClientes archivo;
 		}
 	}
 	
-
+	
+	
+	public boolean actualizarPareja(ArrayList<Cliente> clientes,String userid, String userpareja, String nuevouser, String correo, String nombre){
+		
+		Cliente c=buscarCliente(clientes, userid);
+		Pareja p=buscarPareja(c,userpareja);
+		if( p== null){
+		return false;
+		}else {
+			p.setNombre(nombre);
+			p.setCorreo(correo);
+			p.setUserid(nuevouser);
+			
+			getArchivo().escribirEnArchivo(clientes);
+			return true;			
+		}
+	}
+	
+	
+	public boolean AsignarCupoPareja(ArrayList<Cliente> clientes,String userid, String userpareja, double nuevocupo){
+		
+		Cliente c=buscarCliente(clientes, userid);
+		Pareja p=buscarPareja(c,userpareja);
+		if( p== null){
+			return false;
+		}else {
+			p.setCupo(nuevocupo);	
+			getArchivo().escribirEnArchivo(clientes);
+			return true;			
+		}
+	}
+	
 	
 	
 	public boolean eliminarPareja(Cliente c, String userpareja,ArrayList<Cliente> clientes){
@@ -168,6 +224,7 @@ private ArchivoClientes archivo;
 		
 		return null;
 	}
+	
 	
 	
 	
