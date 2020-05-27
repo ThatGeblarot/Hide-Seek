@@ -121,8 +121,7 @@ public class Cliente {
 	
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", cupo=" + cupo + ", userid=" + userid + ", correo=" + correo
-				+ ", genero=" + genero + ", tipo=" + tipo + "]";
+		return nombre+" con userID "+userid+ " y correo "+ correo +" tiene "+saldoCliente()+" de saldo restante";
 	}
 	
 	
