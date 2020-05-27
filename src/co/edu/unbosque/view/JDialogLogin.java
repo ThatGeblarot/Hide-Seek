@@ -79,7 +79,7 @@ public class JDialogLogin extends JDialog{
 		combo.addItem("Pareja");
 		combo.setBounds(475,10, 100, 25);
 		
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		
 		
 		

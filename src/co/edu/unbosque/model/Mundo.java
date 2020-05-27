@@ -13,39 +13,42 @@ import co.edu.unbosque.model.persistence.TiendaDAO;
  */
 public class Mundo {
 
-	private ArchivoTiendas archivot= new ArchivoTiendas();
-	private TiendaDAO tiendaDAO=new TiendaDAO(archivot);
-	private ArchivoClientes archivoc= new ArchivoClientes();
+	private ArchivoTiendas archivot = new ArchivoTiendas();
+	private TiendaDAO tiendaDAO = new TiendaDAO(archivot);
+	private ArchivoClientes archivoc = new ArchivoClientes();
 	private ClienteDAO clienteDAO = new ClienteDAO(archivoc);
-	private ArrayList<Cliente> clientes=archivoc.leerArchivo();
-	private ArrayList<Tienda> tiendas=archivot.leerArchivo();
-	
-	
+	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	private ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
+
 	public Mundo() {
 		tiendaDAO.agregarTienda(tiendas, "EL BOSQUE");
 		tiendaDAO.agregarAdministrador(tiendas, "EL BOSQUE", "admin", "12345a");
+		clientes = archivoc.leerArchivo();
+		tiendas = archivot.leerArchivo();
 	}
-	
+
 	public TiendaDAO getTiendaDAO() {
 		return tiendaDAO;
 	}
+
 	public ClienteDAO getClienteDAO() {
 		return clienteDAO;
 	}
+
 	public ArchivoTiendas getArchivot() {
 		return archivot;
 	}
+
 	public ArchivoClientes getArchivoc() {
 		return archivoc;
 	}
+
 	public ArrayList<Cliente> getClientes() {
 		return clientes;
 	}
+
 	public ArrayList<Tienda> getTiendas() {
 		return tiendas;
 	}
-	
-	
-	
 
 }

@@ -41,7 +41,7 @@ public class JDialogRegistrar extends JDialog implements GabenDialog {
 		setLayout(new BorderLayout());
 		setTitle("Registro");
 		setSize(800, 600);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(HIDE_ON_CLOSE);
 
 		setResizable(false);
 		setLocationRelativeTo(null);

@@ -124,19 +124,18 @@ public class Controller implements ActionListener {
 	public void registrar() throws Exception {
 		if(mundo.getClienteDAO().agregarCliente(mundo.getClientes(), view.getRegistrar().getTextnom().getText(), 0.0, view.getRegistrar().getTextusuario().getText(), view.getRegistrar().getTextcorreo().getText(), view.getRegistrar().getTextclave().getText(), view.getRegistrar().getGenerocombo().getSelectedItem().toString())) {
 			mundo.getArchivoc().escribirEnArchivo(mundo.getClientes());
-			doLogin(2);
 		}
 	}
 	
 	public int verificarPerfil(String user, String password) throws Exception {
 		int ans = 0;
-		if(mundo.getTiendaDAO().verificarPasswordAdministrador(mundo.getTiendas().get(0), user, password) && view.getLogin().getCombo().getSelectedIndex() == 0) {
+		if(mundo.getTiendaDAO().verificarPasswordAdministrador(mundo.getTiendas().get(0), user, password)) {
 			ans = 1;
 		}
-		if(mundo.getClienteDAO().verificarPswdCliente(mundo.getClientes(), user, password) && view.getLogin().getCombo().getSelectedIndex() == 1) {
+		if(mundo.getClienteDAO().verificarPswdCliente(mundo.getClientes(), user, password)) {
 			ans = 2;
 			for (int i = 0; i < mundo.getClientes().size(); i++) {
-				if(mundo.getClienteDAO().verificarPswdPareja(mundo.getClientes().get(i), user, password) && view.getLogin().getCombo().getSelectedIndex() == 2) {
+				if(mundo.getClienteDAO().verificarPswdPareja(mundo.getClientes().get(i), user, password)) {
 					ans = 3;
 				}
 			}
@@ -197,6 +196,7 @@ public class Controller implements ActionListener {
 				view.getRegistrar().setVisible(false);
 				registrar();
 				view.getLogin().setVisible(true);
+				view.getRegistrar().clean();
 			}
 		}
 			
@@ -205,10 +205,10 @@ public class Controller implements ActionListener {
 		 * el log. Esto es vital para el programa ya que me permite llevar una trazabilidad
 		 */
 		catch (Exception e2) {
-			
-			view.getDialogos().output("Error", "Ha ocurrido un error inesperado\n"
-					+ "Se ha creado en <proyecto>/docs/Output un archivo myLog.log en donde aparece el detalle específico del error causado.",
-					JOptionPane.ERROR_MESSAGE);
+			StringWriter errors = new StringWriter();
+			e2.printStackTrace(new PrintWriter(errors));
+			System.out.println(errors);
+			view.getDialogos().output("ERROR FATAL", "Ocurrio un error", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}
