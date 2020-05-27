@@ -208,6 +208,7 @@ private ArchivoTiendas archivo;
 		if(auxc.saldoCliente()>=precio){
 			c.getCompras().add(nuevolog);
 			auxc.setGasto(auxc.getGasto()+precio);
+			getArchivoTiendas().escribirEnArchivo(tiendas);
 			return true;
 		}else {
 			return false;			
@@ -246,7 +247,7 @@ private ArchivoTiendas archivo;
 			c.getCompras().add(nuevolog);
 			auxc.setGasto(auxc.getGasto()+precio);
 			auxp.setGasto(auxc.getGasto()+precio);
-		
+			getArchivoTiendas().escribirEnArchivo(tiendas);
 			return true;
 		}else {
 			return false;			

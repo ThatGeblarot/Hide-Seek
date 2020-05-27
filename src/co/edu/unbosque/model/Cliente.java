@@ -13,7 +13,7 @@ public class Cliente {
 	private String tipo;
 	private double gasto;
 	private ArrayList <Pareja> parejas;
-	private ArrayList <Horario> horarios;
+	
 	
 	
 	
@@ -32,7 +32,7 @@ public class Cliente {
 		this.tipo = "0";
 		this.gasto=0;
 		parejas = new ArrayList<Pareja>();
-		horarios = new ArrayList<Horario>();
+		
 	}
 	
 	
@@ -101,19 +101,24 @@ public class Cliente {
 	}
 
 
-	public ArrayList<Horario> getHorarios() {
-		return horarios;
-	}
-
-
-	public void setHorarios(ArrayList<Horario> horarios) {
-		this.horarios = horarios;
-	}
-
 	public double saldoCliente() {
 		
 		return cupo-gasto;
 	}
+	
+	//método que muestra nombre de parejas de un cliente
+	public String[] listarParejas() {
+	int c=parejas.size();
+	
+	String[] nombreparejas=new String[c];
+	
+		for (int i = 0; i < c; i++) {
+			nombreparejas[i]=parejas.get(i).getNombre();
+		}
+		
+		return nombreparejas;
+	}
+	
 	@Override
 	public String toString() {
 		return "Usuario [nombre=" + nombre + ", cupo=" + cupo + ", userid=" + userid + ", correo=" + correo

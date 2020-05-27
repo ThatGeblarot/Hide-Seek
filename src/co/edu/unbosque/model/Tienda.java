@@ -206,17 +206,14 @@ public class Tienda {
 		            compras[min] = compras[i]; 
 		            compras[i] = temp; 
 		        } 
-		    
-		
-		
-		
 		return compras;
 	} 
 	
 	
+	
 	@Override
 	public String toString() {
-		return "Tienda [nombre=" + nombre + "]";
+		return "Super tiendas " + nombre ;
 	}
   
 	
