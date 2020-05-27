@@ -46,17 +46,12 @@ private ArchivoTiendas archivo;
 	
 
 	
-	public boolean agregarTienda(ArrayList<Tienda> tiendas, String nombretienda){
+	public boolean agregarTienda(ArrayList<Tienda> tiendas, String nombretienda) throws IOException {
 		Tienda nuevo= new Tienda(nombretienda);
 		if(buscarTienda(tiendas, nombretienda) == null){
 			tiendas.add(nuevo);
 			getArchivoTiendas().getArchivoTiendas().delete();
-			try {
-				getArchivoTiendas().getArchivoTiendas().createNewFile();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			getArchivoTiendas().getArchivoTiendas().createNewFile();
 			getArchivoTiendas().escribirEnArchivo(tiendas);
 			return true;
 		}else {
@@ -195,7 +190,7 @@ private ArchivoTiendas archivo;
 	//log compras
 	public boolean agregarCompraCliente(ArrayList<Tienda> tiendas,ArrayList<Cliente> clientes,String tienda,String sucursal, String nombre, String direccion,String cliente, double precio){
 		
-		//aquí se agrega la fecha
+		//aquï¿½ se agrega la fecha
 		 Date fecha = new Date();
 		String formatoFecha = "hh:mm:ss a dd-MMM-yyyy"; 
 		  SimpleDateFormat objSDF = new SimpleDateFormat(formatoFecha); 
@@ -224,7 +219,7 @@ private ArchivoTiendas archivo;
 	
 	public boolean agregarCompraPareja(ArrayList<Tienda> tiendas,ArrayList<Cliente> clientes,String tienda,String sucursal, String nombre, String direccion,String cliente, double precio, String pareja){
 		
-		//aquí se agrega la fecha
+		//aquï¿½ se agrega la fecha
 		 Date fecha = new Date();
 		String formatoFecha = "hh:mm:ss a dd-MMM-yyyy"; 
 		  SimpleDateFormat objSDF = new SimpleDateFormat(formatoFecha); 

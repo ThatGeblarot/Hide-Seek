@@ -1,10 +1,8 @@
 package co.edu.unbosque.controller;
 
-import java.awt.AWTException;
 import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -12,7 +10,6 @@ import java.io.StringWriter;
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.model.Mundo;
-import co.edu.unbosque.model.persistence.ArchivoClientes;
 import co.edu.unbosque.view.View;
 
 /**
@@ -24,7 +21,6 @@ public class Controller implements ActionListener {
 	private Mundo mundo = new Mundo();
 	private View view = new View();
 	public final static String NOMBREPROYECTO = "Hide & Seek";
-	private ArchivoClientes archivoc;
 	
 	
 	
@@ -35,8 +31,7 @@ public class Controller implements ActionListener {
 	 * @throws IOException
 	 */
 	public Controller() throws Exception {
-		Consola();
-		
+		GUI();
 	}
 
 	/**
@@ -86,16 +81,72 @@ public class Controller implements ActionListener {
 		try {
 			view.setTitle(NOMBREPROYECTO);
 			view.start(this);
+			startUp();
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 	}
 	
-	public void registrarse() throws Exception {
+	public void startUp() {
+		view.setVisible(false);
+		view.getLogin().setVisible(true);
+	}
+	
+	public void login(String user, String password) throws Exception {
+		doLogin(verificarPerfil(user, password));
+	}
+	public void doLogin(int userType) throws Exception {
+		switch (userType) {
+		case 1:
+			view.setVisible(true);
+			view.getAdmin().setVisible(true);
+			view.getUsuarios().setVisible(true);
+			view.getParejas().setVisible(true);
+			break;
+		case 2:
+			view.setVisible(true);
+			view.getAdmin().setVisible(false);
+			view.getUsuarios().setVisible(true);
+			view.getParejas().setVisible(true);
+			break;
+		case 3:
+			view.setVisible(true);
+			view.getAdmin().setVisible(false);
+			view.getUsuarios().setVisible(false);
+			view.getParejas().setVisible(true);
+			break;
+		default:
+			view.getDialogos().output("Error", "Usuario y/o clave incorrecta. Verifique las credenciales y el tipo de usuario e intente nuevamente", JOptionPane.ERROR_MESSAGE);
+			break;
+		}
+	}
+	
+	public void registrar() throws Exception {
+		if(mundo.getClienteDAO().agregarCliente(mundo.getClientes(), view.getRegistrar().getTextnom().getText(), 0.0, view.getRegistrar().getTextusuario().getText(), view.getRegistrar().getTextcorreo().getText(), view.getRegistrar().getTextclave().getText(), view.getRegistrar().getGenerocombo().getSelectedItem().toString())) {
+			mundo.getArchivoc().escribirEnArchivo(mundo.getClientes());
+		}
+	}
+	
+	public int verificarPerfil(String user, String password) throws Exception {
+		int ans = 0;
+		if(mundo.getTiendaDAO().verificarPasswordAdministrador(mundo.getTiendas().get(0), user, password)) {
+			ans = 1;
+		}
+		if(mundo.getClienteDAO().verificarPswdCliente(mundo.getClientes(), user, password)) {
+			ans = 2;
+			for (int i = 0; i < mundo.getClientes().size(); i++) {
+				if(mundo.getClienteDAO().verificarPswdPareja(mundo.getClientes().get(i), user, password)) {
+					ans = 3;
+				}
+			}
+		}
+		return ans;
 		
 	}
+	
+	
 	/**
-	 * @author Carl Quinn
+	 * @author Carl Quinn && Ricardo Sanchez
 	 * Método para escuchar los eventos de la vista
 	 */
 	@SuppressWarnings("static-access")
@@ -120,17 +171,44 @@ public class Controller implements ActionListener {
 			if(e.getActionCommand() == view.getToolbar().ACERCADE) {
 				view.getDialogos().output("Acerca De", NOMBREPROYECTO+" by The Forest Software Company\nv1.0", JOptionPane.INFORMATION_MESSAGE);
 			}
-
-		} 
+			
+			if(e.getActionCommand() == view.getToolbar().CERRARSESION) {
+				//TODO: SOmeday: Logica para cerrar sesion
+				view.dispose();
+			}
+			//Formulario Login
+			if(e.getActionCommand() == view.getLogin().REGISTRAR) {
+				view.getLogin().setVisible(false);
+				view.getRegistrar().setVisible(true);
+			}
+			if(e.getActionCommand() == view.getLogin().LOGIN) {
+				login(view.getLogin().getTextcorreo().getText(), view.getLogin().getTextclave().getText());
+				
+			}
+			//Formulario Registro
+			if(e.getActionCommand() == view.getRegistrar().CANCELAR) {
+				view.getRegistrar().setVisible(false);
+				view.getLogin().setVisible(true);
+				view.getRegistrar().clean();
+				
+			}
+			if(e.getActionCommand() == view.getRegistrar().REGISTRAR) {
+				view.getRegistrar().setVisible(false);
+				registrar();
+				view.getLogin().setVisible(true);
+				view.getRegistrar().clean();
+			}
+		}
+			
 		/*
 		 * Estas líneas son para controlar en caso de que por falta de memoria no genere
 		 * el log. Esto es vital para el programa ya que me permite llevar una trazabilidad
 		 */
 		catch (Exception e2) {
-			
-			view.getDialogos().output("Error", "Ha ocurrido un error inesperado\n"
-					+ "Se ha creado en <proyecto>/docs/Output un archivo myLog.log en donde aparece el detalle específico del error causado.",
-					JOptionPane.ERROR_MESSAGE);
+			StringWriter errors = new StringWriter();
+			e2.printStackTrace(new PrintWriter(errors));
+			System.out.println(errors);
+			view.getDialogos().output("ERROR FATAL", "Ocurrio un error", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}

@@ -6,11 +6,11 @@ import java.awt.*;
 public class PanelFuncionesSuperiores extends JPanel implements GabenPanel{
 
 	private static final long serialVersionUID = 1L;
-	private JSeparator separador = new JSeparator();
+	//private JSeparator separador = new JSeparator();
 	private JMenuBar tooltip = new JMenuBar();
 	private JMenu archivo = new JMenu("Archivo"), ayuda = new JMenu("Ayuda");
-	private JMenuItem nuevo = new JMenuItem("Nuevo"), guardar = new JMenuItem("Guardar"), cargar = new JMenuItem("Cargar"), acercaDe = new JMenuItem("Acerca De"), salir = new JMenuItem("Salir");
-	public static final String NUEVOARCHIVO = "NuevoArchivoFrame", GUARDAR = "GuardarArchivoFrame", CARGAR = "CargarArchivoFrame", ACERCADE = "AcercaDeArchivoFrame", SALIR = "SalirFrame";
+	private JMenuItem nuevo = new JMenuItem("Nuevo"), guardar = new JMenuItem("Guardar"), cargar = new JMenuItem("Cargar"), acercaDe = new JMenuItem("Acerca De"), salir = new JMenuItem("Salir"), cerrarSesion = new JMenuItem("Cerrar Sesion");
+	public static final String NUEVOARCHIVO = "NuevoArchivoFrame", GUARDAR = "GuardarArchivoFrame", CARGAR = "CargarArchivoFrame", ACERCADE = "AcercaDeArchivoFrame", SALIR = "SalirFrame", CERRARSESION = "CERRARSESIONFrame";
 	
 	public PanelFuncionesSuperiores() {
 		load();
@@ -25,12 +25,14 @@ public class PanelFuncionesSuperiores extends JPanel implements GabenPanel{
 		cargar.setActionCommand(CARGAR);
 		acercaDe.setActionCommand(ACERCADE);
 		salir.setActionCommand(SALIR);
+		cerrarSesion.setActionCommand(CERRARSESION);
 	}
 	
 	public void addComponents() {
 		add(tooltip, BorderLayout.CENTER);
 		tooltip.add(archivo); tooltip.add(ayuda);
-		archivo.add(nuevo); archivo.add(separador); archivo.add(guardar); archivo.add(cargar); archivo.add(separador); archivo.add(salir);
+		archivo.add(cerrarSesion); archivo.addSeparator(); archivo.add(salir);
+		//archivo.add(nuevo); archivo.add(separador); archivo.add(guardar); archivo.add(cargar); archivo.add(separador); archivo.add(salir);
 		ayuda.add(acercaDe);
 	}
 
@@ -53,7 +55,9 @@ public class PanelFuncionesSuperiores extends JPanel implements GabenPanel{
 	public JMenuItem getSalir() {
 		return salir;
 	}
-	
-	
+
+	public JMenuItem getCerrarSesion() {
+		return cerrarSesion;
+	}
 	
 }
