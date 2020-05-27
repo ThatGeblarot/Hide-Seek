@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import co.edu.unbosque.model.Cliente;
 import co.edu.unbosque.model.Pareja;
-import co.edu.unbosque.model.persistence.ArchivoClientes;
 
 public class ClienteDAO {
 	
@@ -33,6 +32,32 @@ private ArchivoClientes archivo;
 		}else{
 			info= buscarCliente(clientes, userid).toString();
 			return info;
+		}
+	}
+	
+	public boolean actualizarCliente(ArrayList<Cliente> clientes,String userid, String userpareja, String nuevouser, String correo, String nombre){
+		Cliente c=buscarCliente(clientes, userid);
+		if(c==null) {
+			return false;
+		}else {
+			c.setNombre(nombre);
+			c.setCorreo(correo);
+			c.setUserid(nuevouser);
+			
+			getArchivo().escribirEnArchivo(clientes);
+			return true;
+		}
+	}
+	
+	public boolean asignarCupoCliente(ArrayList<Cliente> clientes,String userid, double nuevocupo){
+		Cliente c=buscarCliente(clientes, userid);
+		if( c== null){
+			return false;
+		}else {
+			c.setCupo(nuevocupo);	
+			getArchivo().escribirEnArchivo(clientes);
+			return true;			
+		
 		}
 	}
 	
@@ -66,6 +91,7 @@ private ArchivoClientes archivo;
 		}
 	}
 	
+	//metodo de verificar pasword cliente
 	public boolean verificarPswdCliente(ArrayList<Cliente> clientes, String userid, String contraseña) {
 		Cliente c=buscarCliente(clientes,userid);
 		if (c==null){
@@ -82,7 +108,7 @@ private ArchivoClientes archivo;
 		
 	
 	}
-	// toca hacer metodo de buscar parejas de agregar y de eliminar
+	
 	public boolean agregarPareja(ArrayList<Cliente> clientes,String userid, String nombre, double cupo, String userpareja, String correo, String contraseña, String genero){
 		Pareja nuevo= new Pareja( nombre,  cupo, userid,correo, contraseña,  genero);
 		Cliente c=buscarCliente(clientes, userid);
@@ -95,6 +121,8 @@ private ArchivoClientes archivo;
 		}
 	}
 	
+	
+	//metodo para verificar password de pareja
 	public boolean verificarPswdPareja(Cliente c, String userpareja, String clavepareja) {
 		Pareja d=buscarPareja(c,userpareja);
 		if (d==null){
@@ -110,6 +138,59 @@ private ArchivoClientes archivo;
 		}
 		
 	}
+	
+	
+	
+	//agregar las restricciones de horario a la pareja
+	public boolean agregarHorario(ArrayList<Cliente> clientes,String userid, String userpareja, String dia, String inicio, String fin){
+		
+		Cliente c=buscarCliente(clientes, userid);
+		Pareja p=buscarPareja(c,userpareja);
+		if( p.getDia()== null){
+			p.setDia(dia);
+			p.setInicio(inicio);
+			p.setFin(fin);
+			
+			getArchivo().escribirEnArchivo(clientes);
+			return true;
+		}else {
+			return false;			
+		}
+	}
+	
+	
+	
+	public boolean actualizarPareja(ArrayList<Cliente> clientes,String userid, String userpareja, String nuevouser, String correo, String nombre){
+		
+		Cliente c=buscarCliente(clientes, userid);
+		Pareja p=buscarPareja(c,userpareja);
+		if( p== null){
+		return false;
+		}else {
+			p.setNombre(nombre);
+			p.setCorreo(correo);
+			p.setUserid(nuevouser);
+			
+			getArchivo().escribirEnArchivo(clientes);
+			return true;			
+		}
+	}
+	
+	
+	public boolean AsignarCupoPareja(ArrayList<Cliente> clientes,String userid, String userpareja, double nuevocupo){
+		
+		Cliente c=buscarCliente(clientes, userid);
+		Pareja p=buscarPareja(c,userpareja);
+		if( p== null){
+			return false;
+		}else {
+			p.setCupo(nuevocupo);	
+			getArchivo().escribirEnArchivo(clientes);
+			return true;			
+		}
+	}
+	
+	
 	
 	public boolean eliminarPareja(Cliente c, String userpareja,ArrayList<Cliente> clientes){
 		ArrayList <Pareja> d=c.getParejas();
@@ -143,6 +224,11 @@ private ArchivoClientes archivo;
 		
 		return null;
 	}
+	
+	
+	
+	
+	
 	
 	public ArchivoClientes getArchivo() {
 		return archivo;

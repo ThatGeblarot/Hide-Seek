@@ -1,9 +1,14 @@
 package co.edu.unbosque.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cliente {
+public class Cliente implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private double cupo;
 	private String userid;
@@ -11,7 +16,11 @@ public class Cliente {
 	private String contraseña;
 	private String genero;
 	private String tipo;
+	private double gasto;
 	private ArrayList <Pareja> parejas;
+	
+	
+	
 	
 	
 	
@@ -26,7 +35,9 @@ public class Cliente {
 		this.contraseña = contraseña;
 		this.genero = genero;
 		this.tipo = "0";
+		this.gasto=0;
 		parejas = new ArrayList<Pareja>();
+		
 	}
 	
 	
@@ -76,6 +87,16 @@ public class Cliente {
 	}
 
 
+	public double getGasto() {
+		return gasto;
+	}
+
+
+	public void setGasto(double gasto) {
+		this.gasto = gasto;
+	}
+
+
 	public ArrayList<Pareja> getParejas() {
 		return parejas;
 	}
@@ -85,10 +106,27 @@ public class Cliente {
 	}
 
 
+	public double saldoCliente() {
+		
+		return cupo-gasto;
+	}
+	
+	//método que muestra nombre de parejas de un cliente
+	public String[] listarParejas() {
+	int c=parejas.size();
+	
+	String[] nombreparejas=new String[c];
+	
+		for (int i = 0; i < c; i++) {
+			nombreparejas[i]=parejas.get(i).getNombre();
+		}
+		
+		return nombreparejas;
+	}
+	
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", cupo=" + cupo + ", userid=" + userid + ", correo=" + correo
-				+ ", genero=" + genero + ", tipo=" + tipo + "]";
+		return nombre+" con userID "+userid+ " y correo "+ correo +" tiene "+saldoCliente()+" de saldo restante";
 	}
 	
 	

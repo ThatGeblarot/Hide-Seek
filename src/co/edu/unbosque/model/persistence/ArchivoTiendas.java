@@ -16,7 +16,7 @@ public class ArchivoTiendas {
 
 	private ObjectInputStream entrada;
 	private ObjectOutputStream salida;
-	private File archivo =new File(".\\data\\Base de Datos Tiendas.dat");
+	private File archivo =new File("./data/Base de Datos Tiendas.dat");
 	
 	public ArchivoTiendas(){
 		
@@ -24,8 +24,9 @@ public class ArchivoTiendas {
 			//System.out.println("El archivo ya existe");
 		}else{
 			try {
+				//archivo.mkdir();
 				archivo.createNewFile();
-			} catch (IOException e) {
+			} catch (Exception e) {
 				System.out.println("Creación del archivo tiendas: " +e.getMessage());
 			}
 		}
@@ -44,6 +45,7 @@ public class ArchivoTiendas {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public ArrayList<Tienda> leerArchivo(){
 		ArrayList<Tienda> tiendas= new ArrayList<Tienda>();
 		if (getArchivoTiendas().length()!= 0) {

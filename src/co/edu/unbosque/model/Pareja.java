@@ -4,11 +4,15 @@ public class Pareja {
 	
 	private String nombre;
 	private double cupo;
-	private String userid;
+	private String userid;//este es el user id de pareja
 	private String correo;
 	private String contraseña;
 	private String genero;
 	private String tipo;
+	private double gasto;
+	private String dia;
+	private String inicio;
+	private String fin;
 	
 	
 	
@@ -21,6 +25,10 @@ public class Pareja {
 		this.correo = correo;
 		this.contraseña = contraseña;
 		this.genero = genero;
+		this.gasto=0;
+		this.dia=null;
+		this.inicio=null;
+		this.fin=null;
 		this.tipo="1";
 	}
 	
@@ -64,7 +72,47 @@ public class Pareja {
 		return tipo;
 	}
 
-	
+	public double getGasto() {
+		return gasto;
+	}
+
+	public void setGasto(double gasto) {
+		this.gasto = gasto;
+	}
+
+	public double saldoPareja() {
+		double sal=cupo-gasto;
+		return sal;
+	}
+
+	public String getDia() {
+		return dia;
+	}
+
+	public void setDia(String dia) {
+		this.dia = dia;
+	}
+
+	public String getInicio() {
+		return inicio;
+	}
+
+	public void setInicio(String inicio) {
+		this.inicio = inicio;
+	}
+
+	public String getFin() {
+		return fin;
+	}
+
+	public void setFin(String fin) {
+		this.fin = fin;
+	}
+
+	@Override
+	public String toString() {
+		return nombre + " "+ userid+"tiene un saldo restante de "+saldoPareja(); 
+	}
 	
 	
 	
