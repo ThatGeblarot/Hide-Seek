@@ -36,6 +36,7 @@ private ArchivoClientes archivo;
 		}
 	}
 	
+	
 
 	
 	public boolean agregarCliente(ArrayList<Cliente> clientes, String nombre, double cupo, String userid, String correo, String contraseña, String genero){
@@ -66,6 +67,7 @@ private ArchivoClientes archivo;
 		}
 	}
 	
+	//metodo de verificar pasword cliente
 	public boolean verificarPswdCliente(ArrayList<Cliente> clientes, String userid, String contraseña) {
 		Cliente c=buscarCliente(clientes,userid);
 		if (c==null){
@@ -82,7 +84,7 @@ private ArchivoClientes archivo;
 		
 	
 	}
-	// toca hacer metodo de buscar,agregar y de eliminar parejas
+	
 	public boolean agregarPareja(ArrayList<Cliente> clientes,String userid, String nombre, double cupo, String userpareja, String correo, String contraseña, String genero){
 		Pareja nuevo= new Pareja( nombre,  cupo, userid,correo, contraseña,  genero);
 		Cliente c=buscarCliente(clientes, userid);
@@ -95,6 +97,8 @@ private ArchivoClientes archivo;
 		}
 	}
 	
+	
+	//metodo para verificar password de pareja
 	public boolean verificarPswdPareja(Cliente c, String userpareja, String clavepareja) {
 		Pareja d=buscarPareja(c,userpareja);
 		if (d==null){
@@ -110,6 +114,28 @@ private ArchivoClientes archivo;
 		}
 		
 	}
+	
+	
+	
+	//agregar las restricciones de horario a la pareja
+	public boolean agregarHorario(ArrayList<Cliente> clientes,String userid, String userpareja, String dia, String inicio, String fin){
+		
+		Cliente c=buscarCliente(clientes, userid);
+		Pareja p=buscarPareja(c,userpareja);
+		if( p.getDia()== null){
+			p.setDia(dia);
+			p.setInicio(inicio);
+			p.setFin(fin);
+			
+			getArchivo().escribirEnArchivo(clientes);
+			return true;
+		}else {
+			return false;			
+		}
+	}
+	
+
+	
 	
 	public boolean eliminarPareja(Cliente c, String userpareja,ArrayList<Cliente> clientes){
 		ArrayList <Pareja> d=c.getParejas();
