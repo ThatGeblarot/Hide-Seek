@@ -1,7 +1,13 @@
 package co.edu.unbosque.model;
 
-public class Administrador {
+import java.io.Serializable;
 
+public class Administrador implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String adminuser;
 	private String password;
 	

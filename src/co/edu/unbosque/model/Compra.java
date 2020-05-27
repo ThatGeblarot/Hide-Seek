@@ -1,6 +1,8 @@
 package co.edu.unbosque.model;
 
-public class Compra {
+import java.io.Serializable;
+
+public class Compra implements Serializable{
 	
 	private String date;
 	private String tienda;
