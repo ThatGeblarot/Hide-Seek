@@ -15,8 +15,8 @@ import javax.swing.JTextField;
 public class JDialogLogin extends JDialog{
 	
 	private static final long serialVersionUID = 1L;
-	private JLabel labeluser = new JLabel("Usuario:");
-	private JLabel labelcorreo = new JLabel("Correo:");
+	private JLabel labelcliente = new JLabel("Cliente:");
+	private JLabel labelusuario = new JLabel("Usuario:");
 	private JLabel labelclave = new JLabel("Clave: ");
 	
 	private JButton botonLogin = new JButton("Iniciar Sesion");
@@ -26,7 +26,7 @@ public class JDialogLogin extends JDialog{
 	private JTextField textusuario = new JTextField("");
 	private JComboBox<String> combo = new JComboBox<String>();
 	public final String LOGIN = "login";
-	public final String REGISTRAR = "registrar";
+	public final String REGISTRAR = "registrarlogin";
 	public JDialogLogin() {
 		try {
 			cargar();
@@ -50,14 +50,14 @@ public class JDialogLogin extends JDialog{
 		/**
 		 * TODO Agregar un text para que ingrese el nombre de usuario en caso de pareja 
 		 */
-		labeluser.setBounds(150,65,100, 50);
+		labelcliente.setBounds(150,65,100, 50);
 		textusuario.setBounds(215,80, 200, 25);
-		labeluser.setVisible(false);
-		textcorreo.setVisible(false);
+		textusuario.setEditable(false);
 		
-		labelcorreo.setBounds(150, 125, 100, 50);
+		
+		labelusuario.setBounds(150, 125, 100, 50);
 		textcorreo.setBounds(215,135, 200, 25);
-		labelcorreo.setForeground(Color.BLACK);
+		labelusuario.setForeground(Color.BLACK);
 	
 		
 		labelclave.setBounds(150,175,100,50);
@@ -67,9 +67,11 @@ public class JDialogLogin extends JDialog{
 	  
 	    
 		botonLogin.setBounds(125,250, 150, 50);
+		botonLogin.setActionCommand(LOGIN);
 		botonLogin.setBackground(Color.white);
 		
 		botonRegistrarse.setBounds(325,250,150,50);
+		botonRegistrarse.setActionCommand(REGISTRAR);
 		botonRegistrarse.setBackground(Color.white);
 		
 		combo.addItem("Usuario");
@@ -85,8 +87,8 @@ public class JDialogLogin extends JDialog{
 	}
 	
 	public void addComponentes() {
-		add(labeluser);
-		add(labelcorreo);
+		add(labelcliente);
+		add(labelusuario);
 		add(labelclave);
 		
 		add(textusuario);
@@ -100,16 +102,41 @@ public class JDialogLogin extends JDialog{
 		
 	}
 	public void clean() {
+		textusuario.setText("");
 		textcorreo.setText("");
 		textclave.setText("");
 	}
+    
+	public JLabel getLabeluser() {
+		return labelcliente;
+	}
+
+	public void setLabeluser(JLabel labeluser) {
+		this.labelcliente = labeluser;
+	}
+
+	public JTextField getTextusuario() {
+		return textusuario;
+	}
+
+	public void setTextusuario(JTextField textusuario) {
+		this.textusuario = textusuario;
+	}
+
+	public void setBotonRegistrarse(JButton botonRegistrarse) {
+		this.botonRegistrarse = botonRegistrarse;
+	}
+
+	public void setCombo(JComboBox<String> combo) {
+		this.combo = combo;
+	}
 
 	public JLabel getLabelcorreo() {
-		return labelcorreo;
+		return labelusuario;
 	}
 
 	public void setLabelcorreo(JLabel labelcorreo) {
-		this.labelcorreo = labelcorreo;
+		this.labelusuario = labelcorreo;
 	}
 
 	public JLabel getLabelclave() {

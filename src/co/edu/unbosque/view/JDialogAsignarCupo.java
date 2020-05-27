@@ -64,10 +64,13 @@ public class JDialogAsignarCupo extends JDialog {
 		JPanel panelboton = new JPanel();
 		panelboton.setLayout(new GridLayout(3, 1));
 		Asignar.setBackground(Color.BLACK);
+		Asignar.setActionCommand(ASIGNAR);
 		Asignar.setForeground(Color.WHITE);
 		Quitar.setBackground(Color.BLACK);
+		Quitar.setActionCommand(QUITAR);
 		Quitar.setForeground(Color.WHITE);
 		Cancelar.setBackground(Color.BLACK);
+		Cancelar.setActionCommand(CANCELAR);
 		Cancelar.setForeground(Color.WHITE);
 		panelboton.add(Asignar);
 		panelboton.add(Quitar);

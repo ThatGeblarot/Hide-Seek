@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -88,7 +89,7 @@ public class Controller implements ActionListener {
 			view.start(this);
 			login();
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 	}
 	
@@ -98,14 +99,13 @@ public class Controller implements ActionListener {
 			view.getLogin().setVisible(true);
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 	
-	public void registrarse() throws Exception {
-		
-	}
+	
 	/**
-	 * @author Carl Quinn
+	 * @author Carl Quinn && Ricardo Sanchez
 	 * Método para escuchar los eventos de la vista
 	 */
 	@SuppressWarnings("static-access")
@@ -130,8 +130,93 @@ public class Controller implements ActionListener {
 			if(e.getActionCommand() == view.getToolbar().ACERCADE) {
 				view.getDialogos().output("Acerca De", NOMBREPROYECTO+" by The Forest Software Company\nv1.0", JOptionPane.INFORMATION_MESSAGE);
 			}
+			
 			if(e.getActionCommand() == view.getToolbar().CERRARSESION) {
 				
+			}
+			/*
+			 * Login y registro
+			 */
+			if(e.getActionCommand() == view.getLogin().REGISTRAR) {
+				view.getLogin().setVisible(false);
+				view.getRegistrar().setVisible(true);
+				//TODO verficar porque los metodos no funcionan para los botones
+				if(e.getActionCommand() == view.getRegistrar().CANCELAR) {
+					view.getRegistrar().setVisible(false);
+					view.getLogin().setVisible(true);
+					view.getRegistrar().clean();
+					
+				}
+				if(e.getActionCommand() == view.getRegistrar().REGISTRAR) {
+					view.getRegistrar().setVisible(false);
+					view.getLogin().setVisible(true);
+					//TODO logica
+				}
+			}
+			//Login Pareja
+			//Verifica si el combobox es pareja
+			if(view.getLogin().getCombo().getSelectedItem().equals("Pareja")) {
+				view.getLogin().getTextusuario().setEditable(true);
+				view.getLogin().getBotonRegistrarse().setEnabled(false);
+				/*
+				 * //verifica si es pareja y el boton login para que entre el orden Login Pareja
+				 * TODO verificar porque no sirven no acciona el boton con las condicionales
+				 */
+				
+				if((e.getActionCommand() == view.getLogin().LOGIN)&&(view.getLogin().getCombo().getSelectedItem().equals("Pareja"))){
+				 view.getParejas().setVisible(true);
+				 view.getUsuarios().setVisible(false);
+				 view.getAdmin().setVisible(false);
+				 view.getLogin().setVisible(false);
+				 view.setVisible(true);
+				 view.getLogin().clean();
+				 //Entra a EliminarDatos
+				 if(e.getSource() == view.getParejas().getBotonEliminarDatos()) {
+					 view.setVisible(false);
+					 view.getEliminar().setVisible(true);
+					 if(e.getActionCommand() == view.getEliminar().ELIMINAR) {
+						 //TODO logica de mostrar afiliados
+					 }
+					 if(e.getActionCommand() == view.getEliminar().CANCELAR) {
+						 view.getEliminar().setVisible(false);
+						 view.setVisible(true);
+					 }
+					//TODO realizar todas las condicionales para los otros botones en el panel parejas
+					 
+				 }
+				}
+				/*
+				 * TODO hacer la misma logica de parejas pero con usuarios
+				 */
+			}
+			//Login Usuario
+			if(view.getLogin().getCombo().getSelectedItem().equals("Usuario")) {
+				view.getLogin().getTextusuario().setEditable(false);
+				view.getLogin().getBotonRegistrarse().setEnabled(true);
+				if((e.getActionCommand() == view.getLogin().LOGIN)&&(view.getLogin().getCombo().getSelectedItem().equals("Usuario"))){
+				 	
+				 view.getParejas().setVisible(true);
+				 view.getUsuarios().setVisible(true);
+				 view.getAdmin().setVisible(false);
+				 view.setVisible(true);
+				 view.getLogin().clean();
+				 
+				}
+			}
+			/*
+			 * TODO hacer la misma logica de parejas pero con admin
+			 */
+			//Login Admin
+			if(view.getLogin().getCombo().getSelectedItem().equals("Admin")) {
+				view.getLogin().getTextusuario().setEditable(false);
+				view.getLogin().getBotonRegistrarse().setEnabled(true);
+				if((e.getActionCommand() == view.getLogin().LOGIN)&&(view.getLogin().getCombo().getSelectedItem().equals("Admin"))){
+				 view.getParejas().setVisible(true);
+				 view.getUsuarios().setVisible(true);
+				 view.getAdmin().setVisible(true);
+				 view.setVisible(true);
+				 view.getLogin().clean();
+				}
 			}
 
 		} 

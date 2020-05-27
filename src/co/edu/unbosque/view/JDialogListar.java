@@ -64,10 +64,13 @@ public class JDialogListar extends JDialog {
 		JPanel panelboton = new JPanel();
 		panelboton.setLayout(new GridLayout(3,1));
 		Mostrar.setBackground(Color.BLACK);
+		Mostrar.setActionCommand(MOSTRAR);
 		Mostrar.setForeground(Color.WHITE);
 		Limpiar.setBackground(Color.BLACK);
+		Limpiar.setActionCommand(LIMPIAR);
 		Limpiar.setForeground(Color.WHITE);
 		Cancelar.setBackground(Color.BLACK);
+		Cancelar.setActionCommand(CANCELAR);
 		Cancelar.setForeground(Color.WHITE);
 		panelboton.add(Mostrar);
 		panelboton.add(Limpiar);

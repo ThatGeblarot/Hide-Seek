@@ -28,6 +28,7 @@ public class View extends JFrame implements GabenFrame {
 	private JDialogLogin login = new JDialogLogin();
 	private JDialogPago pago = new JDialogPago();
 	private JDialogRegistrar registrar = new JDialogRegistrar();
+	private JDialogMostrarCompras mostrarcompras = new JDialogMostrarCompras();
 	/**
 	 * Método para iniciar la ventana principal
 	 * @author Gabriel Blanco
@@ -70,7 +71,7 @@ public class View extends JFrame implements GabenFrame {
 	/**
 	 * Método para escuchar los componentes donde <pre>Controller</pre> va a manejar todas
 	 * estas excepciones.
-	 * @author Gabriel Blanco
+	 * @author Gabriel Blanco & Ricardo Sanchez
 	 * @param control
 	 */
 	public void listenComponents(Controller control) {
@@ -109,6 +110,9 @@ public class View extends JFrame implements GabenFrame {
 		//Dialogo Registrar
 		registrar.getBotonRegistrar().addActionListener(control);
 		registrar.getBotonCancelar().addActionListener(control);
+		//Dialogo Mostrar Compras
+		mostrarcompras.getBotonmostrardatos().addActionListener(control);
+		mostrarcompras.getBotonmostrardatos().addActionListener(control);
 		
 	}
 	

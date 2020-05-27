@@ -15,7 +15,6 @@ public class JPanelParejas extends JPanel {
 	private JButton botonActualizarDatos = new JButton ("Actualizar Datos ");
 	private JButton botonHacerPago = new JButton("Realizar Pago");
 	private JButton botonDatos = new JButton ("Informacion personal");
-	private JButton botonListaAfiliados = new JButton("Lista Afiliados");
 	public final String DATOS = "mostrar datos";
 	public final String ELIMINARDATOS="eliminar datos";
 	public final String ACTUALIZARDATOS = "actualizar Datos";
@@ -37,18 +36,11 @@ public class JPanelParejas extends JPanel {
 		setLayout(null);
 		
 		
-		
-
-		
-		botonListaAfiliados.setBounds(50, 25, 200, 50);
-		botonListaAfiliados.setActionCommand(LISTAAFILIADOS);
-		botonListaAfiliados.setBackground(Color.WHITE);
-		
-		botonActualizarDatos.setBounds(300,25 ,200, 50);
+		botonActualizarDatos.setBounds(175,25 ,200, 50);
 		botonActualizarDatos.setActionCommand(ACTUALIZARDATOS);
 		botonActualizarDatos.setBackground(Color.WHITE);
 		
-		botonDatos.setBounds(550, 25, 200, 50);
+		botonDatos.setBounds(425, 25, 200, 50);
 		botonDatos.setActionCommand(DATOS);
 		botonDatos.setBackground(Color.WHITE);
 		
@@ -71,7 +63,6 @@ public class JPanelParejas extends JPanel {
 
 	public void addComponentes() {
 		add(botonDatos);
-		add(botonListaAfiliados);
 		add(botonEliminarDatos);
 		add(botonActualizarDatos);
         add(botonHacerPago);
@@ -134,15 +125,6 @@ public class JPanelParejas extends JPanel {
 	public void setBotonDatos(JButton botonDatos) {
 		this.botonDatos = botonDatos;
 	}
-
-	public JButton getBotonListaAfiliados() {
-		return botonListaAfiliados;
-	}
-
-	public void setBotonListaAfiliados(JButton botonListaAfiliados) {
-		this.botonListaAfiliados = botonListaAfiliados;
-	}
-
 	public String getDATOS() {
 		return DATOS;
 	}

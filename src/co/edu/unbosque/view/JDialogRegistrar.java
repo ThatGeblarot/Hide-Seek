@@ -25,8 +25,8 @@ public class JDialogRegistrar extends JDialog {
 	private JTextField textclave = new JTextField("");
 	private JTextField textconfclave = new JTextField("");
 	private JComboBox<String> generocombo = new JComboBox<String>();
-	public final String REGISTRAR = "registrar";
-	public final String CANCELAR = "cancelaregistro";
+	public final String REGISTRAR = "REGISTRAR";
+	public final String CANCELAR = "CANCELAR";
 
 	public JDialogRegistrar() {
 		try {
@@ -42,12 +42,12 @@ public class JDialogRegistrar extends JDialog {
 		setTitle("Registro");
 		setSize(800, 600);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
+        
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setLayout(null);
 		setBackground(Color.BLACK);
-		
+		setVisible(false);
 		labelusuario.setBounds(255, 80, 100, 50);
 		textusuario.setBounds(335, 95, 200, 25);
 		
@@ -56,20 +56,22 @@ public class JDialogRegistrar extends JDialog {
 		textcorreo.setBounds(335, 145, 200, 25);
 	
 		
-		labelconfcorreo.setBounds(185,180 , 200, 50);
+		labelconfcorreo.setBounds(195,180 , 200, 50);
 		textconfcorreo.setBounds(335,195, 200, 25);
 
-		labelclave.setBounds(270, 230, 100, 50);
+		labelclave.setBounds(265, 230, 100, 50);
 		textclave.setBounds(335, 245, 200, 25);
 	
 
-		labelconfclave.setBounds(195, 280, 200, 50);
+		labelconfclave.setBounds(205, 280, 200, 50);
 		textconfclave.setBounds(335, 295, 200, 25);
 
 		botonRegistrar.setBounds(250, 400, 100, 50);
+		botonRegistrar.setActionCommand(REGISTRAR);
 		botonRegistrar.setBackground(Color.WHITE);
 
 		botonCancelar.setBounds(400, 400, 100, 50);
+		botonCancelar.setActionCommand(CANCELAR);
 		botonCancelar.setBackground(Color.WHITE);
 		
 		labelgenero.setBounds(260, 335, 100, 50);
@@ -77,8 +79,9 @@ public class JDialogRegistrar extends JDialog {
 		generocombo.addItem("Hombre");
 		generocombo.addItem("Mujer");
 		generocombo.addItem("Otro");
+	
 
-		setVisible(false);
+		
 	}
 	public void clean() {
 		textusuario.setText("");
@@ -106,7 +109,7 @@ public class JDialogRegistrar extends JDialog {
 		add(botonCancelar);
 
 	}
-
+    
 	public JLabel getLabelnom() {
 		return labelusuario;
 	}
