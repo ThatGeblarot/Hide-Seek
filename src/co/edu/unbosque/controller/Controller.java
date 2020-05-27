@@ -200,15 +200,19 @@ public class Controller implements ActionListener {
 
 			}
 			if (e.getActionCommand() == view.getRegistrar().REGISTRAR) {
-				view.getRegistrar().setVisible(false);
-				if(!(view.getRegistrar().getTextcorreo().getText() == view.getRegistrar().getTextconfcorreo().getText() && view.getRegistrar().getTextclave().getText() == view.getRegistrar().getTextconfclave().getText())) {
-					view.getDialogos().output("Error", "La clave o el correo no coinciden.", JOptionPane.ERROR_MESSAGE);
-				}
-				else {
+				if (!(view.getRegistrar().getTextcorreo().getText() == view.getRegistrar().getTextconfcorreo().getText()
+						&& view.getRegistrar().getTextclave().getText() == view.getRegistrar().getTextconfclave()
+								.getText())) {
+					view.getDialogos().output("Error",
+							"La clave o el correo no coinciden. Verifique los campos e intente nuevamente.",
+							JOptionPane.ERROR_MESSAGE);
+					view.getRegistrar().clean();
+				} else {
+					view.getRegistrar().setVisible(false);
 					registrar();
+					view.getLogin().setVisible(true);
+					view.getRegistrar().clean();
 				}
-				view.getLogin().setVisible(true);
-				view.getRegistrar().clean();
 			}
 			/*
 			 * Panel Parejas
@@ -217,16 +221,22 @@ public class Controller implements ActionListener {
 				view.getListar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getParejas().DATOS) {
-				
+				view.getPersonal().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getParejas().ACTUALIZARDATOS) {
-
+				view.getActualizar().setVisible(true);
+			}
+			if (e.getActionCommand() == view.getParejas().ELIMINARDATOS) {
+				view.getEliminar().setVisible(true);
+			}
+			if (e.getActionCommand() == view.getParejas().HACERPAGO) {
+				view.getPago().setVisible(true);
 			}
 			/*
 			 * Panel Usuarios
 			 */
 			if (e.getActionCommand() == view.getUsuarios().AGREGARPAREJA) {
-				
+				view.getBuscador().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ELIMINARPAREJA) {
 

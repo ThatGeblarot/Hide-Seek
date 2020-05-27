@@ -1,6 +1,5 @@
 package co.edu.unbosque.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JButton;
@@ -14,8 +13,8 @@ public class JDialogPersonal extends JDialog implements GabenDialog {
 	private JButton botonMostrar = new JButton("Mostrar informacion");
 	private JButton botonCancelar = new JButton("Cancelar");
 	private JTextField textpersonal = new JTextField("");
-	public final String MOSTRAR= "mostrarpersonal";
-	public final String CANCELAR = "cancelarpersonal";
+	public static final String MOSTRAR= "mostrarpersonal";
+	public static final String CANCELAR = "cancelarpersonal";
     
 	public JDialogPersonal() {
 		try {
@@ -27,10 +26,9 @@ public class JDialogPersonal extends JDialog implements GabenDialog {
 	}
 
 	public void load() {
-		setLayout(new BorderLayout());
 		setTitle("Informacion Personal");
 		setSize(800,400);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		
 		setResizable(false);
 		setLocationRelativeTo(null);
