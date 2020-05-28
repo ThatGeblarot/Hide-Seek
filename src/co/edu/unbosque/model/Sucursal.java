@@ -15,7 +15,7 @@ public class Sucursal {
 	
 	/**
      * Es el contructor de la clase Sucursal
-     * @param direcci�n donde se encuentra la sucursal
+     * @param direccion donde se encuentra la sucursal
      * @param nombre de la sucursal
      */
 	public Sucursal(String direccion, String nombre) {
@@ -27,10 +27,10 @@ public class Sucursal {
 	}
 	
 	
-	public String getDireccion() {
+	public String getdireccion() {
 		return direccion;
 	}
-	public void setDireccion(String direccion) {
+	public void setdireccion(String direccion) {
 		this.direccion = direccion;
 	}
 	public String getNombre() {

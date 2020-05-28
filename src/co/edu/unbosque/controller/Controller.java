@@ -92,10 +92,12 @@ public class Controller implements ActionListener {
 	}
 
 	public void login(String user, String password) throws Exception {
+		setActualLogin(user);
 		doLogin(verificarPerfil(user, password));
 	}
 
 	public void doLogin(int userType) throws Exception {
+		setActualType(userType);
 		switch (userType) {
 		case 1:
 			view.setVisible(true);
@@ -127,9 +129,14 @@ public class Controller implements ActionListener {
 		if (mundo.getClienteDAO().agregarCliente(mundo.getClientes(), view.getRegistrar().getTextnom().getText(), 0.0,
 				view.getRegistrar().getTextusuario().getText(), view.getRegistrar().getTextcorreo().getText(),
 				view.getRegistrar().getTextclave().getText(),
-				view.getRegistrar().getGenerocombo().getSelectedItem().toString())); {
-					String[] correo = {view.getRegistrar().getTextcorreo().getText()};
-			mundo.agregarCliente(view.getRegistrar().getTextnom().getText(), 0.0, view.getRegistrar().getTextusuario().getText(), correo, view.getRegistrar().getTextclave().getText(), view.getRegistrar().getGenerocombo().getSelectedItem().toString());
+				view.getRegistrar().getGenerocombo().getSelectedItem().toString()))
+			;
+		{
+			String[] correo = { view.getRegistrar().getTextcorreo().getText() };
+			mundo.agregarCliente(view.getRegistrar().getTextnom().getText(), 0.0,
+					view.getRegistrar().getTextusuario().getText(), correo,
+					view.getRegistrar().getTextclave().getText(),
+					view.getRegistrar().getGenerocombo().getSelectedItem().toString());
 		}
 	}
 
@@ -190,6 +197,7 @@ public class Controller implements ActionListener {
 				view.getRegistrar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getLogin().LOGIN) {
+				view.getLogin().setVisible(false);
 				login(view.getLogin().getTextcorreo().getText(), view.getLogin().getTextclave().getText());
 
 			}
@@ -203,6 +211,7 @@ public class Controller implements ActionListener {
 
 			}
 			if (e.getActionCommand() == view.getRegistrar().REGISTRAR) {
+				view.getLogin().setVisible(false);
 				if ((view.getRegistrar().getTextcorreo().getText() == view.getRegistrar().getTextconfcorreo().getText()
 						&& view.getRegistrar().getTextclave().getText() == view.getRegistrar().getTextconfclave()
 								.getText())) {
@@ -233,6 +242,7 @@ public class Controller implements ActionListener {
 				view.getEliminar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getParejas().HACERPAGO) {
+				view.getPago().getSucursal().setText("Sucursal");
 				view.getPago().setVisible(true);
 			}
 			/*
@@ -251,7 +261,7 @@ public class Controller implements ActionListener {
 				view.getListar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ACTUALIZARDATOS) {
-				
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ASIGNARCUPO) {
 				view.getAsignarCupo().setVisible(true);
@@ -281,26 +291,42 @@ public class Controller implements ActionListener {
 				view.getListar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ACTUALIZARDATOSUSUARIOS) {
-
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ASIGNARCUPO) {
-
+				view.getAsignarCupo().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().HACERPAGO) {
-
+				view.getPago().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().HORARIO) {
-
+				view.getHorario().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().SUCURSALES) {
-
+				view.getComprasSucusales().setVisible(true);
 			}
 			/*
 			 * Dialog Actualizar
 			 */
+			if (e.getActionCommand() == view.getActualizar().ACTUALIZAR) {
+				view.getActualizar().setVisible(false);
+			}
+			if (e.getActionCommand() == view.getActualizar().CANCELAR) {
+				view.getActualizar().setVisible(false);
+			}
 			/*
 			 * Dialog Asignar Cupo
 			 */
+			if(e.getActionCommand() == view.getAsignarCupo().ASIGNAR) {
+				view.getPago().getSucursal().setText("Pareja");
+				view.getPago().setVisible(true);
+			}
+			if(e.getActionCommand() == view.getAsignarCupo().CANCELAR) {
+				view.getAsignarCupo().setVisible(false);
+			}
+			if(e.getActionCommand() == view.getAsignarCupo().QUITAR) {
+				view.getAsignarCupo().clean();
+			}
 			/*
 			 * Dialog Buscador
 			 */
@@ -317,9 +343,6 @@ public class Controller implements ActionListener {
 			 * Listar
 			 */
 			/*
-			 * Login
-			 */
-			/*
 			 * Mostrar Compras
 			 */
 			/*
@@ -329,12 +352,9 @@ public class Controller implements ActionListener {
 			 * Pago
 			 */
 			/*
-			 * Personal
+			 * Stats
 			 */
-			/*
-			 * Registrar
-			 */
-			
+
 		}
 
 		/*
@@ -349,6 +369,22 @@ public class Controller implements ActionListener {
 			view.getDialogos().output("ERROR FATAL", "Ocurrio un error", JOptionPane.ERROR_MESSAGE);
 		}
 
+	}
+
+	public String getActualLogin() {
+		return actualLogin;
+	}
+
+	public void setActualLogin(String actualLogin) {
+		this.actualLogin = actualLogin;
+	}
+
+	public int getActualType() {
+		return actualType;
+	}
+
+	public void setActualType(int actualType) {
+		this.actualType = actualType;
 	}
 
 }

@@ -18,6 +18,7 @@ public class TiendaDAO {
 	
 /**
  * Esta clasecontiene todos los métodos relacionados con el manejo de la tiendas, sucursales y compras.
+ * @author 
  */
 	
 private ArchivoTiendas archivo;

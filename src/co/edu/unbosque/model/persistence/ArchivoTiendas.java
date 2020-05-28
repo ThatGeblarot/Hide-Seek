@@ -14,14 +14,21 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 
 import co.edu.unbosque.model.Tienda;     
-
+/**
+ * Esta clase se encarga de hacer el manejo de los archivos de persistencia de tiendas.
+ * @author Alberto Ortega
+ */
 public class ArchivoTiendas {
 
 	private ObjectInputStream entrada;
 	private ObjectOutputStream salida;
 	private File archivo =new File("./data/Base de Datos Tiendas.dat");
 	private File path;
-	
+
+	/**
+	 * Este es el contructor de la clase archivoTiendas, este archivo contiene las tiendas inscritas.
+	 * <b>post</b> Se ha creado el archivo de tiendas<br> 
+	 */
 	public ArchivoTiendas(){
 		
 		if(archivo.exists()){
@@ -35,7 +42,12 @@ public class ArchivoTiendas {
 			}
 		}
 	}
-	
+	/**
+	 * Este metodo se encarga de escribir en el archivo de tiendas.
+	 *  <b>pre</b> La lista de tiendas está inicializada (no es null). <br>
+	 * <b>post</b> Se ha persisitido la informacion de las tiendas inscritas <br>
+	 * @param usuarios es el Arraylist que contiene a las tiendas inscritos
+	 */
 	
 	public void escribirEnArchivo(ArrayList<Tienda> tiendas){
 		try {
@@ -48,7 +60,15 @@ public class ArchivoTiendas {
 			System.out.println("Escritura de archivo tiendas: " +e.getMessage());
 		}
 	}
-	
+
+	/**
+	 * Este método lee el archivo donde se encuentra persistida la informacion  de tiendas y carga la informacion
+	 * de las tiendas inscritas al arrayList tiendas
+	 *  <b>pre</b> El archivo con la información de las tiendas existe no está vacío <br>
+	 * <b>post</b> Se ha cargado la información del archivo de tiendas y se ha retornado el arrayList
+	 * tiendas con la información <br>
+	 * @return retorna el arrayList con las tiendas que hayan sido inscritos
+	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<Tienda> leerArchivo(){
 		ArrayList<Tienda> tiendas= new ArrayList<Tienda>();
