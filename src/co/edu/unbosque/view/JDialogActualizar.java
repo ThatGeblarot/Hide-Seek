@@ -40,14 +40,12 @@ public class JDialogActualizar extends JDialog implements GabenDialog {
 	}
 
 	public void load() {
-		getContentPane().setLayout(new BorderLayout());
 		setTitle("Actualizar Datos");
 		setSize(600, 400);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 		setResizable(false);
 		setLocationRelativeTo(null);
-		getContentPane().setLayout(null);
+	    setLayout(null);
 		setBackground(Color.WHITE);
 
 		labelcorreo.setBounds(115,40 , 125, 50);

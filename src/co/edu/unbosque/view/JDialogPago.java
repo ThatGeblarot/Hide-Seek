@@ -33,10 +33,8 @@ public class JDialogPago extends JDialog implements GabenDialog {
 	}
 
 	public void load() {
-		setLayout(new BorderLayout());
 		setTitle("Pago");
 		setSize(600,400);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		setResizable(false);
 		setLocationRelativeTo(null);

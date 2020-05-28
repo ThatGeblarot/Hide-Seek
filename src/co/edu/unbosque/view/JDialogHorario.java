@@ -37,13 +37,12 @@ public class JDialogHorario extends JDialog {
 	}
 
 	public void cargar() throws Exception {
-		getContentPane().setLayout(new BorderLayout());
 		setTitle("Asignar Horario");
 		setSize(600,400);
 		
 		setResizable(false);
 		setLocationRelativeTo(null);
-		getContentPane().setLayout(null);
+	    setLayout(null);
 		
 		
         

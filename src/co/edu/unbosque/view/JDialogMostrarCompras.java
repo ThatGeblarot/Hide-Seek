@@ -19,8 +19,8 @@ public class JDialogMostrarCompras extends JDialog implements GabenDialog{
     private JScrollPane scroll = new JScrollPane();
     private JButton botonmostrardatos = new JButton("Ver Datos");
     private JButton botoncancelar= new JButton("Cancelar");
-	public final String INFORMACION= "informacion";
-	public final String CANCELAR = "cancelarinformacion";
+	public final String INFORMACION= "Informacioncompras";
+	public final String CANCELAR = "cancelarcompras";
     
 	public JDialogMostrarCompras() {
 		try {
@@ -35,7 +35,7 @@ public class JDialogMostrarCompras extends JDialog implements GabenDialog{
 		setLayout(null);
 		setTitle("Mostrar Compras");
 		setSize(800,600);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	
 		
 		setResizable(false);
 		setLocationRelativeTo(null);

@@ -11,7 +11,7 @@ public class Pareja {
 	private double cupo;
 	private String userid;//este es el user id de pareja
 	private String correo;
-	private String contraseï¿½a;
+    private String contrasena;
 	private String genero;
 	private String tipo;
 	private double gasto;
@@ -30,13 +30,13 @@ public class Pareja {
      */
 	
 	
-	public Pareja(String nombre, double cupo, String userid, String correo, String contraseï¿½a, String genero) {
+	public Pareja(String nombre, double cupo, String userid, String correo, String contraseña, String genero) {
 		super();
 		this.nombre = nombre;
 		this.cupo = cupo;
 		this.userid = userid;
 		this.correo = correo;
-		this.contraseï¿½a = contraseï¿½a;
+	this.contrasena = contraseña;
 		this.genero = genero;
 		this.gasto=0;
 		this.dia=null;
@@ -69,11 +69,11 @@ public class Pareja {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	public String getContraseï¿½a() {
-		return contraseï¿½a;
+	public String getContraseña() {
+		return contrasena;
 	}
-	public void setContraseï¿½a(String contraseï¿½a) {
-		this.contraseï¿½a = contraseï¿½a;
+	public void setContraseña(String contraseña) {
+		this.contrasena = contraseña;
 	}
 	public String getGenero() {
 		return genero;

@@ -10,7 +10,7 @@ package co.edu.unbosque.model;
 
 public class Sucursal {
 	
-	private String direcci�n;
+	private String direccion;
 	private String  nombre;
 	
 	/**
@@ -18,20 +18,20 @@ public class Sucursal {
      * @param direcci�n donde se encuentra la sucursal
      * @param nombre de la sucursal
      */
-	public Sucursal(String direcci�n, String nombre) {
+	public Sucursal(String direccion, String nombre) {
 		super();
-		this.direcci�n = direcci�n;
+		this.direccion = direccion;
 		this.nombre = nombre;
 		
 		
 	}
 	
 	
-	public String getDirecci�n() {
-		return direcci�n;
+	public String getDireccion() {
+		return direccion;
 	}
-	public void setDirecci�n(String direcci�n) {
-		this.direcci�n = direcci�n;
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 	public String getNombre() {
 		return nombre;

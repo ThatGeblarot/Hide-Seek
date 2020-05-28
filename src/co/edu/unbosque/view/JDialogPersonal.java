@@ -28,7 +28,6 @@ public class JDialogPersonal extends JDialog implements GabenDialog {
 	public void load() {
 		setTitle("Informacion Personal");
 		setSize(800,400);
-		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		
 		setResizable(false);
 		setLocationRelativeTo(null);
