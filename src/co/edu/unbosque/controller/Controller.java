@@ -20,6 +20,8 @@ public class Controller implements ActionListener {
 
 	private Mundo mundo = new Mundo();
 	private View view = new View();
+	private String actualLogin = new String();
+	private int actualType = 0;
 	public final static String NOMBREPROYECTO = "Hide & Seek";
 
 	/**
@@ -201,7 +203,7 @@ public class Controller implements ActionListener {
 
 			}
 			if (e.getActionCommand() == view.getRegistrar().REGISTRAR) {
-				if (!(view.getRegistrar().getTextcorreo().getText() == view.getRegistrar().getTextconfcorreo().getText()
+				if ((view.getRegistrar().getTextcorreo().getText() == view.getRegistrar().getTextconfcorreo().getText()
 						&& view.getRegistrar().getTextclave().getText() == view.getRegistrar().getTextconfclave()
 								.getText())) {
 					view.getDialogos().output("Error",
@@ -237,10 +239,10 @@ public class Controller implements ActionListener {
 			 * Panel Usuarios
 			 */
 			if (e.getActionCommand() == view.getUsuarios().AGREGARPAREJA) {
-				view.getBuscador().setVisible(true);
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ELIMINARPAREJA) {
-
+				
 			}
 			if (e.getActionCommand() == view.getUsuarios().ACTUALIZARPAREJA) {
 
