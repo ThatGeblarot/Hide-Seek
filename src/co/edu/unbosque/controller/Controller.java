@@ -242,6 +242,7 @@ public class Controller implements ActionListener {
 				view.getEliminar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getParejas().HACERPAGO) {
+				view.getPago().getSucursal().setText("Sucursal");
 				view.getPago().setVisible(true);
 			}
 			/*
@@ -308,14 +309,24 @@ public class Controller implements ActionListener {
 			 * Dialog Actualizar
 			 */
 			if (e.getActionCommand() == view.getActualizar().ACTUALIZAR) {
-
+				view.getActualizar().setVisible(false);
 			}
 			if (e.getActionCommand() == view.getActualizar().CANCELAR) {
-
+				view.getActualizar().setVisible(false);
 			}
 			/*
 			 * Dialog Asignar Cupo
 			 */
+			if(e.getActionCommand() == view.getAsignarCupo().ASIGNAR) {
+				view.getPago().getSucursal().setText("Pareja");
+				view.getPago().setVisible(true);
+			}
+			if(e.getActionCommand() == view.getAsignarCupo().CANCELAR) {
+				view.getAsignarCupo().setVisible(false);
+			}
+			if(e.getActionCommand() == view.getAsignarCupo().QUITAR) {
+				view.getAsignarCupo().clean();
+			}
 			/*
 			 * Dialog Buscador
 			 */
@@ -332,9 +343,6 @@ public class Controller implements ActionListener {
 			 * Listar
 			 */
 			/*
-			 * Login
-			 */
-			/*
 			 * Mostrar Compras
 			 */
 			/*
@@ -344,10 +352,7 @@ public class Controller implements ActionListener {
 			 * Pago
 			 */
 			/*
-			 * Personal
-			 */
-			/*
-			 * Registrar
+			 * Stats
 			 */
 
 		}
