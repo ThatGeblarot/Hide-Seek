@@ -181,7 +181,6 @@ public class Controller implements ActionListener {
 				view.cargarArchivo();
 			}
 			if (e.getActionCommand() == view.getToolbar().SALIR) {
-				view.getLogin().setVisible(false);
 				view.dispose();
 			}
 			if (e.getActionCommand() == view.getToolbar().ACERCADE) {
@@ -312,6 +311,18 @@ public class Controller implements ActionListener {
 			}
 			if(e.getActionCommand() == view.getAdmin().MOSTRARPDF) {
 				view.getGenerarPDF().setVisible(true); 
+			}
+			if(e.getActionCommand() == view.getAdmin().VERESTADISTICA) {
+				view.getStats().getStats().getData().setValue("Sucursal 1", 90);
+				view.getStats().getStats().getData().setValue("Sucursal 2", 120);
+				view.getStats().getStats().getData().setValue("Sucursal 3", 50);
+				int media = (90+120+50)/3;
+				int moda = 0;
+				int mediana = 90;
+				view.getStats().getModa().setText(moda+".");
+				view.getStats().getMedia().setText(media+".");
+				view.getStats().getMediana().setText(mediana+".");
+				view.getStats().setVisible(true);
 			}
 			/*
 			 * Dialog Buscar

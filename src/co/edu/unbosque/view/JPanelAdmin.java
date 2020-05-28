@@ -212,6 +212,12 @@ public class JPanelAdmin extends JPanel{
 	public String getHACERPAGO() {
 		return HACERPAGO;
 	}
+
+	public JButton getBotonEstadisticas() {
+		return botonEstadisticas;
+	}
+	
+	
 	
 
 }

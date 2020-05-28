@@ -32,6 +32,7 @@ public class View extends JFrame implements GabenFrame {
 	private JDialogMostrarCompras mostrarcompras = new JDialogMostrarCompras();
 	private JDialogMostrarComprasSucursales comprasSucursales = new JDialogMostrarComprasSucursales();
 	private JDialogGenerarPDF generarPDF = new JDialogGenerarPDF();
+	private JDialogStats stats = new JDialogStats();
 	/**
 	 * Método para iniciar la ventana principal
 	 * @author Gabriel Blanco
@@ -111,6 +112,7 @@ public class View extends JFrame implements GabenFrame {
 		admin.getBotonListaUsuario().addActionListener(control);
 		admin.getBotonMostrarSurcursal().addActionListener(control);
 		admin.getBotonGenerarPDF().addActionListener(control);
+		admin.getBotonEstadisticas().addActionListener(control);
 		//Dialogo AsignarCupo
 		asignarCupo.getAsignar().addActionListener(control);
 		asignarCupo.getCancelar().addActionListener(control);
@@ -249,4 +251,12 @@ public class View extends JFrame implements GabenFrame {
 	public JDialogGenerarPDF getGenerarPDF() {
 		return generarPDF;
 	}
+	public JDialogMostrarComprasSucursales getComprasSucursales() {
+		return comprasSucursales;
+	}
+	public JDialogStats getStats() {
+		return stats;
+	}
+	
+	
 }

@@ -20,7 +20,7 @@ public class Stats extends JPanel implements GabenPanel {
 
 	public void load() {
 		// create a chart...
-		chart = ChartFactory.createPieChart("Proporcion de Venta", data, true, // legend?
+		chart = ChartFactory.createPieChart("", data, true, // legend?
 				true, // tooltips?
 				false // URLs?
 		);
