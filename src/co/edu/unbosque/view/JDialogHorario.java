@@ -40,7 +40,6 @@ public class JDialogHorario extends JDialog {
 		getContentPane().setLayout(new BorderLayout());
 		setTitle("Asignar Horario");
 		setSize(600,400);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		setResizable(false);
 		setLocationRelativeTo(null);

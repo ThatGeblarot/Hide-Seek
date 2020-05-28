@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class JDialogAsignarCupo extends JDialog implements GabenDialog {
 	private static final long serialVersionUID = 1L;
-    private JTable tabla;
+	private JTable tabla;
 	private DefaultTableModel model;
 	private JScrollPane scrollpane;
 	private JButton Asignar = new JButton("Asignar");
@@ -39,22 +39,18 @@ public class JDialogAsignarCupo extends JDialog implements GabenDialog {
 		setLayout(new BorderLayout());
 		setTitle("Asignar Cupo");
 		setSize(800, 600);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 		setResizable(false);
 		setLocationRelativeTo(null);
-		setLayout(null);
 		setBackground(Color.BLACK);
 
-		tabla = new JTable(
-				new DefaultTableModel(new Object[] { "Correo", "Tienda", "Activa", "Efectivo" }, counter));
+		tabla = new JTable(new DefaultTableModel(new Object[] { "Usuario", "Correo", "Tienda", "Cupo Disponible" }, counter));
 		model = (DefaultTableModel) tabla.getModel();
 		tabla.setAutoscrolls(true);
 		tabla.setColumnSelectionAllowed(false);
 		scrollpane = new JScrollPane(tabla);
 		scrollpane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		scrollpane.setViewportView(tabla);
-		setLayout(new BorderLayout());
 		counter++;
 		setVisible(false);
 
@@ -88,7 +84,6 @@ public class JDialogAsignarCupo extends JDialog implements GabenDialog {
 			model.removeRow(i);
 		}
 	}
-
 
 	public JTable getTabla() {
 		return tabla;

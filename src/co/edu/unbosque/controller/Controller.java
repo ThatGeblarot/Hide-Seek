@@ -20,6 +20,8 @@ public class Controller implements ActionListener {
 
 	private Mundo mundo = new Mundo();
 	private View view = new View();
+	private String actualLogin = new String();
+	private int actualType = 0;
 	public final static String NOMBREPROYECTO = "Hide & Seek";
 
 	/**
@@ -201,7 +203,7 @@ public class Controller implements ActionListener {
 
 			}
 			if (e.getActionCommand() == view.getRegistrar().REGISTRAR) {
-				if (!(view.getRegistrar().getTextcorreo().getText() == view.getRegistrar().getTextconfcorreo().getText()
+				if ((view.getRegistrar().getTextcorreo().getText() == view.getRegistrar().getTextconfcorreo().getText()
 						&& view.getRegistrar().getTextclave().getText() == view.getRegistrar().getTextconfclave()
 								.getText())) {
 					view.getDialogos().output("Error",
@@ -237,46 +239,46 @@ public class Controller implements ActionListener {
 			 * Panel Usuarios
 			 */
 			if (e.getActionCommand() == view.getUsuarios().AGREGARPAREJA) {
-				view.getBuscador().setVisible(true);
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ELIMINARPAREJA) {
-
+				view.getEliminar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ACTUALIZARPAREJA) {
-
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().LISTAPAREJAS) {
-
+				view.getListar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ACTUALIZARDATOS) {
-
+				
 			}
 			if (e.getActionCommand() == view.getUsuarios().ASIGNARCUPO) {
-
+				view.getAsignarCupo().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ASIGNARHORARIO) {
-
+				view.getHorario().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().COMPRAS) {
-
+				view.getMostrarcompras().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().HORARIO) {
-
+				view.getHorario().setVisible(true);
 			}
 			/*
 			 * Panel Administrador
 			 */
 			if (e.getActionCommand() == view.getAdmin().AGREGARUSUARIO) {
-
+				view.getRegistrar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ELIMINARUSUARIOS) {
-
+				view.getEliminar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ACTUALIZARUSUARIOS) {
-
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().LISTAUSUARIOS) {
-
+				view.getListar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ACTUALIZARDATOSUSUARIOS) {
 
@@ -293,6 +295,46 @@ public class Controller implements ActionListener {
 			if (e.getActionCommand() == view.getAdmin().SUCURSALES) {
 
 			}
+			/*
+			 * Dialog Actualizar
+			 */
+			/*
+			 * Dialog Asignar Cupo
+			 */
+			/*
+			 * Dialog Buscador
+			 */
+			/*
+			 * Dialog Eliminar
+			 */
+			/*
+			 * GenerarPDF
+			 */
+			/*
+			 * Horario
+			 */
+			/*
+			 * Listar
+			 */
+			/*
+			 * Login
+			 */
+			/*
+			 * Mostrar Compras
+			 */
+			/*
+			 * Mostrar Compras Sucursales
+			 */
+			/*
+			 * Pago
+			 */
+			/*
+			 * Personal
+			 */
+			/*
+			 * Registrar
+			 */
+			
 		}
 
 		/*
