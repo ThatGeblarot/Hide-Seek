@@ -1,6 +1,5 @@
 package co.edu.unbosque.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JButton;
@@ -8,29 +7,28 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class JDialogPersonal extends JDialog{
+public class JDialogPersonal extends JDialog implements GabenDialog {
 	private static final long serialVersionUID = 1L;
 	private JLabel labelpersonal = new JLabel("Informacion Personal:");
 	private JButton botonMostrar = new JButton("Mostrar informacion");
 	private JButton botonCancelar = new JButton("Cancelar");
 	private JTextField textpersonal = new JTextField("");
-	public final String MOSTRAR= "mostrarpersonal";
-	public final String CANCELAR = "cancelarpersonal";
+	public static final String MOSTRAR= "mostrarpersonal";
+	public static final String CANCELAR = "cancelarpersonal";
     
 	public JDialogPersonal() {
 		try {
-			cargar();
-			addComponentes();
+			load();
+			addComponents();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void cargar() throws Exception {
-		setLayout(new BorderLayout());
+	public void load() {
 		setTitle("Informacion Personal");
 		setSize(800,400);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		
 		setResizable(false);
 		setLocationRelativeTo(null);
@@ -55,7 +53,7 @@ public class JDialogPersonal extends JDialog{
 		setVisible(false);
 	}
 
-	public void addComponentes() {
+	public void addComponents() {
 		
 		add(labelpersonal);
 		add(textpersonal);

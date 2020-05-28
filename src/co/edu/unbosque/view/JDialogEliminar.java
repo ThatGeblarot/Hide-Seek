@@ -13,7 +13,7 @@ import javax.swing.JTextField;
  * @author Ricardo Sanchez
  *
  */
-public class JDialogEliminar extends JDialog {
+public class JDialogEliminar extends JDialog implements GabenDialog {
 	private static final long serialVersionUID = 1L;
 
 	private JLabel labelBuscador = new JLabel("Buscador:");
@@ -25,14 +25,14 @@ public class JDialogEliminar extends JDialog {
 
 	public JDialogEliminar() {
 		try {
-			cargar();
-			addComponentes();
+			load();
+			addComponents();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void cargar() throws Exception {
+	public void load() {
 		setLayout(new BorderLayout());
 		setTitle("Buscador Eliminar");
 		setSize(600, 400);
@@ -58,7 +58,7 @@ public class JDialogEliminar extends JDialog {
 		setVisible(false);
 	}
 
-	public void addComponentes() {
+	public void addComponents() {
 
 		add(labelBuscador);
 		add(textbuscador);

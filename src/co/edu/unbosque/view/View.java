@@ -28,7 +28,10 @@ public class View extends JFrame implements GabenFrame {
 	private JDialogLogin login = new JDialogLogin();
 	private JDialogPago pago = new JDialogPago();
 	private JDialogRegistrar registrar = new JDialogRegistrar();
+	private JDialogPersonal personal = new JDialogPersonal();
 	private JDialogMostrarCompras mostrarcompras = new JDialogMostrarCompras();
+	private JDialogMostrarComprasSucursales comprasSucusales = new JDialogMostrarComprasSucursales();
+	private JDialogGenerarPDF generarPDF = new JDialogGenerarPDF();
 	/**
 	 * Método para iniciar la ventana principal
 	 * @author Gabriel Blanco
@@ -81,6 +84,32 @@ public class View extends JFrame implements GabenFrame {
 		toolbar.getGuardar().addActionListener(control);
 		toolbar.getCargar().addActionListener(control);
 		toolbar.getSalir().addActionListener(control);
+		toolbar.getCerrarSesion().addActionListener(control);
+		//Panel Parejas
+		parejas.getBotonActualizarDatos().addActionListener(control);
+		parejas.getBotonDatos().addActionListener(control);
+		parejas.getBotonEliminarDatos().addActionListener(control);
+		parejas.getBotonEliminarPareja().addActionListener(control);
+		parejas.getBotonHacerPago().addActionListener(control);
+		//Panel Usuarios
+		usuarios.getBotonActualizarDatos().addActionListener(control);
+		usuarios.getBotonActualizarPareja().addActionListener(control);
+		usuarios.getBotonAgregarPareja().addActionListener(control);
+		usuarios.getBotonAsignarCupo().addActionListener(control);
+		usuarios.getBotonAsignarHorario().addActionListener(control);
+		usuarios.getBotonEliminarPareja().addActionListener(control);
+		usuarios.getBotonAsignarHorarioUsuario().addActionListener(control);
+		usuarios.getBotonListaParejas().addActionListener(control);
+		usuarios.getBotonMostrarcompras().addActionListener(control);
+		//Panel Administrador
+		admin.getBotonActualizarDatos().addActionListener(control);
+		admin.getBotonAgregarUsuario().addActionListener(control);
+		admin.getBotonAsignarCupoUsuario().addActionListener(control);
+		admin.getBotonAsignarHorarioUsuario().addActionListener(control);
+		admin.getBotonEliminarUsuario().addActionListener(control);
+		admin.getBotonHacerPago().addActionListener(control);
+		admin.getBotonListaUsuario().addActionListener(control);
+		admin.getBotonMostrarSurcursal().addActionListener(control);
 		//Dialogo AsignarCupo
 		asignarCupo.getAsignar().addActionListener(control);
 		asignarCupo.getCancelar().addActionListener(control);
@@ -96,6 +125,8 @@ public class View extends JFrame implements GabenFrame {
 		eliminar.getBotonCancelar().addActionListener(control);
 		//Dialogo Horario
 		horario.getBotonaceptar().addActionListener(control);
+		horario.getBotonAsignar().addActionListener(control);
+		horario.getBotoncancelar().addActionListener(control);
 		//Dialogo Listar
 		listar.getMostrar().addActionListener(control);
 		listar.getCancelar().addActionListener(control);
@@ -112,7 +143,10 @@ public class View extends JFrame implements GabenFrame {
 		registrar.getBotonCancelar().addActionListener(control);
 		//Dialogo Mostrar Compras
 		mostrarcompras.getBotonmostrardatos().addActionListener(control);
-		mostrarcompras.getBotonmostrardatos().addActionListener(control);
+		mostrarcompras.getBotoncancelar().addActionListener(control);
+		//Dialogo Personal
+		personal.getBotonCancelar().addActionListener(control);
+		personal.getBotonMostrar().addActionListener(control);
 		
 	}
 	
@@ -196,5 +230,16 @@ public class View extends JFrame implements GabenFrame {
 	public JDialogRegistrar getRegistrar() {
 		return registrar;
 	}
-	
+	public JDialogPersonal getPersonal() {
+		return personal;
+	}
+	public JDialogMostrarCompras getMostrarcompras() {
+		return mostrarcompras;
+	}
+	public JDialogMostrarComprasSucursales getComprasSucusales() {
+		return comprasSucusales;
+	}
+	public JDialogGenerarPDF getGenerarPDF() {
+		return generarPDF;
+	}
 }

@@ -15,9 +15,9 @@ import javax.swing.table.DefaultTableModel;
  * @author Ricardo Sanchez
  *
  */
-public class JDialogListar extends JDialog {
-    private static final long serialVersionUID = 1L;
-    private JTable tabla;
+public class JDialogListar extends JDialog implements GabenDialog {
+	private static final long serialVersionUID = 1L;
+	private JTable tabla;
 	private DefaultTableModel model;
 	private JScrollPane scrollpane;
 	private JButton Mostrar = new JButton("Mostrar");
@@ -27,29 +27,26 @@ public class JDialogListar extends JDialog {
 	public final String CANCELAR = "cancelarlista";
 	public final String LIMPIAR = "Limpiarlista";
 	private int counter = 0;
-	
+
 	public JDialogListar() {
-		cargar();
-		agregarcomponentes();
-		panelbotones();
+		load();
+		addComponents();
+		panelBotones();
 	}
 
-	public void cargar() {
-		
-		
+	public void load() {
+
 		setLayout(new BorderLayout());
 		setTitle("Lista");
-		setSize(800,600);
+		setSize(800, 600);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
+
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setLayout(null);
 		setBackground(Color.BLACK);
-		
-	
-		
-		tabla = new JTable(new DefaultTableModel(new Object[] {"UserID", "Correo", "Tienda", "Dinero"}, counter));
+
+		tabla = new JTable(new DefaultTableModel(new Object[] { "UserID", "Correo", "Tienda", "Dinero" }, counter));
 		model = (DefaultTableModel) tabla.getModel();
 		tabla.setAutoscrolls(true);
 		tabla.setColumnSelectionAllowed(false);
@@ -60,9 +57,10 @@ public class JDialogListar extends JDialog {
 		counter++;
 		setVisible(false);
 	}
-	public void panelbotones()  {
+
+	public void panelBotones() {
 		JPanel panelboton = new JPanel();
-		panelboton.setLayout(new GridLayout(3,1));
+		panelboton.setLayout(new GridLayout(3, 1));
 		Mostrar.setBackground(Color.BLACK);
 		Mostrar.setActionCommand(MOSTRAR);
 		Mostrar.setForeground(Color.WHITE);
@@ -78,18 +76,16 @@ public class JDialogListar extends JDialog {
 		add(panelboton, BorderLayout.EAST);
 	}
 
-	public void agregarcomponentes() {
+	public void addComponents() {
 		add(scrollpane, BorderLayout.CENTER);
-		
-		
+
 	}
-	
+
 	public void clean() {
 		for (int i = 0; i < tabla.getRowCount(); i++) {
 			model.removeRow(i);
 		}
 	}
-	
 
 	public String getMOSTRAR() {
 		return MOSTRAR;

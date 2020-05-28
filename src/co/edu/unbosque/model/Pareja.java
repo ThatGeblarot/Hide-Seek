@@ -3,7 +3,7 @@ package co.edu.unbosque.model;
 /**
  * La clase pareja contiene la informacion de los datos basico que necesita una pareja 
  * para ser identificado/
- * @author Moises Salcedo & Ricardo Sanchez
+ * @author Moises Salcedo
  */
 public class Pareja {
 	
@@ -11,7 +11,7 @@ public class Pareja {
 	private double cupo;
 	private String userid;//este es el user id de pareja
 	private String correo;
-	private String contraseña;
+	private String contraseï¿½a;
 	private String genero;
 	private String tipo;
 	private double gasto;
@@ -20,23 +20,23 @@ public class Pareja {
 	private String fin;
 	
 	/**
-	 * Es el Constructor de Pareja
-	 * @param nombre de la pareja
-	 * @param cupo dinero o alcancia a su cuenta
-	 * @param userid usuario que la identifica
-	 * @param correo informacion adicional
-	 * @param contraseña dato para verificar si es la misma pareja quien se registra
-	 * @param genero define su genero 
-	 */
+     * Es el Constructor de Pareja
+     * @param nombre de la pareja
+     * @param cupo dinero o alcancia a su cuenta
+     * @param userid usuario que la identifica
+     * @param correo informacion adicional
+     * @param contraseï¿½a dato para verificar si es la misma pareja quien se registra
+     * @param genero define su genero 
+     */
 	
 	
-	public Pareja(String nombre, double cupo, String userid, String correo, String contraseña, String genero) {
+	public Pareja(String nombre, double cupo, String userid, String correo, String contraseï¿½a, String genero) {
 		super();
 		this.nombre = nombre;
 		this.cupo = cupo;
 		this.userid = userid;
 		this.correo = correo;
-		this.contraseña = contraseña;
+		this.contraseï¿½a = contraseï¿½a;
 		this.genero = genero;
 		this.gasto=0;
 		this.dia=null;
@@ -69,11 +69,11 @@ public class Pareja {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContraseï¿½a() {
+		return contraseï¿½a;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContraseï¿½a(String contraseï¿½a) {
+		this.contraseï¿½a = contraseï¿½a;
 	}
 	public String getGenero() {
 		return genero;
