@@ -20,6 +20,7 @@ public class JPanelAdmin extends JPanel{
 	private JButton botonAsignarHorarioUsuario= new JButton ("Asignar Horario y Ubicacion Usuario");
 	private JButton botonHacerPago = new JButton("Realizar Pago Usuario");
 	private JButton botonGenerarPDF = new JButton("Generar PDF");
+	private JButton botonEstadisticas = new JButton("Ver Estadisticas");
 	public final String AGREGARUSUARIO="agregar Usuario";
 	public final String ELIMINARUSUARIOS="eliminar Usuario";
 	public final String ACTUALIZARUSUARIOS ="actualizar Usuario";
@@ -31,6 +32,7 @@ public class JPanelAdmin extends JPanel{
 	public final String HORARIO="horarioausuario";
 	public final String SUCURSALES="mostrar sucursales";
 	public final String MOSTRARPDF ="jdialogpdf";
+	public final String VERESTADISTICA = "ver estadisticas";
 
 	public JPanelAdmin() {
 		try {
@@ -68,9 +70,13 @@ public class JPanelAdmin extends JPanel{
 		botonAsignarCupoUsuario.setActionCommand(ASIGNARCUPO);
 		botonAsignarCupoUsuario.setBackground(Color.WHITE);
 		
-		botonGenerarPDF.setBounds(270,140,250,40);
+		botonGenerarPDF.setBounds(100,140,250,40);
 		botonGenerarPDF.setActionCommand(MOSTRARPDF);
 		botonGenerarPDF.setBackground(Color.WHITE);
+		
+		botonEstadisticas.setBounds(450, 140, 250, 40);
+		botonEstadisticas.setActionCommand(VERESTADISTICA);
+		botonEstadisticas.setBackground(Color.WHITE);
 		setBackground(Color.RED);
 
 		
@@ -79,6 +85,7 @@ public class JPanelAdmin extends JPanel{
 	}
 
 	public void addComponentes() {
+		add(botonEstadisticas);
 		add(botonGenerarPDF);
 		add(botonMostrarSurcursal);
 		add(botonAgregarUsuario);
