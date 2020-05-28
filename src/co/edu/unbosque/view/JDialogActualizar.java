@@ -91,6 +91,7 @@ public class JDialogActualizar extends JDialog implements GabenDialog {
 	public void clean() {
 		textusuario.setText("");
 		textcorreo.setText("");
+		textconfcorreo.setText("");
 		textconfclave.setText("");
 		textclave.setText("");
 		

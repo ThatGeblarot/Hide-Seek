@@ -60,6 +60,9 @@ public class JDialogPersonal extends JDialog implements GabenDialog {
 		add(botonCancelar);
 
 	}
+	public void clean() {
+		textpersonal.setText("");
+	}
 
 	public JLabel getLabelpersonal() {
 		return labelpersonal;
