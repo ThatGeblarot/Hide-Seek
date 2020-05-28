@@ -125,8 +125,9 @@ public class Controller implements ActionListener {
 		if (mundo.getClienteDAO().agregarCliente(mundo.getClientes(), view.getRegistrar().getTextnom().getText(), 0.0,
 				view.getRegistrar().getTextusuario().getText(), view.getRegistrar().getTextcorreo().getText(),
 				view.getRegistrar().getTextclave().getText(),
-				view.getRegistrar().getGenerocombo().getSelectedItem().toString())) {
-			mundo.getArchivoc().escribirEnArchivo(mundo.getClientes());
+				view.getRegistrar().getGenerocombo().getSelectedItem().toString())); {
+					String[] correo = {view.getRegistrar().getTextcorreo().getText()};
+			mundo.agregarCliente(view.getRegistrar().getTextnom().getText(), 0.0, view.getRegistrar().getTextusuario().getText(), correo, view.getRegistrar().getTextclave().getText(), view.getRegistrar().getGenerocombo().getSelectedItem().toString());
 		}
 	}
 
