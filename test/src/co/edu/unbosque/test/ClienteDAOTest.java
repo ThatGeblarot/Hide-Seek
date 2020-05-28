@@ -74,11 +74,11 @@ public class ClienteDAOTest extends TestCase {
 
 		assertTrue("Se debió agregar la pareja",
 				cliente.agregarPareja(listaClientes, cliente_1.getUserid(), pareja_1.getNombre(), pareja_1.getCupo(),
-						pareja_1.getUserid(), pareja_1.getCorreo(), pareja_1.getContraseña(), pareja_1.getGenero()));
+						pareja_1.getUserid(), pareja_1.getCorreo(), pareja_1.getcontrasena(), pareja_1.getGenero()));
 
 		assertTrue("No se debería agregar la pareja con usuario ya existente",
 				cliente.agregarPareja(listaClientes, cliente_1.getUserid(), pareja_2.getNombre(), pareja_2.getCupo(),
-						pareja_2.getUserid(), pareja_2.getCorreo(), pareja_2.getContraseña(), pareja_2.getGenero()));
+						pareja_2.getUserid(), pareja_2.getCorreo(), pareja_2.getcontrasena(), pareja_2.getGenero()));
 
 	}
 

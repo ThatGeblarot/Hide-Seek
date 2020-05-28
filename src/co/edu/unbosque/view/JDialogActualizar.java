@@ -1,6 +1,5 @@
 package co.edu.unbosque.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JButton;
@@ -27,8 +26,8 @@ public class JDialogActualizar extends JDialog implements GabenDialog {
 	private JTextField textconfcorreo = new JTextField("");
 	private JTextField textclave = new JTextField("");
 	private JTextField textconfclave = new JTextField("");
-	public final String ACTUALIZAR = "Actualizar";
-	public final String CANCELAR = "cancelaractualizacion";
+	public static final String ACTUALIZAR = "Actualizar";
+	public static final String CANCELAR = "cancelaractualizacion";
 
 	public JDialogActualizar() {
 		try {
@@ -40,14 +39,12 @@ public class JDialogActualizar extends JDialog implements GabenDialog {
 	}
 
 	public void load() {
-		getContentPane().setLayout(new BorderLayout());
+		setLayout(null);
 		setTitle("Actualizar Datos");
 		setSize(600, 400);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 		setResizable(false);
 		setLocationRelativeTo(null);
-		getContentPane().setLayout(null);
 		setBackground(Color.WHITE);
 
 		labelcorreo.setBounds(115,40 , 125, 50);
@@ -121,6 +118,10 @@ public class JDialogActualizar extends JDialog implements GabenDialog {
 
 	public JTextField getTextconfclave() {
 		return textconfclave;
+	}
+
+	public JLabel getLabelusuario() {
+		return labelusuario;
 	}
 
 }

@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="C:/librerias/itext5-itextpdf-5.5.12.jar"/>
 	<classpathentry kind="lib" path="C:/librerias/javax.activation-1.1.0.v201005080500.jar"/>
 	<classpathentry kind="lib" path="C:/librerias/javax.mail.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
