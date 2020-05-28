@@ -242,43 +242,43 @@ public class Controller implements ActionListener {
 				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ELIMINARPAREJA) {
-				
+				view.getEliminar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ACTUALIZARPAREJA) {
-
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().LISTAPAREJAS) {
-
+				view.getListar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ACTUALIZARDATOS) {
-
+				
 			}
 			if (e.getActionCommand() == view.getUsuarios().ASIGNARCUPO) {
-
+				view.getAsignarCupo().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ASIGNARHORARIO) {
-
+				view.getHorario().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().COMPRAS) {
-
+				view.getMostrarcompras().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().HORARIO) {
-
+				view.getHorario().setVisible(true);
 			}
 			/*
 			 * Panel Administrador
 			 */
 			if (e.getActionCommand() == view.getAdmin().AGREGARUSUARIO) {
-
+				view.getRegistrar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ELIMINARUSUARIOS) {
-
+				view.getEliminar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ACTUALIZARUSUARIOS) {
-
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().LISTAUSUARIOS) {
-
+				view.getListar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ACTUALIZARDATOSUSUARIOS) {
 
@@ -295,6 +295,46 @@ public class Controller implements ActionListener {
 			if (e.getActionCommand() == view.getAdmin().SUCURSALES) {
 
 			}
+			/*
+			 * Dialog Actualizar
+			 */
+			/*
+			 * Dialog Asignar Cupo
+			 */
+			/*
+			 * Dialog Buscador
+			 */
+			/*
+			 * Dialog Eliminar
+			 */
+			/*
+			 * GenerarPDF
+			 */
+			/*
+			 * Horario
+			 */
+			/*
+			 * Listar
+			 */
+			/*
+			 * Login
+			 */
+			/*
+			 * Mostrar Compras
+			 */
+			/*
+			 * Mostrar Compras Sucursales
+			 */
+			/*
+			 * Pago
+			 */
+			/*
+			 * Personal
+			 */
+			/*
+			 * Registrar
+			 */
+			
 		}
 
 		/*
