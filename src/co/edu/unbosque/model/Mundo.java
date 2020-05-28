@@ -9,8 +9,8 @@ import co.edu.unbosque.model.persistence.ClienteDAO;
 import co.edu.unbosque.model.persistence.TiendaDAO;
 
 /**
- * @author Gabriel Blanco Clase "multitoma" donde se define la soluciï¿½n de la
- *         problemï¿½tica
+ * Clase "multitoma" donde se definen e inicializan instancias de las clases del modelo.
+ * @author Moisés Salcedo y Ricardo Sanchez 
  */
 public class Mundo {
 
@@ -21,6 +21,10 @@ public class Mundo {
 	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	private ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
 
+	/**
+     * Es el Constructor de la clase Mundo.
+     */
+	
 	public Mundo() {
 		try {
 			tiendaDAO.agregarTienda(tiendas, "EL BOSQUE");
