@@ -8,7 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class JDialogPersonal extends JDialog{
+public class JDialogPersonal extends JDialog implements GabenDialog {
 	private static final long serialVersionUID = 1L;
 	private JLabel labelpersonal = new JLabel("Informacion Personal:");
 	private JButton botonMostrar = new JButton("Mostrar informacion");
@@ -19,14 +19,14 @@ public class JDialogPersonal extends JDialog{
     
 	public JDialogPersonal() {
 		try {
-			cargar();
-			addComponentes();
+			load();
+			addComponents();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void cargar() throws Exception {
+	public void load() {
 		setLayout(new BorderLayout());
 		setTitle("Informacion Personal");
 		setSize(800,400);
@@ -55,7 +55,7 @@ public class JDialogPersonal extends JDialog{
 		setVisible(false);
 	}
 
-	public void addComponentes() {
+	public void addComponents() {
 		
 		add(labelpersonal);
 		add(textpersonal);

@@ -9,14 +9,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-import co.edu.unbosque.model.Cliente;
-import co.edu.unbosque.model.Tienda;     
+import co.edu.unbosque.model.Cliente;     
 
 public class ArchivoClientes {
 
 	private ObjectInputStream entrada;
 	private ObjectOutputStream salida;
-	private File archivo =new File(".\\data\\Base de Datos Clientes.dat");
+	private File archivo =new File("./data/Base de Datos Clientes.dat");
 	
 	public ArchivoClientes(){
 		
@@ -24,9 +23,10 @@ public class ArchivoClientes {
 			//System.out.println("El archivo ya existe");
 		}else{
 			try {
+				//archivo.mkdir();
 				archivo.createNewFile();
-			} catch (IOException e) {
-				System.out.println("Creación del archivo: " +e.getMessage());
+			} catch (Exception e) {
+				System.out.println("Creación del archivo tiendas: " +e.getMessage());
 			}
 		}
 	}
@@ -44,6 +44,7 @@ public class ArchivoClientes {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public ArrayList<Cliente> leerArchivo(){
 		ArrayList<Cliente> usuarios= new ArrayList<Cliente>();
 		if (getArchivo().length()!= 0) {

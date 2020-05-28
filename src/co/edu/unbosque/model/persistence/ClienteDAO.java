@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import co.edu.unbosque.model.Cliente;
 import co.edu.unbosque.model.Pareja;
-import co.edu.unbosque.model.persistence.ArchivoClientes;
 
 public class ClienteDAO {
 	
@@ -44,7 +43,13 @@ private ArchivoClientes archivo;
 			c.setNombre(nombre);
 			c.setCorreo(correo);
 			c.setUserid(nuevouser);
-			
+			getArchivo().getArchivo().delete();
+			try {
+				getArchivo().getArchivo().createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			getArchivo().escribirEnArchivo(clientes);
 			return true;
 		}
@@ -56,6 +61,13 @@ private ArchivoClientes archivo;
 			return false;
 		}else {
 			c.setCupo(nuevocupo);	
+			getArchivo().getArchivo().delete();
+			try {
+				getArchivo().getArchivo().createNewFile();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
 			getArchivo().escribirEnArchivo(clientes);
 			return true;			
 		
@@ -152,6 +164,13 @@ private ArchivoClientes archivo;
 			p.setInicio(inicio);
 			p.setFin(fin);
 			
+			getArchivo().getArchivo().delete();
+			try {
+				getArchivo().getArchivo().createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			getArchivo().escribirEnArchivo(clientes);
 			return true;
 		}else {
@@ -172,6 +191,13 @@ private ArchivoClientes archivo;
 			p.setCorreo(correo);
 			p.setUserid(nuevouser);
 			
+			getArchivo().getArchivo().delete();
+			try {
+				getArchivo().getArchivo().createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			getArchivo().escribirEnArchivo(clientes);
 			return true;			
 		}
@@ -185,7 +211,14 @@ private ArchivoClientes archivo;
 		if( p== null){
 			return false;
 		}else {
-			p.setCupo(nuevocupo);	
+			p.setCupo(nuevocupo);
+			getArchivo().getArchivo().delete();
+			try {
+				getArchivo().getArchivo().createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			getArchivo().escribirEnArchivo(clientes);
 			return true;			
 		}

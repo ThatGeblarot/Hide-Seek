@@ -1,25 +1,15 @@
-/*Clase que modela un admin que va a administrar el programa y usarlo
- */ 
 package co.edu.unbosque.model;
-/**
- * La clase Compra contiene la informacion de 
- * @author Moises Salcedo & Ricardo Sanchez
- */
-public class Compra {
+
+import java.io.Serializable;
+
+public class Compra implements Serializable{
 	
 	private String date;
 	private String tienda;
 	private String cliente;
 	private String pareja;
 	private double precio;
-	/**
-	 * Este es el constructor de la clase Compra
-	 * @param date fecha de la compra
-	 * @param tienda tienda donde se realizo la compra
-	 * @param cliente quien compro algo en la tienda
-	 * @param pareja la pareja del cliente
-	 * @param precio valor que gasto en la compra
-	 */
+	
 	public Compra(String date, String tienda, String cliente, String pareja, double precio) {
 		super();
 		this.date = date;

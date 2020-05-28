@@ -12,7 +12,7 @@ import javax.swing.JTextArea;
  * @author Ricardo Sanchez
  *
  */
-public class JDialogMostrarComprasSucursales extends JDialog {
+public class JDialogMostrarComprasSucursales extends JDialog implements GabenDialog {
 	 private static final long serialVersionUID = 1L;
 	    private JLabel labelsucursal = new JLabel("Escoja la Sucursal");
 	    private JTextArea arealog = new JTextArea();
@@ -25,14 +25,14 @@ public class JDialogMostrarComprasSucursales extends JDialog {
 	    
 		public JDialogMostrarComprasSucursales() {
 			try {
-				cargar();
-				addComponentes();
+				load();
+				addComponents();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		public void cargar() throws Exception {
+		public void load() {
 			setLayout(null);
 			setTitle("Mostrar Compras");
 			setSize(800,600);
@@ -40,7 +40,6 @@ public class JDialogMostrarComprasSucursales extends JDialog {
 			
 			setResizable(false);
 			setLocationRelativeTo(null);
-			setLayout(null);
 			setBackground(Color.BLACK);
 			
 			arealog.setBounds(25, 25,500 , 500);
@@ -73,7 +72,7 @@ public class JDialogMostrarComprasSucursales extends JDialog {
 			setVisible(false);
 		}
 
-		public void addComponentes() {
+		public void addComponents() {
 			add(scroll);
 			add(botonmostrardatos);
 			add(botoncancelar);

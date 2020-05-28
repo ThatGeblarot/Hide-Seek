@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Ricardo Sanchez
  *
  */
-public class JDialogAsignarCupo extends JDialog {
+public class JDialogAsignarCupo extends JDialog implements GabenDialog {
 	private static final long serialVersionUID = 1L;
     private JTable tabla;
 	private DefaultTableModel model;
@@ -29,12 +29,12 @@ public class JDialogAsignarCupo extends JDialog {
 	private int counter = 0;
 
 	public JDialogAsignarCupo() {
-		cargar();
-		agregarcomponentes();
+		load();
+		addComponents();
 		panelbotones();
 	}
 
-	public void cargar() {
+	public void load() {
 
 		setLayout(new BorderLayout());
 		setTitle("Asignar Cupo");
@@ -78,7 +78,7 @@ public class JDialogAsignarCupo extends JDialog {
 		add(panelboton, BorderLayout.EAST);
 	}
 
-	public void agregarcomponentes() {
+	public void addComponents() {
 		add(scrollpane, BorderLayout.CENTER);
 
 	}

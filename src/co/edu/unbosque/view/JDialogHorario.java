@@ -10,8 +10,6 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
-import com.toedter.calendar.JDateChooser;
-
 
 /**
  * @author Ricardo Sanchez

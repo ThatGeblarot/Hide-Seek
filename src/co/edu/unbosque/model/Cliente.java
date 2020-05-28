@@ -1,17 +1,14 @@
-/*Clase que modela un los clientes  quienes van a ser los usuarios del programa
- */ 
 package co.edu.unbosque.model;
-/**
- * 
- * La clase Cliente posee toda la informacion que es necesaria para la validacion
- * de los usuarios.
- * @author Moises Salcedo & Ricardo Sanchez
- * 
- */
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cliente {
+public class Cliente implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private double cupo;
 	private String userid;
@@ -22,16 +19,10 @@ public class Cliente {
 	private double gasto;
 	private ArrayList <Pareja> parejas;
 	
-	/**
-	 * Este es el constructor de la clase Cliente
-	 * @param Nombre es la informacion basica de usuario que se diferencia por un nombre propio.
-	 * @param cupo es un double que se utiliza para cuanto dinero tiene en su cuenta cada usuario.
-	 * @param userid se utiliza principalmente como nombre de usuario y se implementa para la logica se usa para la logica
-	 * de los requerimientos pertinentes del programa, como busqueda, comprar, etc.
-	 * @param correo informacion basica del usuario.
-	 * @param contraseña es un string que se usa para validad si el registro realmente lo hace ese mismo usuario.
-	 * @param genero es el string que indica el sexo del cliente.
-	 */
+	
+	
+
+	
 	
 	public Cliente(String nombre, double cupo,String userid, String correo, String contraseña, String genero) {
 		super();
@@ -117,12 +108,19 @@ public class Cliente {
 		
 		return cupo-gasto;
 	}
+	
+	
+	
+	
+	
 	/**
-	 * método que muestra nombre de parejas de un cliente
-	 * <b>pre</b> La lista de ciudadanos debera estar inicializada (no puede ser null). <br>
-	 * <b>post</b> Se ha registrado una cantidad estimada minima en parejas para que no este vacio el mismo string[] <br>
-	 * @return se retorna un arreglo tipo string que entragaria los nombres de la parejas.
+	 * Este método retorna un array con los nombres de las parejas 
+	 * <b>pre</b> LA clase cliente está incializada<br>
+	 * @return se retorna un arreglo de strings con el nombre de las parejas
+	 * <b>post</b> Se ha retornado el arraylist con el  nombre de pareja <br>
 	 */
+	
+	//método que muestra nombre de parejas de un cliente
 	public String[] listarParejas() {
 	int c=parejas.size();
 	
@@ -134,10 +132,7 @@ public class Cliente {
 		
 		return nombreparejas;
 	}
-	/**
-	 * metodo que muestra la informacion por medio de un metodo toString().
-	 * @return se retorna un String con la  informacion deseada.
-	 */
+	
 	@Override
 	public String toString() {
 		return nombre+" con userID "+userid+ " y correo "+ correo +" tiene "+saldoCliente()+" de saldo restante";

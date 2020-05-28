@@ -25,8 +25,8 @@ public class JDialogLogin extends JDialog{
 	private JTextField textclave = new JTextField("");
 	private JTextField textusuario = new JTextField("");
 	private JComboBox<String> combo = new JComboBox<String>();
-	public final String LOGIN = "login";
-	public final String REGISTRAR = "registrarlogin";
+	public static final String LOGIN = "login";
+	public static final String REGISTRAR = "registrarlogin";
 	public JDialogLogin() {
 		try {
 			cargar();
@@ -79,7 +79,7 @@ public class JDialogLogin extends JDialog{
 		combo.addItem("Pareja");
 		combo.setBounds(475,10, 100, 25);
 		
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		
 		
 		

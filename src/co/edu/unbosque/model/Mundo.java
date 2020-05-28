@@ -1,6 +1,6 @@
-/*Clase que modela mundo que conecta todas las clases logicas en una*/
 package co.edu.unbosque.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import co.edu.unbosque.model.persistence.ArchivoClientes;
@@ -9,47 +9,52 @@ import co.edu.unbosque.model.persistence.ClienteDAO;
 import co.edu.unbosque.model.persistence.TiendaDAO;
 
 /**
- * La clase mundo es muy util para conectar y organizar la informacion de las clases logicas para solucionar
- * la problematica del programa
- * @author Gabriel Blanco 
+ * @author Gabriel Blanco Clase "multitoma" donde se define la soluci�n de la
+ *         problem�tica
  */
 public class Mundo {
 
-	private ArchivoTiendas archivot= new ArchivoTiendas();
-	private TiendaDAO tiendaDAO=new TiendaDAO(archivot);
-	private ArchivoClientes archivoc= new ArchivoClientes();
+	private ArchivoTiendas archivot = new ArchivoTiendas();
+	private TiendaDAO tiendaDAO = new TiendaDAO(archivot);
+	private ArchivoClientes archivoc = new ArchivoClientes();
 	private ClienteDAO clienteDAO = new ClienteDAO(archivoc);
-	private ArrayList<Cliente> clientes=archivoc.leerArchivo();
-	private ArrayList<Tienda> tiendas=archivot.leerArchivo();
-	/**
-	 * Es el Constructor de la clase Mundo.
-	 */
-	
+	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	private ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
+
 	public Mundo() {
-		tiendaDAO.agregarTienda(tiendas, "EL BOSQUE");
+		try {
+			tiendaDAO.agregarTienda(tiendas, "EL BOSQUE");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		tiendaDAO.agregarAdministrador(tiendas, "EL BOSQUE", "admin", "12345a");
+		clientes = archivoc.leerArchivo();
+		tiendas = archivot.leerArchivo();
 	}
-	
+
 	public TiendaDAO getTiendaDAO() {
 		return tiendaDAO;
 	}
+
 	public ClienteDAO getClienteDAO() {
 		return clienteDAO;
 	}
+
 	public ArchivoTiendas getArchivot() {
 		return archivot;
 	}
+
 	public ArchivoClientes getArchivoc() {
 		return archivoc;
 	}
+
 	public ArrayList<Cliente> getClientes() {
 		return clientes;
 	}
+
 	public ArrayList<Tienda> getTiendas() {
 		return tiendas;
 	}
-	
-	
-	
 
 }
