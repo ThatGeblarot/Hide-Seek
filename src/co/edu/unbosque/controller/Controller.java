@@ -282,6 +282,8 @@ public class Controller implements ActionListener {
 			 * Panel Administrador
 			 */
 			if (e.getActionCommand() == view.getAdmin().AGREGARUSUARIO) {
+				view.getRegistrar().getBotonCancelar().setActionCommand("AdminCancelarRegistro");
+				view.getRegistrar().getBotonRegistrar().setActionCommand("AdminGestionarRegistro");
 				view.getRegistrar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ELIMINARUSUARIOS) {

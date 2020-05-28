@@ -1,12 +1,16 @@
 /*Clase que modela las parejas que van a hacer administradas por el usuario*/
 package co.edu.unbosque.model;
+
+import java.io.Serializable;
+
 /**
  * La clase pareja contiene la informacion de los datos basico que necesita una pareja 
  * para ser identificado/
  * @author Moises Salcedo
  */
-public class Pareja {
+public class Pareja implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private double cupo;
 	private String userid;//este es el user id de pareja
