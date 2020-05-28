@@ -1,5 +1,9 @@
 package co.edu.unbosque.model;
-
+/**
+ * La clase pareja contiene la informacion de los datos basico que necesita una pareja 
+ * para ser identificado/
+ * @author Moises Salcedo
+ */
 public class Pareja {
 	
 	private String nombre;
@@ -14,7 +18,15 @@ public class Pareja {
 	private String inicio;
 	private String fin;
 	
-	
+	/**
+     * Es el Constructor de Pareja
+     * @param nombre de la pareja
+     * @param cupo dinero o alcancia a su cuenta
+     * @param userid usuario que la identifica
+     * @param correo informacion adicional
+     * @param contraseña dato para verificar si es la misma pareja quien se registra
+     * @param genero define su genero 
+     */
 	
 	
 	public Pareja(String nombre, double cupo, String userid, String correo, String contraseña, String genero) {
