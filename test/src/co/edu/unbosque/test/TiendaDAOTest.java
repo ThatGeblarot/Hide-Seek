@@ -5,10 +5,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import co.edu.unbosque.model.Cliente;
-import co.edu.unbosque.model.Pareja;
+import co.edu.unbosque.model.Administrador;
+import co.edu.unbosque.model.Sucursal;
 import co.edu.unbosque.model.Tienda;
-import co.edu.unbosque.model.persistence.ArchivoClientes;
 import co.edu.unbosque.model.persistence.ArchivoTiendas;
 import co.edu.unbosque.model.persistence.TiendaDAO;
 import junit.framework.TestCase;
@@ -17,37 +16,55 @@ public class TiendaDAOTest extends TestCase {
 
 	TiendaDAO tienda;
 	ArchivoTiendas archivoT;
-	File file = new File("dataTest/basedatosTest.dat");
+	File fileTienda = new File("dataTest/basedatosTiendaTest.dat");
 	ArrayList<Tienda> listaTienda;
-	ArrayList<Pareja> listaPareja;
+	ArrayList<Sucursal> listaSucursal;
+	ArrayList<Administrador> listaAdmin;
 
-	Cliente cliente_1;
-	Cliente cliente_2;
-	Pareja pareja_1;
-	Pareja pareja_2;
+	Tienda Tienda_1;
+	Tienda Tienda_2;
+	Sucursal sucursal_1;
+	Sucursal sucursal_2;
+	Administrador admin_1;
 
 	private void setupEscenario() {
-		file.delete();
+		fileTienda.delete();
 		try {
-			file.createNewFile();
+			fileTienda.createNewFile();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		archivoC = new ArchivoClientes();
-		listaClientes = archivoC.leerArchivo();
-		cliente = new ClienteDAO(archivoC);
+		archivoT = new ArchivoTiendas();
+		listaTienda = archivoT.leerArchivo();
+		tienda = new TiendaDAO(archivoT);
 
-		cliente_1 = new Cliente("pepe", 4000000, "pepe1", "pepe1234@mailing.com", "xxxxxx", "Hombre");
-		cliente_2 = new Cliente("carlos", 300000, "pepe1", "carlixtoc@mailing.com", "xxxxxxxx", "Otro");
-		pareja_1 = new Pareja("Camila", 30000, "camixoxo", "camilita14@mailing.com", "xxxxxxxx", "Mujer");
-		pareja_2 = new Pareja("Paula", 30000, "camixoxo", "paulamllan@mailing.com", "xxxxxxxx", "Mujer");
+		Tienda_1 = new Tienda("Tiendita bosque");
+		Tienda_2 = new Tienda("Tiendita MarvelHeroes");
+		sucursal_1 = new Sucursal("cra1340", "Unibostienda");
+		sucursal_2 = new Sucursal("cra176", "guante del infinito");
+		admin_1 = new Administrador("Thanos", "unAlmaPorOtraAlma");
 
-		listaClientes.add(cliente_1);
-		listaClientes.add(cliente_2);
-		listaClientes.get(0).getParejas().add(pareja_1);
-		listaClientes.get(0).getParejas().add(pareja_2);
+		listaTienda.add(Tienda_1);
+		listaTienda.add(Tienda_2);
+		listaSucursal.add(sucursal_1);
+		listaSucursal.add(sucursal_2);
+		listaAdmin.add(admin_1);
 
+	}
+
+	public void testTiendaDAO() {
+		setupEscenario();
+
+		assertEquals("La cantidad de tiendas debe ser 2", 2, listaTienda.size());
+		assertEquals("La cantidad de sucursales debe ser 2", 2, listaSucursal.size());
+		assertEquals("La cantidad de sucursales debe ser 1", 1, listaAdmin.size());
+	}
+
+	public void testAgregarTienda() throws IOException {
+		assertEquals("Se debió agregar la tienda", true, tienda.agregarTienda(listaTienda, Tienda_1.getNombre()));
+		assertFalse("No se debería agregar una tienda ya existente",
+				tienda.agregarTienda(listaTienda, "Tiendita bosque"));
 	}
 
 }
