@@ -42,7 +42,7 @@ public class JDialogLogin extends JDialog{
 		setTitle("Login");
 		setSize(600,400);
 		setBackground(new Color(255,255,255));
-		getContentPane().setLayout(null);
+		setLayout(null);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		

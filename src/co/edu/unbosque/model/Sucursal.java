@@ -3,35 +3,35 @@ package co.edu.unbosque.model;
 /**
  * La clase Sucursal contiene la informacion de la direccion y el nombre por cual es definido 
  * y puede ser buscado en el programa.
- * @author Moises Salcedo & Ricardo Sanchez
+ * @author Moises Salcedo
  *
  */
 
 
 public class Sucursal {
 	
-	private String dirección;
+	private String direcciï¿½n;
 	private String  nombre;
-	/**
-	 * Es el contructor de la clase Sucursal
-	 * @param dirección donde se encuentra la sucursal
-	 * @param nombre de la sucursal
-	 */
 	
-	public Sucursal(String dirección, String nombre) {
+	/**
+     * Es el contructor de la clase Sucursal
+     * @param direcciï¿½n donde se encuentra la sucursal
+     * @param nombre de la sucursal
+     */
+	public Sucursal(String direcciï¿½n, String nombre) {
 		super();
-		this.dirección = dirección;
+		this.direcciï¿½n = direcciï¿½n;
 		this.nombre = nombre;
 		
 		
 	}
 	
 	
-	public String getDirección() {
-		return dirección;
+	public String getDirecciï¿½n() {
+		return direcciï¿½n;
 	}
-	public void setDirección(String dirección) {
-		this.dirección = dirección;
+	public void setDirecciï¿½n(String direcciï¿½n) {
+		this.direcciï¿½n = direcciï¿½n;
 	}
 	public String getNombre() {
 		return nombre;
