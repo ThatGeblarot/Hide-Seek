@@ -32,6 +32,13 @@ public class JDialogAsignarCupo extends JDialog implements GabenDialog {
 		load();
 		addComponents();
 		panelbotones();
+		anadirCosas();
+	}
+	
+	public void anadirCosas() {
+		model.addRow(new Object[] {"MarlenyRojas", "tuyamarleni@gmail.com", "Sucursal La Campiña", "3500000"});
+		model.addRow(new Object[] {"Yuranyxxx", "yuranilamasmi2312343@hotmail.es", "Sucursal Roma", "500000"});
+		model.addRow(new Object[] {"MireyitasSs", "miremireya@gmail.com", "Sucursal Santafe", "950000"});
 	}
 
 	public void load() {

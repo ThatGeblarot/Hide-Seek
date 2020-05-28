@@ -34,6 +34,8 @@ public class Mundo {
 			e.printStackTrace();
 		}
 		tiendaDAO.agregarAdministrador(tiendas, "EL BOSQUE", "admin", "12345a");
+		clienteDAO.agregarCliente(clientes, "Gabriel", 30000000.00, "gblancol", "gblancol@unbosque.edu.co", "123456a", "Hombre");
+		clienteDAO.agregarPareja(clientes, "gblancol", "Mireya Zunzun", 8500000.00, "mireya123", "gblancol@unbosque.edu.co", "12345a", "Mujer");
 		clientes = archivoc.leerArchivo();
 		tiendas = archivot.leerArchivo();
 	}

@@ -100,18 +100,21 @@ public class Controller implements ActionListener {
 		setActualType(userType);
 		switch (userType) {
 		case 1:
+			view.getLogin().setVisible(false);
 			view.setVisible(true);
 			view.getAdmin().setVisible(true);
 			view.getUsuarios().setVisible(true);
 			view.getParejas().setVisible(true);
 			break;
 		case 2:
+			view.getLogin().setVisible(false);
 			view.setVisible(true);
 			view.getAdmin().setVisible(false);
 			view.getUsuarios().setVisible(true);
 			view.getParejas().setVisible(true);
 			break;
 		case 3:
+			view.getLogin().setVisible(false);
 			view.setVisible(true);
 			view.getAdmin().setVisible(false);
 			view.getUsuarios().setVisible(false);
@@ -197,7 +200,6 @@ public class Controller implements ActionListener {
 				view.getRegistrar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getLogin().LOGIN) {
-				view.getLogin().setVisible(false);
 				login(view.getLogin().getTextcorreo().getText(), view.getLogin().getTextclave().getText());
 
 			}
