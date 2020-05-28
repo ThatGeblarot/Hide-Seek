@@ -45,7 +45,7 @@ public class JDialogPago extends JDialog implements GabenDialog {
 		combo.setBounds(200, 85, 200, 25);
 		
 		label.setBounds(100,125 , 300, 25);
-		textcantidad.setBounds(325, 125, 200, 25);
+		textcantidad.setBounds(200, 125, 200, 25);
 		
 		pagar.setBounds(150, 200, 150, 50);
 		pagar.setBackground(Color.BLACK);
