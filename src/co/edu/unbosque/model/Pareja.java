@@ -11,7 +11,7 @@ public class Pareja {
 	private double cupo;
 	private String userid;//este es el user id de pareja
 	private String correo;
-	private String contrase�a;
+	private String contrasena;
 	private String genero;
 	private String tipo;
 	private double gasto;
@@ -25,18 +25,18 @@ public class Pareja {
      * @param cupo dinero o alcancia a su cuenta
      * @param userid usuario que la identifica
      * @param correo informacion adicional
-     * @param contrase�a dato para verificar si es la misma pareja quien se registra
+     * @param contrasena dato para verificar si es la misma pareja quien se registra
      * @param genero define su genero 
      */
 	
 	
-	public Pareja(String nombre, double cupo, String userid, String correo, String contrase�a, String genero) {
+	public Pareja(String nombre, double cupo, String userid, String correo, String contrasena, String genero) {
 		super();
 		this.nombre = nombre;
 		this.cupo = cupo;
 		this.userid = userid;
 		this.correo = correo;
-		this.contrase�a = contrase�a;
+		this.contrasena = contrasena;
 		this.genero = genero;
 		this.gasto=0;
 		this.dia=null;
@@ -69,11 +69,11 @@ public class Pareja {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	public String getContrase�a() {
-		return contrase�a;
+	public String getcontrasena() {
+		return contrasena;
 	}
-	public void setContrase�a(String contrase�a) {
-		this.contrase�a = contrase�a;
+	public void setcontrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 	public String getGenero() {
 		return genero;

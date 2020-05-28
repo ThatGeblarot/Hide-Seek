@@ -92,10 +92,12 @@ public class Controller implements ActionListener {
 	}
 
 	public void login(String user, String password) throws Exception {
+		setActualLogin(user);
 		doLogin(verificarPerfil(user, password));
 	}
 
 	public void doLogin(int userType) throws Exception {
+		setActualType(userType);
 		switch (userType) {
 		case 1:
 			view.setVisible(true);
@@ -349,6 +351,22 @@ public class Controller implements ActionListener {
 			view.getDialogos().output("ERROR FATAL", "Ocurrio un error", JOptionPane.ERROR_MESSAGE);
 		}
 
+	}
+
+	public String getActualLogin() {
+		return actualLogin;
+	}
+
+	public void setActualLogin(String actualLogin) {
+		this.actualLogin = actualLogin;
+	}
+
+	public int getActualType() {
+		return actualType;
+	}
+
+	public void setActualType(int actualType) {
+		this.actualType = actualType;
 	}
 
 }
