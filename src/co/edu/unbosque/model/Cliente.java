@@ -2,13 +2,7 @@ package co.edu.unbosque.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-/**
- * 
- * La clase Cliente posee toda la informacion que es necesaria para la validacion
- * de los usuarios.
- * @author Moises Salcedo & Ricardo Sanchez
- * 
- */
+
 public class Cliente implements Serializable {
 
 	/**
@@ -27,16 +21,7 @@ public class Cliente implements Serializable {
 	
 	
 	
-	/**
-     * Este es el constructor de la clase Cliente
-     * @param Nombre es la informacion basica de usuario que se diferencia por un nombre propio.
-     * @param cupo es un double que se utiliza para cuanto dinero tiene en su cuenta cada usuario.
-     * @param userid se utiliza principalmente como nombre de usuario y se implementa para la logica se usa para la logica
-     * de los requerimientos pertinentes del programa, como busqueda, comprar, etc.
-     * @param correo informacion basica del usuario.
-     * @param contraseña es un string que se usa para validad si el registro realmente lo hace ese mismo usuario.
-     * @param genero es el string que indica el sexo del cliente.
-     */
+
 	
 	
 	public Cliente(String nombre, double cupo,String userid, String correo, String contraseña, String genero) {
@@ -118,10 +103,7 @@ public class Cliente implements Serializable {
 		this.parejas = parejas;
 	}
 
-	/**
-	 * este método retorna el valor restante que puede gastar el cliente
-	 * @return retorna el saldo disponible
-	 */
+
 	public double saldoCliente() {
 		
 		return cupo-gasto;

@@ -34,6 +34,15 @@ public class Mundo {
 			e.printStackTrace();
 		}
 		tiendaDAO.agregarAdministrador(tiendas, "EL BOSQUE", "admin", "12345a");
+		clienteDAO.agregarCliente(clientes, "Gabriel", 30000000.00, "gblancol", "gblancol@unbosque.edu.co", "123456a", "Hombre");
+		clienteDAO.agregarPareja(clientes, "gblancol", "Mireya Zunzun", 8500000.00, "mireya123", "gblancol@unbosque.edu.co", "12345a", "Mujer");
+		tiendaDAO.agregarSucursal(tiendas,"EL BOSQUE", "CopyLucas 134", "Avenida 9 131-02");
+		clienteDAO.asignarCupoCliente(clientes, "gblancol", 100000000.00);
+		 tiendaDAO.agregarCompraCliente(tiendas, clientes, "EL BOSQUE", "CopyLucas 134", "gblancol", 943333.32);
+		 tiendaDAO.agregarCompraCliente(tiendas, clientes, "EL BOSQUE", "CopyLucas 134", "gblancol", 943333.32);
+		 tiendaDAO.agregarCompraCliente(tiendas, clientes, "EL BOSQUE", "CopyLucas 134", "gblancol", 943333.32);
+		 tiendaDAO.agregarCompraCliente(tiendas, clientes, "EL BOSQUE", "CopyLucas 134", "gblancol", 943333.32);
+		 tiendaDAO.agregarCompraCliente(tiendas, clientes, "EL BOSQUE", "CopyLucas 134", "gblancol", 943333.32);
 		clientes = archivoc.leerArchivo();
 		tiendas = archivot.leerArchivo();
 	}

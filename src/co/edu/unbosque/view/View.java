@@ -30,8 +30,9 @@ public class View extends JFrame implements GabenFrame {
 	private JDialogRegistrar registrar = new JDialogRegistrar();
 	private JDialogPersonal personal = new JDialogPersonal();
 	private JDialogMostrarCompras mostrarcompras = new JDialogMostrarCompras();
-	private JDialogMostrarComprasSucursales comprasSucusales = new JDialogMostrarComprasSucursales();
+	private JDialogMostrarComprasSucursales comprasSucursales = new JDialogMostrarComprasSucursales();
 	private JDialogGenerarPDF generarPDF = new JDialogGenerarPDF();
+	private JDialogStats stats = new JDialogStats();
 	/**
 	 * Método para iniciar la ventana principal
 	 * @author Gabriel Blanco
@@ -110,6 +111,8 @@ public class View extends JFrame implements GabenFrame {
 		admin.getBotonHacerPago().addActionListener(control);
 		admin.getBotonListaUsuario().addActionListener(control);
 		admin.getBotonMostrarSurcursal().addActionListener(control);
+		admin.getBotonGenerarPDF().addActionListener(control);
+		admin.getBotonEstadisticas().addActionListener(control);
 		//Dialogo AsignarCupo
 		asignarCupo.getAsignar().addActionListener(control);
 		asignarCupo.getCancelar().addActionListener(control);
@@ -147,6 +150,12 @@ public class View extends JFrame implements GabenFrame {
 		//Dialogo Personal
 		personal.getBotonCancelar().addActionListener(control);
 		personal.getBotonMostrar().addActionListener(control);
+		//Generar PDF
+		generarPDF.getBotonGenerar().addActionListener(control);
+		generarPDF.getCancelar().addActionListener(control);
+		//Compras Sucursales
+		comprasSucursales.getBotonmostrardatos().addActionListener(control);
+		comprasSucursales.getBotoncancelar().addActionListener(control);
 		
 	}
 	
@@ -237,9 +246,17 @@ public class View extends JFrame implements GabenFrame {
 		return mostrarcompras;
 	}
 	public JDialogMostrarComprasSucursales getComprasSucusales() {
-		return comprasSucusales;
+		return comprasSucursales;
 	}
 	public JDialogGenerarPDF getGenerarPDF() {
 		return generarPDF;
 	}
+	public JDialogMostrarComprasSucursales getComprasSucursales() {
+		return comprasSucursales;
+	}
+	public JDialogStats getStats() {
+		return stats;
+	}
+	
+	
 }

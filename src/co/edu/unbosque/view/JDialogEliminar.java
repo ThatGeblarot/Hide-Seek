@@ -33,10 +33,9 @@ public class JDialogEliminar extends JDialog implements GabenDialog {
 	}
 
 	public void load() {
-		setLayout(new BorderLayout());
 		setTitle("Buscador Eliminar");
 		setSize(600, 400);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
 
 		setResizable(false);
 		setLocationRelativeTo(null);

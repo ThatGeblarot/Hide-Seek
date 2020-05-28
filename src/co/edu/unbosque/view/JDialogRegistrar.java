@@ -38,16 +38,14 @@ public class JDialogRegistrar extends JDialog implements GabenDialog {
 	}
 
 	public void load() {
-		setLayout(new BorderLayout());
 		setTitle("Registro");
 		setSize(800, 600);
-		setDefaultCloseOperation(HIDE_ON_CLOSE);
 
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setLayout(null);
 		setBackground(Color.BLACK);
-		setVisible(false);
+		
 		labelusuario.setBounds(255, 80, 100, 50);
 		textusuario.setBounds(335, 95, 200, 25);
 
@@ -76,6 +74,8 @@ public class JDialogRegistrar extends JDialog implements GabenDialog {
 		generocombo.addItem("Hombre");
 		generocombo.addItem("Mujer");
 		generocombo.addItem("Otro");
+		
+		setVisible(false);
 
 	}
 

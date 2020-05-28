@@ -25,10 +25,9 @@ public class JDialogGenerarPDF extends JDialog implements GabenDialog {
 	}
 
 	public void load() {
-		setLayout(new GridLayout(2,1));
 		setTitle("Generar PDF");
 		setSize(600, 200);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(null);
 
 		setResizable(false);
 		setLocationRelativeTo(null);

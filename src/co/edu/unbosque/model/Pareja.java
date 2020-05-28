@@ -1,16 +1,21 @@
+/*Clase que modela las parejas que van a hacer administradas por el usuario*/
 package co.edu.unbosque.model;
+
+import java.io.Serializable;
+
 /**
  * La clase pareja contiene la informacion de los datos basico que necesita una pareja 
  * para ser identificado/
  * @author Moises Salcedo
  */
-public class Pareja {
+public class Pareja implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private double cupo;
 	private String userid;//este es el user id de pareja
 	private String correo;
-	private String contraseña;
+	private String contrasena;
 	private String genero;
 	private String tipo;
 	private double gasto;
@@ -24,18 +29,18 @@ public class Pareja {
      * @param cupo dinero o alcancia a su cuenta
      * @param userid usuario que la identifica
      * @param correo informacion adicional
-     * @param contraseña dato para verificar si es la misma pareja quien se registra
+     * @param contrasena dato para verificar si es la misma pareja quien se registra
      * @param genero define su genero 
      */
 	
 	
-	public Pareja(String nombre, double cupo, String userid, String correo, String contraseña, String genero) {
+	public Pareja(String nombre, double cupo, String userid, String correo, String contrasena, String genero) {
 		super();
 		this.nombre = nombre;
 		this.cupo = cupo;
 		this.userid = userid;
 		this.correo = correo;
-		this.contraseña = contraseña;
+		this.contrasena = contrasena;
 		this.genero = genero;
 		this.gasto=0;
 		this.dia=null;
@@ -68,11 +73,11 @@ public class Pareja {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getcontrasena() {
+		return contrasena;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setcontrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 	public String getGenero() {
 		return genero;

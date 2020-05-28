@@ -246,7 +246,7 @@ private ArchivoClientes archivo;
 		if (d==null){
 			return false;
 		}else {
-			if (d.getContraseña().equals(clavepareja)==true) {
+			if (d.getcontrasena().equals(clavepareja)==true) {
 			 
 			 return true;
 			}else {

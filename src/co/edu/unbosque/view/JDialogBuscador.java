@@ -31,11 +31,10 @@ public class JDialogBuscador extends JDialog implements GabenDialog {
 	}
 
 	public void load() {
-		setLayout(new BorderLayout());
+		
 		setTitle("Buscador");
 		setSize(600,400);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
+
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setLayout(null);

@@ -34,9 +34,8 @@ public class JDialogMostrarComprasSucursales extends JDialog implements GabenDia
 
 		public void load() {
 			setLayout(null);
-			setTitle("Mostrar Compras");
+			setTitle("Mostrar Compras Sucursales");
 			setSize(800,600);
-			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 			
 			setResizable(false);
 			setLocationRelativeTo(null);

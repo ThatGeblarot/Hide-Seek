@@ -92,24 +92,29 @@ public class Controller implements ActionListener {
 	}
 
 	public void login(String user, String password) throws Exception {
+		setActualLogin(user);
 		doLogin(verificarPerfil(user, password));
 	}
 
 	public void doLogin(int userType) throws Exception {
+		setActualType(userType);
 		switch (userType) {
 		case 1:
+			view.getLogin().setVisible(false);
 			view.setVisible(true);
 			view.getAdmin().setVisible(true);
 			view.getUsuarios().setVisible(true);
 			view.getParejas().setVisible(true);
 			break;
 		case 2:
+			view.getLogin().setVisible(false);
 			view.setVisible(true);
 			view.getAdmin().setVisible(false);
 			view.getUsuarios().setVisible(true);
 			view.getParejas().setVisible(true);
 			break;
 		case 3:
+			view.getLogin().setVisible(false);
 			view.setVisible(true);
 			view.getAdmin().setVisible(false);
 			view.getUsuarios().setVisible(false);
@@ -127,9 +132,14 @@ public class Controller implements ActionListener {
 		if (mundo.getClienteDAO().agregarCliente(mundo.getClientes(), view.getRegistrar().getTextnom().getText(), 0.0,
 				view.getRegistrar().getTextusuario().getText(), view.getRegistrar().getTextcorreo().getText(),
 				view.getRegistrar().getTextclave().getText(),
-				view.getRegistrar().getGenerocombo().getSelectedItem().toString())); {
-					String[] correo = {view.getRegistrar().getTextcorreo().getText()};
-			mundo.agregarCliente(view.getRegistrar().getTextnom().getText(), 0.0, view.getRegistrar().getTextusuario().getText(), correo, view.getRegistrar().getTextclave().getText(), view.getRegistrar().getGenerocombo().getSelectedItem().toString());
+				view.getRegistrar().getGenerocombo().getSelectedItem().toString()))
+			;
+		{
+			String[] correo = { view.getRegistrar().getTextcorreo().getText() };
+			mundo.agregarCliente(view.getRegistrar().getTextnom().getText(), 0.0,
+					view.getRegistrar().getTextusuario().getText(), correo,
+					view.getRegistrar().getTextclave().getText(),
+					view.getRegistrar().getGenerocombo().getSelectedItem().toString());
 		}
 	}
 
@@ -171,7 +181,6 @@ public class Controller implements ActionListener {
 				view.cargarArchivo();
 			}
 			if (e.getActionCommand() == view.getToolbar().SALIR) {
-				view.getLogin().setVisible(false);
 				view.dispose();
 			}
 			if (e.getActionCommand() == view.getToolbar().ACERCADE) {
@@ -195,6 +204,7 @@ public class Controller implements ActionListener {
 			}
 			/*
 			 * Formulario Registro
+			 *TODO error en registrar se activa login de nuevo
 			 */
 			if (e.getActionCommand() == view.getRegistrar().CANCELAR) {
 				view.getRegistrar().setVisible(false);
@@ -203,6 +213,7 @@ public class Controller implements ActionListener {
 
 			}
 			if (e.getActionCommand() == view.getRegistrar().REGISTRAR) {
+				view.getLogin().setVisible(false);
 				if ((view.getRegistrar().getTextcorreo().getText() == view.getRegistrar().getTextconfcorreo().getText()
 						&& view.getRegistrar().getTextclave().getText() == view.getRegistrar().getTextconfclave()
 								.getText())) {
@@ -230,9 +241,10 @@ public class Controller implements ActionListener {
 				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getParejas().ELIMINARDATOS) {
-				view.getEliminar().setVisible(true);
+				
 			}
 			if (e.getActionCommand() == view.getParejas().HACERPAGO) {
+				view.getPago().getSucursal().setText("Sucursal");
 				view.getPago().setVisible(true);
 			}
 			/*
@@ -242,59 +254,195 @@ public class Controller implements ActionListener {
 				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ELIMINARPAREJA) {
-				
+				view.getEliminar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ACTUALIZARPAREJA) {
-
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().LISTAPAREJAS) {
-
+				view.getListar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ACTUALIZARDATOS) {
-
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ASIGNARCUPO) {
-
+				view.getAsignarCupo().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ASIGNARHORARIO) {
-
+				view.getHorario().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().COMPRAS) {
-
+				view.getMostrarcompras().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().HORARIO) {
-
+				view.getHorario().setVisible(true);
 			}
 			/*
 			 * Panel Administrador
 			 */
 			if (e.getActionCommand() == view.getAdmin().AGREGARUSUARIO) {
-
+				view.getRegistrar().getBotonCancelar().setActionCommand("AdminCancelarRegistro");
+				view.getRegistrar().getBotonRegistrar().setActionCommand("AdminGestionarRegistro");
+				view.getRegistrar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ELIMINARUSUARIOS) {
-
+				view.getEliminar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ACTUALIZARUSUARIOS) {
-
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().LISTAUSUARIOS) {
-
+				view.getListar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ACTUALIZARDATOSUSUARIOS) {
-
+				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ASIGNARCUPO) {
-
+				view.getAsignarCupo().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().HACERPAGO) {
-
+				view.getPago().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().HORARIO) {
-
+				view.getHorario().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().SUCURSALES) {
-
+				view.getComprasSucusales().setVisible(true);
 			}
+			if(e.getActionCommand() == view.getAdmin().MOSTRARPDF) {
+				view.getGenerarPDF().setVisible(true); 
+			}
+			if(e.getActionCommand() == view.getAdmin().VERESTADISTICA) {
+				view.getStats().getStats().getData().setValue("Sucursal 1", 90);
+				view.getStats().getStats().getData().setValue("Sucursal 2", 120);
+				view.getStats().getStats().getData().setValue("Sucursal 3", 50);
+				int media = (90+120+50)/3;
+				int moda = 0;
+				int mediana = 90;
+				view.getStats().getModa().setText(moda+".");
+				view.getStats().getMedia().setText(media+".");
+				view.getStats().getMediana().setText(mediana+".");
+				view.getStats().setVisible(true);
+			}
+			/*
+			 * Dialog Buscar
+			 */
+			if(e.getActionCommand() == view.getBuscador().BUSCAR) {
+				
+			}
+			if(e.getActionCommand() == view.getBuscador().CANCELAR) {
+				view.getBuscador().clean();
+				view.getBuscador().setVisible(false);
+			}
+			/*
+			 * Dialog Actualizar
+			 */
+			if (e.getActionCommand() == view.getActualizar().ACTUALIZAR) {
+				view.getActualizar().setVisible(false);
+			}
+			if (e.getActionCommand() == view.getActualizar().CANCELAR) {
+				view.getActualizar().clean();
+				view.getActualizar().setVisible(false);
+			}
+			/*
+			 * Dialog Asignar Cupo
+			 */
+			if(e.getActionCommand() == view.getAsignarCupo().ASIGNAR) {
+				view.getPago().getSucursal().setText("Pareja");
+				view.getPago().setVisible(true);
+			}
+			if(e.getActionCommand() == view.getAsignarCupo().CANCELAR) {
+				view.getAsignarCupo().setVisible(false);
+			}
+			if(e.getActionCommand() == view.getAsignarCupo().QUITAR) {
+				view.getAsignarCupo().clean();
+			}
+			/*
+			 * Dialog Eliminar
+			 */
+			if(e.getActionCommand() == view.getEliminar().ELIMINAR) {
+				
+			}
+			if(e.getActionCommand() == view.getEliminar().CANCELAR) {
+				view.getEliminar().clean();
+				view.getEliminar().setVisible(false);
+			}
+			/*
+			 * GenerarPDF
+			 */
+			if(e.getActionCommand() == view.getGenerarPDF().PDF) {
+				mundo.getArchivot().crearPDF(mundo.getTiendas().get(0).CompraSucursalPDF());
+				view.getDialogos().output("Operacion Finalizada", "PDF Generado", JOptionPane.INFORMATION_MESSAGE);
+			}
+			if(e.getActionCommand() == view.getGenerarPDF().CANCELAR) {
+				view.getGenerarPDF().setVisible(false);
+			}
+			/*
+			 * Horario
+			 */
+			if(e.getActionCommand() == view.getHorario().ASIGNAR) {
+				
+			}
+			if(e.getActionCommand() == view.getHorario().CANCELAR) {
+				view.getHorario().setVisible(false);
+			}
+			/*
+			 * Listar
+			 */
+			if(e.getActionCommand() == view.getListar().LIMPIAR) {
+				view.getListar().clean();
+			}
+			if(e.getActionCommand() == view.getListar().MOSTRAR) {
+				
+			}
+			if(e.getActionCommand() == view.getListar().CANCELAR) {
+				view.getListar().clean();
+				view.getListar().setVisible(false);
+			}
+			/*
+			 * Mostrar Compras
+			 */
+			if(e.getActionCommand() == view.getMostrarcompras().INFORMACION) {
+				
+			}
+			if(e.getActionCommand() == view.getMostrarcompras().CANCELAR) {
+				view.getMostrarcompras().clean();
+				view.getMostrarcompras().setVisible(false);
+			}
+			/*
+			 * Mostrar Compras Sucursales
+			 */
+			if(e.getActionCommand() == view.getComprasSucusales().INFORMACION) {
+				
+			}
+			if(e.getActionCommand() == view.getComprasSucusales().CANCELAR) {
+				view.getComprasSucusales().clean();
+				view.getComprasSucusales().setVisible(false);
+			}
+			/*
+			 * Pago
+			 */
+			if(e.getActionCommand() == view.getPago().PAGAR) {
+				
+			}
+			if(e.getActionCommand() == view.getPago().CANCELAR) {
+				view.getPago().clean();
+				view.getPago().setVisible(false);
+			}
+			/*
+			 * Informacion personal
+			 */
+			if(e.getActionCommand() == view.getPersonal().getMOSTRAR()) {
+				
+			}
+			if(e.getActionCommand() == view.getPersonal().getCANCELAR()) {
+				view.getPersonal().clean();
+				view.getPersonal().setVisible(false);
+			}
+			/*
+			 * Stats
+			 */
+
 		}
 
 		/*
@@ -309,6 +457,22 @@ public class Controller implements ActionListener {
 			view.getDialogos().output("ERROR FATAL", "Ocurrio un error", JOptionPane.ERROR_MESSAGE);
 		}
 
+	}
+
+	public String getActualLogin() {
+		return actualLogin;
+	}
+
+	public void setActualLogin(String actualLogin) {
+		this.actualLogin = actualLogin;
+	}
+
+	public int getActualType() {
+		return actualType;
+	}
+
+	public void setActualType(int actualType) {
+		this.actualType = actualType;
 	}
 
 }

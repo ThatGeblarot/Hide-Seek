@@ -12,7 +12,7 @@ import javax.swing.JTextField;
  * @author Ricardo Sanchez
  *
  */
-public class JDialogLogin extends JDialog{
+public class JDialogLogin extends JDialog implements GabenDialog {
 	
 	private static final long serialVersionUID = 1L;
 	private JLabel labelcliente = new JLabel("Cliente:");
@@ -28,16 +28,11 @@ public class JDialogLogin extends JDialog{
 	public static final String LOGIN = "login";
 	public static final String REGISTRAR = "registrarlogin";
 	public JDialogLogin() {
-		try {
-			cargar();
-			addComponentes();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
+		load();
+		addComponents();
 	}
 	
-	public void cargar() throws Exception {
+	public void load() {
 		
 		setTitle("Login");
 		setSize(600,400);
@@ -79,14 +74,12 @@ public class JDialogLogin extends JDialog{
 		combo.addItem("Pareja");
 		combo.setBounds(475,10, 100, 25);
 		
-		setDefaultCloseOperation(HIDE_ON_CLOSE);
-		
 		
 		
 		setVisible(false);
 	}
 	
-	public void addComponentes() {
+	public void addComponents() {
 		add(labelcliente);
 		add(labelusuario);
 		add(labelclave);
