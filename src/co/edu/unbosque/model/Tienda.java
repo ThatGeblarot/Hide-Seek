@@ -3,6 +3,10 @@ package co.edu.unbosque.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * @author gebla
+ *
+ */
 public class Tienda implements Serializable {
 
 	
@@ -125,6 +129,38 @@ public class Tienda implements Serializable {
 			if(aux==nombresucursal) {
 				p++;
 			}
+		}
+		
+		return p;
+	}
+	
+	
+	/**
+	 * @author Gabriel Blanco - Alberto Ortega
+	 * @return
+	 */
+	public String[] CompraSucursalPDF() {
+		int p=0;
+		String[] logcompras= new String[noComprasSucursal()];
+		for (int i = 0; i < compras.size(); i++) {
+			String aux=compras.get(i).getTienda();
+			String auxc=compras.get(i).toString();
+			logcompras[p]=auxc;
+			p++;
+			
+		}
+			
+			return logcompras;
+	}
+	/**
+	 * @author Gabriel Blanco - Alberto Ortega
+	 * @return
+	 */
+	public int noComprasSucursal() {
+		int p=0;
+		for (int i = 0; i < compras.size(); i++) {
+			String aux=compras.get(i).getTienda();
+			p++;
 		}
 		
 		return p;

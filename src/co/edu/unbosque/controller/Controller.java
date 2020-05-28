@@ -371,7 +371,8 @@ public class Controller implements ActionListener {
 			 * GenerarPDF
 			 */
 			if(e.getActionCommand() == view.getGenerarPDF().PDF) {
-				
+				mundo.getArchivot().crearPDF(mundo.getTiendas().get(0).CompraSucursalPDF());
+				view.getDialogos().output("Operacion Finalizada", "PDF Generado", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(e.getActionCommand() == view.getGenerarPDF().CANCELAR) {
 				view.getGenerarPDF().setVisible(false);
