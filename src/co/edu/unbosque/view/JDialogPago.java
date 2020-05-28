@@ -44,7 +44,7 @@ public class JDialogPago extends JDialog implements GabenDialog {
 		sucursal.setBounds(125, 70, 100, 50);
 		combo.setBounds(200, 85, 200, 25);
 		
-		label.setBounds(100,125 , 300, 25);
+		label.setBounds(90,125 , 300, 25);
 		textcantidad.setBounds(200, 125, 200, 25);
 		
 		pagar.setBounds(150, 200, 150, 50);
