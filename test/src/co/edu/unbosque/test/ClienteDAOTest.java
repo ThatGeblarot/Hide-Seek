@@ -10,6 +10,10 @@ import co.edu.unbosque.model.Pareja;
 import co.edu.unbosque.model.persistence.ArchivoClientes;
 import co.edu.unbosque.model.persistence.ClienteDAO;
 import junit.framework.TestCase;
+/**
+ * Esta clase contiene todos los métodos relacionados a pruebas unitarias de la clase ClienteDAO.
+ * @author Alberto Ortega
+ */
 
 public class ClienteDAOTest extends TestCase {
 
@@ -47,7 +51,11 @@ public class ClienteDAOTest extends TestCase {
 		listaClientes.get(0).getParejas().add(pareja_2);
 
 	}
-
+	/**
+	 * Este método valida la cantidad de los clientes y parejas dentro de un arrayList. 
+	 * <b>pre</b> el ArrayList de clientes y parejas está inicializado (no es null). <br>
+	 * <b>post</b> Se valida que sea la cantidad definida<br>
+	 */
 	public void testClienteDAO() {
 		setupEscenario();
 
