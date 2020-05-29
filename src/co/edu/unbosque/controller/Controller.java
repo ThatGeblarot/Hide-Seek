@@ -461,6 +461,12 @@ public class Controller implements ActionListener {
 				view.getMostrarcompras().clean();
 				view.getMostrarcompras().setVisible(false);
 			}
+			if(e.getActionCommand() == view.getMostrarcompras().ORDENADAS) {
+				
+			}
+			if(e.getActionCommand() == view.getMostrarcompras().ORDENARDES) {
+				
+			}
 			/*
 			 * Mostrar Compras Sucursales
 			 */
