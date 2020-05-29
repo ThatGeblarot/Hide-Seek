@@ -1,5 +1,8 @@
 /*Clase que modela una sucursal que va a simular la sucursal de una tienda*/
 package co.edu.unbosque.model;
+
+import java.io.Serializable;
+
 /**
  * La clase Sucursal contiene la informacion de la direccion y el nombre por cual es definido 
  * y puede ser buscado en el programa.
@@ -8,8 +11,9 @@ package co.edu.unbosque.model;
  */
 
 
-public class Sucursal {
+public class Sucursal implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private String direccion;
 	private String  nombre;
 	
