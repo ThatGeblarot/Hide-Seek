@@ -147,6 +147,8 @@ public class View extends JFrame implements GabenFrame {
 		//Dialogo Mostrar Compras
 		mostrarcompras.getBotonmostrardatos().addActionListener(control);
 		mostrarcompras.getBotoncancelar().addActionListener(control);
+		mostrarcompras.getBotonOrdenaras().addActionListener(control);
+		mostrarcompras.getBotonOrdenardes().addActionListener(control);
 		//Dialogo Personal
 		personal.getBotonCancelar().addActionListener(control);
 		personal.getBotonMostrar().addActionListener(control);

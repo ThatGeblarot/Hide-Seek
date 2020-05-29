@@ -19,8 +19,12 @@ public class JDialogMostrarCompras extends JDialog implements GabenDialog{
     private JScrollPane scroll = new JScrollPane();
     private JButton botonmostrardatos = new JButton("Ver Datos");
     private JButton botoncancelar= new JButton("Cancelar");
+    private JButton botonOrdenaras = new JButton("Ordenar Ascendente");
+    private JButton botonOrdenardes = new JButton("Ordenar Descendente");
 	public final String INFORMACION= "Informacioncompras";
 	public final String CANCELAR = "cancelarcompras";
+	public final String ORDENADAS = "ordenarascendente";
+	public final String ORDENARDES = "ordenardescendente";
     
 	public JDialogMostrarCompras() {
 		try {
@@ -53,11 +57,19 @@ public class JDialogMostrarCompras extends JDialog implements GabenDialog{
 		scroll.setViewportView(arealog);
 		scroll.setBounds(25, 25,500 , 500);
 		
-		botonmostrardatos.setBounds(550, 200, 200, 50);
+		botonOrdenaras.setBounds(550, 100, 200, 50);
+		botonOrdenaras.setActionCommand(ORDENADAS);
+		botonOrdenaras.setBackground(Color.WHITE);
+		
+		botonOrdenardes.setBounds(550,200, 200, 50);
+		botonOrdenardes.setActionCommand(ORDENARDES);
+		botonOrdenardes.setBackground(Color.WHITE);
+		
+		botonmostrardatos.setBounds(550, 300, 200, 50);
 		botonmostrardatos.setActionCommand(INFORMACION);
 		botonmostrardatos.setBackground(Color.WHITE);
 		
-		botoncancelar.setBounds(600, 300, 100, 50);
+		botoncancelar.setBounds(550, 400, 200, 50);
 		botoncancelar.setActionCommand(CANCELAR);
 		botoncancelar.setBackground(Color.WHITE);
 		
@@ -68,12 +80,38 @@ public class JDialogMostrarCompras extends JDialog implements GabenDialog{
 	}
 
 	public void addComponents() {
+		add(botonOrdenaras);
+		add(botonOrdenardes);
 		add(scroll);
 		add(botonmostrardatos);
 		add(botoncancelar);
 		
-
+    
 	}
+	public JButton getBotonOrdenaras() {
+		return botonOrdenaras;
+	}
+
+	public void setBotonOrdenaras(JButton botonOrdenaras) {
+		this.botonOrdenaras = botonOrdenaras;
+	}
+
+	public JButton getBotonOrdenardes() {
+		return botonOrdenardes;
+	}
+
+	public void setBotonOrdenardes(JButton botonOrdenardes) {
+		this.botonOrdenardes = botonOrdenardes;
+	}
+
+	public String getORDENADAS() {
+		return ORDENADAS;
+	}
+
+	public String getORDENARDES() {
+		return ORDENARDES;
+	}
+
 	public void clean() {
 		arealog.setText("");
 	}
