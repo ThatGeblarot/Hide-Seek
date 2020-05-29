@@ -1,4 +1,3 @@
-/*
 package co.edu.unbosque.test;
 
 import junit.framework.TestCase;
@@ -9,24 +8,24 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.Administrador;
 import co.edu.unbosque.model.Sucursal;
 import co.edu.unbosque.model.Tienda;
+import co.edu.unbosque.model.persistence.ArchivoClientes;
 import co.edu.unbosque.model.persistence.ArchivoTiendas;
+import co.edu.unbosque.model.persistence.ClienteDAO;
 import co.edu.unbosque.model.persistence.TiendaDAO;
 import junit.framework.TestCase;
 
 public class TiendaDAOTest extends TestCase {
 
-	TiendaDAO tienda;
+	TiendaDAO tiendaDAO;
 	ArchivoTiendas archivoT;
 	File fileTienda = new File("dataTest/basedatosTiendaTest.dat");
 	ArrayList<Tienda> listaTienda;
 	ArrayList<Sucursal> listaSucursal;
 	ArrayList<Administrador> listaAdmin;
 
-	Tienda Tienda_1;
 	Sucursal sucursal_1;
 	Sucursal sucursal_2;
-	Administrador admin_1;
-
+	Tienda tienda_1;
 	private void setupEscenario() {
 		fileTienda.delete();
 		try {
@@ -37,33 +36,23 @@ public class TiendaDAOTest extends TestCase {
 		}
 		archivoT = new ArchivoTiendas();
 		listaTienda = archivoT.leerArchivo();
-		tienda = new TiendaDAO(archivoT);
+		tiendaDAO = new TiendaDAO(archivoT);
 
-		Tienda_1 = new Tienda("Tiendita bosque");
+		tienda_1= new Tienda("Unibos");
+		listaTienda.add(tienda_1);
 		sucursal_1 = new Sucursal("cra1340", "Unibostienda");
+		listaTienda.get(0).getSucursales().add(sucursal_1);
 		sucursal_2 = new Sucursal("cra176", "guante del infinito");
-		admin_1 = new Administrador("Thanos", "unAlmaPorOtraAlma");
-
-		listaTienda.add(Tienda_1);
-		listaSucursal.add(sucursal_1);
-		listaSucursal.add(sucursal_2);
-		listaAdmin.add(admin_1);
-
+		listaTienda.get(0).getSucursales().add(sucursal_2);
 	}
 
-	public void testTiendaDAO() {
+	public void testTiendaDAOSucursal() {
 		setupEscenario();
 
-		assertEquals("La cantidad de tiendas debe ser 1", 1, listaTienda.size());
-		assertEquals("La cantidad de sucursales debe ser 2", 2, listaSucursal.size());
-		assertEquals("La cantidad de sucursales debe ser 1", 1, listaAdmin.size());
-	}
+		assertEquals("La cantidad de parejas debe ser 2", 2, listaTienda.size() );
 
-	public void testAgregarTienda() throws IOException {
-		assertEquals("Se debió agregar la tienda", true, tienda.agregarTienda(listaTienda, Tienda_1.getNombre()));
-		assertFalse("No se debería agregar una tienda ya existente",
-				tienda.agregarTienda(listaTienda, "Tiendita bosque"));
-	}
+
 
 }
-*/
+
+}
