@@ -140,6 +140,7 @@ public class Controller implements ActionListener {
 					view.getRegistrar().getTextusuario().getText(), correo,
 					view.getRegistrar().getTextclave().getText(),
 					view.getRegistrar().getGenerocombo().getSelectedItem().toString());
+			view.getDialogos().output("Informacion", "Se ha enviado un correo a "+correo[0]+" con las credenciales de acceso.", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
@@ -222,8 +223,8 @@ public class Controller implements ActionListener {
 							JOptionPane.ERROR_MESSAGE);
 					view.getRegistrar().clean();
 				} else {
-					view.getRegistrar().setVisible(false);
 					registrar();
+					view.getRegistrar().setVisible(false);
 					view.getLogin().setVisible(true);
 					view.getRegistrar().clean();
 				}
@@ -244,6 +245,9 @@ public class Controller implements ActionListener {
 				
 			}
 			if (e.getActionCommand() == view.getParejas().HACERPAGO) {
+				for (int i = 0; i < mundo.getTiendas().get(0).getSucursales().size(); i++) {
+					view.getPago().getCombo().addItem(mundo.getTiendas().get(0).getSucursales().get(i).getdireccion());
+				}
 				view.getPago().getSucursal().setText("Sucursal");
 				view.getPago().setVisible(true);
 			}
@@ -251,7 +255,18 @@ public class Controller implements ActionListener {
 			 * Panel Usuarios
 			 */
 			if (e.getActionCommand() == view.getUsuarios().AGREGARPAREJA) {
-				view.getActualizar().setVisible(true);
+				view.getRegistrar().getBotonRegistrar().setActionCommand("ParejaGestionarRegistro");
+				view.getRegistrar().setVisible(true);
+				
+			}
+			/*
+			 * Panel Usuario (Agregar Pareja)
+			 */
+			if(e.getActionCommand() == "ParejaGestionarRegistro") {
+				String[] mail = {view.getRegistrar().getTextcorreo().getText()};
+				mundo.agregarParjea(view.getRegistrar().getTextusuario().getText(), view.getRegistrar().getTextnom().getText(), 10000.0, mail, view.getRegistrar().getTextclave().getText(), view.getRegistrar().getGenerocombo().toString());
+				view.getDialogos().output("Informacion", "Se ha enviado un correo a "+mail[0]+". El correohabiente deberá confirmar si es su pareja.", JOptionPane.INFORMATION_MESSAGE);
+				view.getRegistrar().setVisible(false);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ELIMINARPAREJA) {
 				view.getEliminar().setVisible(true);
@@ -266,6 +281,9 @@ public class Controller implements ActionListener {
 				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ASIGNARCUPO) {
+				for (int i = 0; i < mundo.getClientes().get(0).getParejas().size(); i++) {
+					view.getAsignarCupo().anadirColumna(mundo.getClientes().get(0).getParejas().get(i).getUserid(), mundo.getClientes().get(0).getParejas().get(i).getCorreo(), "EL BOSQUE", String.valueOf(mundo.getClientes().get(0).getParejas().get(i).getCupo()));
+				}
 				view.getAsignarCupo().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ASIGNARHORARIO) {
@@ -281,9 +299,17 @@ public class Controller implements ActionListener {
 			 * Panel Administrador
 			 */
 			if (e.getActionCommand() == view.getAdmin().AGREGARUSUARIO) {
-				view.getRegistrar().getBotonCancelar().setActionCommand("AdminCancelarRegistro");
 				view.getRegistrar().getBotonRegistrar().setActionCommand("AdminGestionarRegistro");
 				view.getRegistrar().setVisible(true);
+			}
+			/*
+			 * Panel Administrador (Agregar Usuario)
+			 */
+			if(e.getActionCommand() == "AdminGestionarRegistro") {
+				String[] mail = {view.getRegistrar().getTextcorreo().getText()};
+				mundo.agregarCliente(view.getRegistrar().getTextnom().getText(), 150000.0, view.getRegistrar().getTextusuario().getText(), mail, view.getRegistrar().getTextclave().getText(), view.getRegistrar().getGenerocombo().getSelectedItem().toString());
+				view.getDialogos().output("Informacion", "Se ha enviado un correo a "+mail[0]+" con las credenciales de acceso.", JOptionPane.INFORMATION_MESSAGE);
+				view.getRegistrar().setVisible(false);
 			}
 			if (e.getActionCommand() == view.getAdmin().ELIMINARUSUARIOS) {
 				view.getEliminar().setVisible(true);
@@ -298,24 +324,33 @@ public class Controller implements ActionListener {
 				view.getActualizar().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().ASIGNARCUPO) {
+				for (int i = 0; i < mundo.getClientes().size(); i++) {
+					view.getAsignarCupo().anadirColumna(mundo.getClientes().get(i).getUserid(), mundo.getClientes().get(i).getCorreo(), "EL BOSQUE", String.valueOf(mundo.getClientes().get(i).getCupo()));
+				}
 				view.getAsignarCupo().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().HACERPAGO) {
+				for (int i = 0; i < mundo.getTiendas().get(0).getSucursales().size(); i++) {
+					view.getPago().getCombo().addItem(mundo.getTiendas().get(0).getSucursales().get(i).getdireccion());
+				}
 				view.getPago().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().HORARIO) {
 				view.getHorario().setVisible(true);
 			}
 			if (e.getActionCommand() == view.getAdmin().SUCURSALES) {
+				for (int i = 0; i < mundo.getTiendas().get(0).getSucursales().size(); i++) {
+					view.getComprasSucursales().getSucursal().addItem(mundo.getTiendas().get(0).getSucursales().get(i).getdireccion());
+				}
 				view.getComprasSucusales().setVisible(true);
 			}
 			if(e.getActionCommand() == view.getAdmin().MOSTRARPDF) {
 				view.getGenerarPDF().setVisible(true); 
 			}
 			if(e.getActionCommand() == view.getAdmin().VERESTADISTICA) {
-				view.getStats().getStats().getData().setValue("Sucursal 1", 90);
-				view.getStats().getStats().getData().setValue("Sucursal 2", 120);
-				view.getStats().getStats().getData().setValue("Sucursal 3", 50);
+				view.getStats().getStats().getData().setValue("Chapinero", 2);
+				view.getStats().getStats().getData().setValue("Cedritos", 5);
+				view.getStats().getStats().getData().setValue("Copylucas 134", mundo.getTiendas().get(0).getCompras().size());
 				int media = (90+120+50)/3;
 				int moda = 0;
 				int mediana = 90;
@@ -349,7 +384,20 @@ public class Controller implements ActionListener {
 			 */
 			if(e.getActionCommand() == view.getAsignarCupo().ASIGNAR) {
 				view.getPago().getSucursal().setText("Pareja");
+				for (int i = 0; i < mundo.getClientes().get(0).getParejas().size(); i++) {
+					view.getPago().getCombo().addItem(mundo.getClientes().get(0).getParejas().get(i).getUserid());
+				}
+				view.getPago().getPagar().setActionCommand("UserAsignarCupo");
 				view.getPago().setVisible(true);
+			}
+			/*
+			 * Asignar Cupo (User Asignar Cupo)
+			 */
+			if(e.getActionCommand() == "UserAsignarCupo") {
+				view.getAsignarCupo().clean();
+				view.getPago().getCombo().removeAllItems();
+				view.getPago().setVisible(false);
+				view.getAsignarCupo().setVisible(false);
 			}
 			if(e.getActionCommand() == view.getAsignarCupo().CANCELAR) {
 				view.getAsignarCupo().setVisible(false);
@@ -403,6 +451,10 @@ public class Controller implements ActionListener {
 			 * Mostrar Compras
 			 */
 			if(e.getActionCommand() == view.getMostrarcompras().INFORMACION) {
+				var log = mundo.getTiendas().get(0).CompraSucursalPDF();
+				for (int i = 0; i < log.length; i++) {
+					view.getMostrarcompras().getArealog().setText(log[i]+"\n");
+				}
 				
 			}
 			if(e.getActionCommand() == view.getMostrarcompras().CANCELAR) {
@@ -423,7 +475,10 @@ public class Controller implements ActionListener {
 			 * Pago
 			 */
 			if(e.getActionCommand() == view.getPago().PAGAR) {
-				
+				mundo.agregarCompraCliente("EL BOSQUE", view.getPago().getCombo().getSelectedItem().toString(), actualLogin, Double.parseDouble(view.getPago().getTextcantidad().getText()));
+				view.getPago().clean();
+				view.getPago().getCombo().removeAllItems();
+				view.getPago().setVisible(false);
 			}
 			if(e.getActionCommand() == view.getPago().CANCELAR) {
 				view.getPago().clean();
