@@ -37,6 +37,8 @@ public class Mundo {
 		clienteDAO.agregarCliente(clientes, "Gabriel", 30000000.00, "gblancol", "gblancol@unbosque.edu.co", "123456a", "Hombre");
 		clienteDAO.agregarPareja(clientes, "gblancol", "Mireya Zunzun", 8500000.00, "mireya123", "gblancol@unbosque.edu.co", "12345a", "Mujer");
 		tiendaDAO.agregarSucursal(tiendas,"EL BOSQUE", "CopyLucas 134", "Avenida 9 131-02");
+		tiendaDAO.agregarSucursal(tiendas,"EL BOSQUE", "Chapinero", "calle 53 #7-23");
+		tiendaDAO.agregarSucursal(tiendas,"EL BOSQUE", "Cedritos", "Avenida 9 155-02");
 		clienteDAO.asignarCupoCliente(clientes, "gblancol", 100000000.00);
 		 tiendaDAO.agregarCompraCliente(tiendas, clientes, "EL BOSQUE", "CopyLucas 134", "gblancol", 943333.32);
 		 tiendaDAO.agregarCompraCliente(tiendas, clientes, "EL BOSQUE", "CopyLucas 134", "gblancol", 943333.32);

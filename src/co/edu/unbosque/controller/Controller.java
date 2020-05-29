@@ -313,12 +313,12 @@ public class Controller implements ActionListener {
 				view.getGenerarPDF().setVisible(true); 
 			}
 			if(e.getActionCommand() == view.getAdmin().VERESTADISTICA) {
-				view.getStats().getStats().getData().setValue("Sucursal 1", 90);
-				view.getStats().getStats().getData().setValue("Sucursal 2", 120);
-				view.getStats().getStats().getData().setValue("Sucursal 3", 50);
-				int media = (90+120+50)/3;
-				int moda = 0;
-				int mediana = 90;
+				view.getStats().getStats().getData().setValue("Chapinero", 2);
+				view.getStats().getStats().getData().setValue("Cedritos", 5);
+				view.getStats().getStats().getData().setValue("Copylucas 134", mundo.getTiendas().get(0).getCompras().size());
+				double media =mundo.getTiendas().get(0).calcularMedia((mundo.getTiendas().get(0).buscarCompraSucursal( "CopyLucas 134")));
+				double moda = mundo.getTiendas().get(0).calcularMedia((mundo.getTiendas().get(0).buscarCompraSucursal( "CopyLucas 134")));;
+				double mediana = mundo.getTiendas().get(0).calcularMedia((mundo.getTiendas().get(0).buscarCompraSucursal( "CopyLucas 134")));;
 				view.getStats().getModa().setText(moda+".");
 				view.getStats().getMedia().setText(media+".");
 				view.getStats().getMediana().setText(mediana+".");
