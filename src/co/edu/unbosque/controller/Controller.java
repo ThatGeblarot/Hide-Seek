@@ -25,7 +25,7 @@ public class Controller implements ActionListener {
 	public final static String NOMBREPROYECTO = "Hide & Seek";
 
 	/**
-	 * Método Constructor del Controlador
+	 * Mï¿½todo Constructor del Controlador
 	 * 
 	 * @throws IOException
 	 */
@@ -34,14 +34,14 @@ public class Controller implements ActionListener {
 	}
 
 	/**
-	 * Método para probar casos puntuales en consola
+	 * Mï¿½todo para probar casos puntuales en consola
 	 * 
 	 * @throws IOException
 	 */
 	public void Consola() throws Exception {
 		// Se inicializa gui aqui ya que es necesario para probar por via JOptionPane
 		/*
-		 * TODO: Buscar un método mas eficiente para mostrar TODOS los errores por
+		 * TODO: Buscar un mï¿½todo mas eficiente para mostrar TODOS los errores por
 		 * JOptionPane
 		 */
 		boolean activo = true;
@@ -74,7 +74,7 @@ public class Controller implements ActionListener {
 	}
 
 	/**
-	 * Método para iniciar la GUI
+	 * Mï¿½todo para iniciar la GUI
 	 */
 	public void GUI() throws Exception {
 		try {
@@ -162,7 +162,7 @@ public class Controller implements ActionListener {
 	}
 
 	/**
-	 * @author Carl Quinn && Ricardo Sanchez Método para escuchar los eventos de la
+	 * @author Carl Quinn && Ricardo Sanchez Mï¿½todo para escuchar los eventos de la
 	 *         vista
 	 */
 	@SuppressWarnings("static-access")
@@ -173,7 +173,7 @@ public class Controller implements ActionListener {
 			 * Panel Funciones Superiores
 			 */
 			if (e.getActionCommand() == view.getToolbar().NUEVOARCHIVO) {
-				// Poner accion aquí
+				// Poner accion aquï¿½
 			}
 			if (e.getActionCommand() == view.getToolbar().GUARDAR) {
 				view.guardarArchivo();
@@ -265,7 +265,7 @@ public class Controller implements ActionListener {
 			if(e.getActionCommand() == "ParejaGestionarRegistro") {
 				String[] mail = {view.getRegistrar().getTextcorreo().getText()};
 				mundo.agregarParjea(view.getRegistrar().getTextusuario().getText(), view.getRegistrar().getTextnom().getText(), 10000.0, mail, view.getRegistrar().getTextclave().getText(), view.getRegistrar().getGenerocombo().toString());
-				view.getDialogos().output("Informacion", "Se ha enviado un correo a "+mail[0]+". El correohabiente deberá confirmar si es su pareja.", JOptionPane.INFORMATION_MESSAGE);
+				view.getDialogos().output("Informacion", "Se ha enviado un correo a "+mail[0]+". El correohabiente deberï¿½ confirmar si es su pareja.", JOptionPane.INFORMATION_MESSAGE);
 				view.getRegistrar().setVisible(false);
 			}
 			if (e.getActionCommand() == view.getUsuarios().ELIMINARPAREJA) {
@@ -507,7 +507,7 @@ public class Controller implements ActionListener {
 		}
 
 		/*
-		 * Estas líneas son para controlar en caso de que por falta de memoria no genere
+		 * Estas lï¿½neas son para controlar en caso de que por falta de memoria no genere
 		 * el log. Esto es vital para el programa ya que me permite llevar una
 		 * trazabilidad
 		 */

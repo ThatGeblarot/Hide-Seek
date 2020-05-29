@@ -80,11 +80,11 @@ public class Tienda implements Serializable {
 		for (int i = 0; i < compras.size(); i++) {
 			String aux=compras.get(i).getTienda();
 		
-			if(aux==nombresucursal) {
+			//if(aux==nombresucursal) {
 			Compra auxc=compras.get(i);
 			logcompras[p]=auxc;
 			p++;
-			}
+			//}
 			
 		}
 			
@@ -284,6 +284,63 @@ public class Tienda implements Serializable {
 	
 	}
 	
+	
+	public Compra[] ordenarAscendente() {
+	
+	int i,j;
+	Compra[] comprasaux=new Compra[compras.size()];
+	int num=comprasaux.length;
+	for (int k = 0; k < compras.size(); k++) {
+		comprasaux[k]=compras.get(k);
+	}
+	
+	
+	Compra temp;
+	
+	     for ( i = 0; i < num-1; i++) 
+	        { 
+	    
+	            int min = i; 
+	            for ( j = i+1; j < num; j++) 
+	                if (comprasaux[j].getPrecio() < comprasaux[min].getPrecio()) 
+	                    min = j; 
+	  
+	     
+	            temp = comprasaux[min]; 
+	            comprasaux[min] = comprasaux[i]; 
+	            comprasaux[i] = temp; 
+	        } 
+	
+	return comprasaux;
+}
+	
+	
+	public Compra[] ordenarDescendente() {
+		int i,j;
+		Compra[] comprasaux=new Compra[compras.size()];
+		int num=compras.size();
+		Compra temp;
+		
+		for (int k = 0; k < compras.size(); k++) {
+			comprasaux[k]=compras.get(k);
+		}
+		
+		
+		     for ( i = 0; i < num-1; i++) 
+		        { 
+		    
+		            int min = i; 
+		            for ( j = i+1; j < num; j++) 
+		                if (comprasaux[j].getPrecio() > comprasaux[min].getPrecio()) 
+		                    min = j; 
+		  
+		     
+		            temp = comprasaux[min]; 
+		            comprasaux[min] = comprasaux[i]; 
+		            comprasaux[i] = temp; 
+		        } 
+		return comprasaux;
+	} 
 	
 	/**
 	 * Este metodo calcula la media de los precios

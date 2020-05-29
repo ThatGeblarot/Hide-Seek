@@ -10,7 +10,7 @@ import co.edu.unbosque.model.persistence.TiendaDAO;
 
 /**
  * Clase "multitoma" donde se definen e inicializan instancias de las clases del modelo.
- * @author Moisés Salcedo y Ricardo Sanchez 
+ * @author Moisï¿½s Salcedo y Ricardo Sanchez 
  */
 public class Mundo {
 
@@ -51,13 +51,13 @@ public class Mundo {
 	
 	public boolean agregarCliente(String nombre, double cupo, String userid, String[] correo, String contrasena, String genero) throws Exception {
 		clienteDAO.agregarCliente(clientes, nombre, cupo, userid, correo[0], contrasena, genero);
-		email.sendEmail(correo, "¡Bienvenido a Hide & Seek!", "¡Hola!\nEstas son tus credenciales de acceso para el sistema:\nUsuario: "+userid+"\nContraseña: "+contrasena+"\nEsperamos que disfrutes del servicio, tanto como nosotros disfrutamos en ofrecertelo.\nCon amor,\nEl equipo de Hide & Seek");
+		email.sendEmail(correo, "ï¿½Bienvenido a Hide & Seek!", "ï¿½Hola!\nEstas son tus credenciales de acceso para el sistema:\nUsuario: "+userid+"\nContraseï¿½a: "+contrasena+"\nEsperamos que disfrutes del servicio, tanto como nosotros disfrutamos en ofrecertelo.\nCon amor,\nEl equipo de Hide & Seek");
 		return true;
 	}
 	
 	public boolean agregarParjea(String userid, String nombre, double cupo, String[] correo, String contrasena, String genero) throws Exception {
 		clienteDAO.agregarPareja(clientes, "gblancol", nombre, cupo, userid, correo[0], contrasena, genero);
-		email.sendEmail(correo, "¡Te han solicitado ser pareja de un cliente de la tienda EL BOSQUE!", "¡Hola!\nEstas son tus credenciales de acceso para el sistema:\nUsuario: "+userid+"\nContraseña: "+contrasena+"\nEsperamos que disfrutes del servicio, tanto como nosotros disfrutamos en ofrecertelo.\nCon amor,\nEl equipo de Hide & Seek");
+		email.sendEmail(correo, "ï¿½Te han solicitado ser pareja de un cliente de la tienda EL BOSQUE!", "ï¿½Hola!\nEstas son tus credenciales de acceso para el sistema:\nUsuario: "+userid+"\nContraseï¿½a: "+contrasena+"\nEsperamos que disfrutes del servicio, tanto como nosotros disfrutamos en ofrecertelo.\nCon amor,\nEl equipo de Hide & Seek");
 		return true;
 	}
 	
