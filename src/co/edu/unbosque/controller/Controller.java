@@ -3,13 +3,18 @@ package co.edu.unbosque.controller;
 import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.model.Mundo;
+import co.edu.unbosque.model.Tienda;
+import co.edu.unbosque.model.persistence.ArchivoTiendas;
+import co.edu.unbosque.model.persistence.TiendaDAO;
 import co.edu.unbosque.view.View;
 
 /**
@@ -23,6 +28,10 @@ public class Controller implements ActionListener {
 	private String actualLogin = new String();
 	private int actualType = 0;
 	public final static String NOMBREPROYECTO = "Hide & Seek";
+	private ArchivoTiendas archivoT;
+	private TiendaDAO tiendaD;
+	private File file = new File("data/basedatos.dat");
+	private ArrayList<Tienda> tiendas;
 
 	/**
 	 * Método Constructor del Controlador
@@ -31,6 +40,15 @@ public class Controller implements ActionListener {
 	 */
 	public Controller() throws Exception {
 		GUI();
+		archivoT = new ArchivoTiendas();
+		tiendaD= new TiendaDAO(archivoT);
+		tiendas = archivoT.leerArchivo();
+
+	}
+	
+
+	public ArrayList<Tienda> getTiendas() {
+		return tiendas;
 	}
 
 	/**

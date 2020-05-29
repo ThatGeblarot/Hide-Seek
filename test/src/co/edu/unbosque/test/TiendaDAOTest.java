@@ -1,4 +1,3 @@
-/*
 package co.edu.unbosque.test;
 
 import junit.framework.TestCase;
@@ -66,4 +65,4 @@ public class TiendaDAOTest extends TestCase {
 	}
 
 }
-*/
+

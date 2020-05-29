@@ -7,10 +7,10 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
-	<classpathentry kind="lib" path="C:/librerias/itext5-itextpdf-5.5.12.jar"/>
-	<classpathentry kind="lib" path="C:/librerias/javax.activation-1.1.0.v201005080500.jar"/>
-	<classpathentry kind="lib" path="C:/librerias/javax.mail.jar"/>
-	<classpathentry kind="lib" path="C:/librerias/jfreechart-1.5.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Librerias/itext5-itextpdf-5.5.12.jar"/>
+	<classpathentry kind="lib" path="C:/Librerias/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Librerias/junit-4.13.jar"/>
+	<classpathentry kind="lib" path="C:/Librerias/junit-4.13-javadoc.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
